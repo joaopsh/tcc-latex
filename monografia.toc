@@ -1,0 +1,11 @@
+\select@language {brazil}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{12}
+\contentsline {section}{\numberline {1.1}Motiva\IeC {\c c}\IeC {\~a}o}{12}
+\contentsline {section}{\numberline {1.2}Objetivos}{13}
+\contentsline {chapter}{\numberline {2}Trabalhos Relacionados}{14}
+\contentsline {section}{\numberline {2.1}Uber}{14}
+\contentsline {section}{\numberline {2.2}Redis Publish-Subscribe (RedisMVA) }{15}
+\contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{15}
+\contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{16}
+\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{17}
+\contentsline {chapter}{Refer\^encias}{19}
