@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  21 OCT 2016 05:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  22 OCT 2016 16:15
 entering extended mode
 **./monografia.tex
 (monografia.tex
@@ -925,7 +925,8 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(monografia.aux (introducao.aux) (trabalhos_relacionados.aux))
+(monografia.aux (introducao.aux) (trabalhos_relacionados.aux)
+(problematizacao.aux))
 \openout1 = `monografia.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
@@ -1079,7 +1080,16 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 146.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 146.
- [5] [6
+ [5]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 160.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 170.
+
+[6
 
 
 ] [7
@@ -1097,18 +1107,15 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 
  [9
 
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 174.
- [10]
-(monografia.toc
+] [10] (monografia.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 2.
 )
 \tf@toc=\write6
 \openout6 = `monografia.toc'.
 
- [11
+
+[11
 
 ]
 \openout2 = `introducao.aux'.
@@ -1131,90 +1138,95 @@ Cap\'{\i }tulo 2.
 
 
 ] [15] [16] [17]) [18]
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+\openout2 = `problematizacao.aux'.
+
+
+No file problematizacao.tex.
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 []\T1/ptm/m/n/12 Liveclicker De-li-vers Dy-na-mic Mes-sa-ging Ca-pa-bi-lity wit
 h Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 \T1/ptm/m/n/12 al-Time Email So-lu-tion. Dis-po-ní-vel em: $\T1/pcr/m/n/12 http
  : / / www .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 \T1/pcr/m/n/12 destinationcrm . com / Articles / CRM-[]News / CRM-[]Featured-[]
 News /
  []
 
 
-Overfull \hbox (89.32103pt too wide) in paragraph at lines 199--201
+Overfull \hbox (89.32103pt too wide) in paragraph at lines 240--242
 \T1/pcr/m/n/12 Liveclicker-[]Delivers-[]Dynamic-[]Messaging-[]Capability-[]with
 -[]RealTime-[]Email-[]Solution-[]97439 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
+Underfull \hbox (badness 10000) in paragraph at lines 246--248
 []\T1/ptm/m/n/12 50 Ama-zing Uber Sta-tis-tics (Oc-to-ber 2016). Dis-po-ní-vel 
 em: $\T1/pcr/m/n/12 http : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
+Underfull \hbox (badness 10000) in paragraph at lines 246--248
 \T1/pcr/m/n/12 expandedramblings . com / index . php / uber-[]statistics/$\T1/p
 tm/m/n/12 . Acesso em: 20 Out.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
 []\T1/ptm/m/n/12 How Uber Sca-les Their Real-Time Mar-ket Plat-form. Dis-po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
 \T1/ptm/m/n/12 ní-vel em: $\T1/pcr/m/n/12 http : / / highscalability . com / bl
 og / 2015 / 9 / 14 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
 \T1/pcr/m/n/12 how-[]uber-[]scales-[]their-[]real-[]time-[]market-[]platform . 
 html$\T1/ptm/m/n/12 . Acesso em: 20
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
+Underfull \hbox (badness 10000) in paragraph at lines 255--257
 []\T1/ptm/m/n/12 Redis Publish-Subscribe (Re-disMVA). Dis-po-ní-vel em: $\T1/pc
 r/m/n/12 https : / / github .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
+Underfull \hbox (badness 10000) in paragraph at lines 255--257
 \T1/pcr/m/n/12 com / sayar / RedisMVA / blob / master / module6 _ redis _ pubsu
 b / README . md #
  []
 
 
-Underfull \hbox (badness 6461) in paragraph at lines 220--222
+Underfull \hbox (badness 6461) in paragraph at lines 261--263
 []\T1/ptm/m/n/12 Redis Pub/-Sub (Ra-ja-ra-odv). Dis-po-ní-vel em: $\T1/pcr/m/n/
 12 https : / / github . com / rajaraodv /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--228
+Underfull \hbox (badness 10000) in paragraph at lines 267--269
 []\T1/ptm/m/n/12 RadiusIM  So-cial Mes-sen-ger Com Busca Por Ge-o-tag-ging. Di
 s-po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--228
+Underfull \hbox (badness 10000) in paragraph at lines 267--269
 \T1/ptm/m/n/12 ní-vel em: $\T1/pcr/m/n/12 http : / / br . wwwhatsnew . com / 20
 08 / 09 / radiusim-[] % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 226--228
+Underfull \hbox (badness 3930) in paragraph at lines 267--269
 \T1/pcr/m/n/12 93-[]social-[]messenger-[]por-[]com-[]busca-[]por-[]geotagging/$
 \T1/ptm/m/n/12 . Acesso em: 20 Out.
  []
@@ -1222,27 +1234,30 @@ Underfull \hbox (badness 3930) in paragraph at lines 226--228
 [19
 
 
+
+
 ]
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[20] (monografia.aux (introducao.aux) (trabalhos_relacionados.aux)) ) 
+[20] (monografia.aux (introducao.aux) (trabalhos_relacionados.aux)
+(problematizacao.aux)) ) 
 Here is how much of TeX's memory you used:
- 7164 strings out of 493335
- 92645 string characters out of 3139244
- 173657 words of memory out of 3000000
- 10459 multiletter control sequences out of 15000+200000
- 75202 words of font info for 118 fonts, out of 3000000 for 9000
+ 7191 strings out of 493335
+ 93052 string characters out of 3139244
+ 174022 words of memory out of 3000000
+ 10477 multiletter control sequences out of 15000+200000
+ 75516 words of font info for 119 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,43p,994b,336s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Progra
-m Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9
-/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
-w/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (21 pages, 825037 bytes).
+ 38i,10n,43p,995b,336s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8
+r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
+rw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on monografia.pdf (21 pages, 829217 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

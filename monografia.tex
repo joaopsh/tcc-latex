@@ -27,7 +27,7 @@
 
 % Para listar programas em C# 
 \lstdefinelanguage{cs}
-  {morekeywords={abstract,event,new,struct,as,explicit,null,switch
+{morekeywords={abstract,event,new,struct,as,explicit,null,switch
 		base,extern,object,this,bool,false,operator,throw,
 		break,finally,out,true,byte,fixed,override,try,
 		case,float,params,typeof,catch,for,private,uint,
@@ -37,10 +37,10 @@
 		default,interface,sealed,volatile,delegate,internal,short,void,
 		do,is,sizeof,while,double,lock,stackalloc,
 		else,long,static,enum,namespace,string, },
-	  sensitive=false,
-	  morecomment=[l]{//},
-	  morecomment=[s]{/*}{*/},
-	  morestring=[b]",
+	sensitive=false,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
 }
 
 \newcommand{\AUTOR}{João Pedro Souza Homem}
@@ -48,198 +48,239 @@
 \newcommand{\ORIENTADOR}{Marlan Kulberg}
 \newcommand{\COORIENTADOR}{}
 \newcommand{\TITULO}{Aplicação tempo-real com NodeJS - Chat por localização geográfica}
-\newcommand{\CURSO}{Tecnólogo em Tecnologia da Informação e da Comunicação}
-\newcommand{\GRAU}{Tecnólogo em Tecnologia da Informação e da Comunicação}
+\newcommand{\CURSO}{Tecnólogo em Tecnologia da Informação e Comunicação}
+\newcommand{\GRAU}{Tecnólogo em Tecnologia da Informação e Comunicação}
 % \newcommand{\GRAU}{Tecnólogo em Análise e Desenvolvimento de Sistemas}
 \newcommand{\INSTITUICAO}{Faculdade de Educação Tecnológica do Estado do Rio de Janeiro Faeterj/Petrópolis}
 \newcommand{\ANO}{Dezembro, 2016}
-\newcommand{\DATA}{12 de 12 de 2016}
+\newcommand{\DATA}{12 de Dezembro de 2016}
 \newcommand{\LOCAL}{Petrópolis - RJ}
 \newcommand{\epigrafe}{\vspace{1cm}{\raggedright\par\sffamily\slshape\par}}
 \begin{document}
-
-\autor{\AUTOR}
-\titulo{\TITULO}
-\orientador{\ORIENTADOR}
-\coorientador{\COORIENTADOR}
-
-\comentario{Trabalho de Conclusão de Curso apresentado à Coordenadoria do Curso de \CURSO\
-	    da \INSTITUICAO , como requisito parcial para obtenção do título de \GRAU .}
-
-\instituicao{\INSTITUICAO}
-\curso{\CURSO}
-\governo{Governo do Estado do Rio de Janeiro}
-\secretaria{Secretaria de Estado de Ciência e Tecnologia}
-\fundacao{Fundação de Apoio à Escola Técnica}
-\cpti{Centro de Educação Profissional em Tecnologia da Informação}
-\local{\LOCAL}
-\data{\ANO}
-
-\capa
-
-\folhaderosto
-
-% Ficha Catalográfica
-%\begin{figure}
-%\includegraphics[width=11cm]{FichaCatalografica.pdf}
-%\end{figure}
-
-% Folha de Aprovação
-\newpage
-\vfill 
-\null
-\begin{center}
-{\Huge {\bfseries\itshape Folha de Aprovação}}\\[3cm]
-\begin{espacoduplo}
-Trabalho de Conclusão de Curso sob o título \textit{``\TITULO''},
-defendida por \AUTOR\ e aprovada em \DATA, em \LOCAL, pela banca examinadora constituída pelos
-professores: \setlength{\ABNTsignthickness}{0.4pt}
-\end{espacoduplo}
-\setlength{\ABNTsignthickness}{0.4pt}
-
-% ou inserir a página assinada e escaneada aqui
-%\begin{figure}
-%\includegraphics[]{Fo	lhaAprovacao.pdf}
-%\end{figure}
-
-
-\assinatura{Prof. \ORIENTADOR\\ Orientador} 
-\assinatura{Prof. Banca Interna \\ \INSTITUICAO} 
-\assinatura{Prof. Banca Interna \\ \INSTITUICAO} 
-%\assinatura{Prof. Banca Externa \\ Instituto do membro externo}
-
-\end{center}
-
-
-% Folha do Termo de Compromisso
-\newpage
-
-\vfill 
-\null
-\begin{center}
-{\Huge {\bfseries\itshape Declaração de Autor}}\\[3cm]
-\begin{espacoduplo}
-Declaro, para fins de pesquisa acadêmica, didática e tecnico-científica, que o presente Trabalho de Conclusão
-de Curso pode ser parcial ou totalmente utilizado desde que se faça referência à fonte e aos autores.
-\end{espacoduplo}
-\setlength{\ABNTsignthickness}{0.4pt}
-\assinatura{\AUTOR}
-Petrópolis, em \DATA
-\end{center}
-
-\chapter*{Agradecimentos}
-Agradeço a todos que de forma direta ou indireta contribuíram para a elaboração deste trabalho através do investimento em minha capacitação, compartilhamento de conhecimento, disponibilização de ferramentas e componentes para desenvolvimento de \textit{softwares}, entre outros não menos importantes.
-
-Dentre todos os relacionados a este agradecimento, gostaria especialmente de agradecer a toda comunidade \textit{open-source}, da qual pude usufruir de diversos recursos que viabilizaram a implementação da aplicação abordada neste documento. A iniciativa \textit{open-source} abre muitos caminhos para a inovação e inclusão na área de desenvolvimento de \textit{softwares} e deve ser incentivada e reconhecida, atribuindo-se os devidos méritos a cada um que adere a iniciativa em seus projetos.
-\vfill 
-\null
-
-\begin{center}
-{\Huge {\bfseries\itshape Epígrafe}}\\[3cm]
-\vspace{15cm}
-\end{center}
-
-\begin{espacoduplo}
-\end{espacoduplo}
-
-% Epigrafe
-\epigraph{"Faça-se simples com ideias muito complicadas"}{(JoPaseho)}
-
-% Resumo
-\begin{resumo}
-Texto
-
-
-\end{resumo}
-
-% Abstract
-\begin{abstract}
-Resumo em inglês ... "Não é obrigadorio"
-\end{abstract}
-\listoffigures
-
-\listoftables
-
-%Lista de abreviaturas
-\newpage
-
-\vfill 
-\null
-\begin{center}
-	{\Huge {\bfseries\itshape Lista de Abreviaturas}}\\[3cm]
-\end{center}
-
-\begin{espacoduplo}
-	\begin{description}
-		\item[PUB/SUB] Publish/Subscription
-		\item[SQL] Structured Query Language
-		\item[NoSQL] Not Only Structured Query Language
-	\end{description}
-\end{espacoduplo}
-
-\tableofcontents{}
-
-\include{introducao}
-\include{trabalhos_relacionados}
-
-
-%===================================================================================
-%\backmatter
-%===================================================================================
-
-%\bibliography{monografia}{}
-%\bibliographystyle{abnt-alf}
-
-% OUTRA FORMA DE CRIAR A BIBLIOGRAFIA:
-\begin{thebibliography}{9}
-
-%
-%	Capitulo 1 - Introdução
-%
-\bibitem{startup-email-innovation1}Liveclicker Delivers Dynamic Messaging Capability with RealTime Email Solution. Disponível em: \url{http://www.destinationcrm.com/Articles/CRM-News/CRM-Featured-News/Liveclicker-Delivers-Dynamic-Messaging-Capability-with-RealTime-Email-Solution-97439.aspx}.
-Acesso em: 19 Out. 2016.
-
-\bibitem{startup-email-innovation2}Liveclicker RealTime Email Solution. Disponível em: \url{http://www.realtime.email/}.
-Acesso em: 19 Out. 2016.
-
-\bibitem{uber-statistics}50 Amazing Uber Statistics (October 2016). Disponível em: \url{http://expandedramblings.com/index.php/uber-statistics/}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{uber}Uber. Disponível em: \url{https://www.uber.com/}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{uber-how-scales}How Uber Scales Their Real-Time Market Platform. Disponível em: \url{http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{redis-pubsub-redismva}Redis Publish-Subscribe (RedisMVA). Disponível em: \url{https://github.com/sayar/RedisMVA/blob/master/module6_redis_pubsub/README.md#redis-publish-subscribe}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{browsers-usage}Web browsers usage table. Disponível em: \url{http://caniuse.com/usage-table}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{redis-pubsub-rajaraodv}Redis Pub/Sub (Rajaraodv). Disponível em: \url{https://github.com/rajaraodv/redispubsub}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{fanmappr}FanMappr. Disponível em: \url{http://h.fanapp.mobi/modules/fanmappr/fanmappr.php?fid=1056666}.
-Acesso em: 20 Out. 2016.
-
-\bibitem{radiusim}RadiusIM – Social Messenger Com Busca Por Geotagging. Disponível em: \url{http://br.wwwhatsnew.com/2008/09/radiusim-%E2%80%93-social-messenger-por-com-busca-por-geotagging/}.
-Acesso em: 20 Out. 2016.
 	
-\bibitem{notnotcitricsquid}NOTNOTCITRICSQUID. Do location based chat apps start trending again?. Disponível em: \url{https://www.reddit.com/r/startups/comments/1tkc3f/do_location_based_chat_apps_start_trending_again/}.
-Acesso em: 21 Out. 2016.
-
-\bibitem{snapchat}Snapchat. Disponível em: \url{https://www.snapchat.com/}.
-Acesso em: 21 Out. 2016.
-
-\bibitem{tinder}Tinder. Disponível em: \url{https://www.gotinder.com/}.
-Acesso em: 21 Out. 2016.
-
-\bibitem{happn}Happn. Disponível em: \url{https://www.happn.com/}.
-Acesso em: 21 Out. 2016.
-
-\end{thebibliography}
-
-
-\anexo
-\end{document}
+	\autor{\AUTOR}
+	\titulo{\TITULO}
+	\orientador{\ORIENTADOR}
+	\coorientador{\COORIENTADOR}
+	
+	\comentario{Trabalho de Conclusão de Curso apresentado à Coordenadoria do Curso de \CURSO\
+		da \INSTITUICAO , como requisito parcial para obtenção do título de \GRAU .}
+	
+	\instituicao{\INSTITUICAO}
+	\curso{\CURSO}
+	\governo{Governo do Estado do Rio de Janeiro}
+	\secretaria{Secretaria de Estado de Ciência e Tecnologia}
+	\fundacao{Fundação de Apoio à Escola Técnica}
+	\cpti{Centro de Educação Profissional em Tecnologia da Informação}
+	\local{\LOCAL}
+	\data{\ANO}
+	
+	\capa
+	
+	\folhaderosto
+	
+	% Ficha Catalográfica
+	%\begin{figure}
+	%\includegraphics[width=11cm]{FichaCatalografica.pdf}
+	%\end{figure}
+	
+	% Folha de Aprovação
+	\newpage
+	\vfill 
+	\null
+	\begin{center}
+		{\Huge {\bfseries\itshape Folha de Aprovação}}\\[3cm]
+		\begin{espacoduplo}
+			Trabalho de Conclusão de Curso sob o título \textit{``\TITULO''},
+			defendida por \AUTOR\ e aprovada em \DATA, em \LOCAL, pela banca examinadora constituída pelos
+			professores: \setlength{\ABNTsignthickness}{0.4pt}
+		\end{espacoduplo}
+		\setlength{\ABNTsignthickness}{0.4pt}
+		
+		% ou inserir a página assinada e escaneada aqui
+		%\begin{figure}
+		%\includegraphics[]{Fo	lhaAprovacao.pdf}
+		%\end{figure}
+		
+		
+		\assinatura{Prof. \ORIENTADOR\\ Orientador} 
+		\assinatura{Prof. Banca Interna \\ \INSTITUICAO} 
+		\assinatura{Prof. Banca Interna \\ \INSTITUICAO} 
+		%\assinatura{Prof. Banca Externa \\ Instituto do membro externo}
+		
+	\end{center}
+	
+	
+	% Folha do Termo de Compromisso
+	\newpage
+	
+	\vfill 
+	\null
+	\begin{center}
+		{\Huge {\bfseries\itshape Declaração de Autor}}\\[3cm]
+		\begin{espacoduplo}
+			Declaro, para fins de pesquisa acadêmica, didática e técnico-científica, que o presente Trabalho de Conclusão
+			de Curso pode ser parcial ou totalmente utilizado desde que se faça referência à fonte e aos autores.
+		\end{espacoduplo}
+		\setlength{\ABNTsignthickness}{0.4pt}
+		\assinatura{\AUTOR}
+		Petrópolis, em \DATA
+	\end{center}
+	
+	\chapter*{Agradecimentos}
+	Agradeço a todos que de forma direta ou indireta contribuíram para a elaboração deste trabalho através do investimento em minha capacitação, compartilhamento de conhecimento, disponibilização de ferramentas e componentes para desenvolvimento de \textit{softwares}, entre outros não menos importantes.
+	
+	Dentre todos os relacionados a este agradecimento, gostaria especialmente de agradecer a toda comunidade \textit{open-source}, da qual pude usufruir de diversos recursos que viabilizaram a implementação da aplicação abordada neste documento. A iniciativa \textit{open-source} abre muitos caminhos para a inovação e inclusão na área de desenvolvimento de \textit{softwares} e deve ser incentivada e reconhecida, atribuindo-se os devidos méritos a cada um que adere a iniciativa em seus projetos.
+	\vfill 
+	\null
+	
+	\begin{center}
+		{\Huge {\bfseries\itshape Epígrafe}}\\[3cm]
+		\vspace{15cm}
+	\end{center}
+	
+	\begin{espacoduplo}
+	\end{espacoduplo}
+	
+	% Epigrafe
+	\epigraph{"Faça-se simples com ideias complicadas"}{(JoPaseho)}
+	
+	% Resumo
+	\begin{resumo}
+		A evolução da tecnologia vem trazendo para as nossas vida diversas inovações que estão mudando a forma de lidar com inúmeras situações. Alcançamos novos patamares em como tratamos os negócios, relações pessoais, a busca por novos conhecimentos, entre outras coisas. Tudo isso nos levou a buscar entender um tipo de aplicação que tem se tornado cada vez mais presente nas ferramentas que utilizamos.
+		
+		As aplicações tempo-real são o propósito da realização deste trabalho. Primeiramente, buscamos no mercado algumas referências de aplicações para embasar o desenvolvimento de uma aplicação de \textit{chat} por localização geográfica. Encontramos em nossas referências diversos aspectos que foram considerados para a escolha de como e 
+		quais tecnologias usar para construir as funcionalidades.
+		
+		Tendo como base todas as possibilidades que tínhamos para implementação, delimitamos o problema em construir uma ferramenta com tecnologias modernas e utilizadas no mercado por aplicação com fins semelhantes ao nosso, e que demonstrasse o funcionamento elemental da transmissão de dados em tempo real na \textit{web}.
+		
+		Sendo assim, subdividimos o desenvolvimento em duas partes principais, que são a aplicação servidor e cliente. 
+		
+		\begin{itemize}
+			\item A aplicação servidor desempenhará o papel de receber as informações da aplicação cliente, processá-las, e distribuí-las para os outros clientes através de uma conexão bidirecional, que nos permite implementar uma comunicação tempo-real entre os diversos usuários da aplicação.
+		\end{itemize}
+		
+		\begin{itemize}
+			\item  A aplicação cliente, resumidamente pode ser considerada a interface com a qual os usuários interagem com a aplicação. Através dela o usuário poderá encontrar, por de um mapa terrestre, um outro usuário que esteja utilizando a aplicação no mesmo momento, que será identificado como um ponto marcado no local em que os dados de geolocalização coletados pelo servidor informam. Após a localização do usuário, este poderá ser contactado através de uma janela de comunicação por texto.
+		\end{itemize}
+		
+		A arquitetura utilizada foi inspirada em alguns padrões que moldam a infraestrutura da aplicação para privilegiar ações de escalabilidade, portanto apresentamos parte desse esquema implementado em nosso sistema, e uma outra parte complementar de forma teórica.
+		
+		\begin{description}
+			\item[Palavras-chave] Aplicação tempo-real. Chat por localização. Escalabilidade. NodeJS. SocketIO. Redis. MongoDB. AngularJS. Google Maps.
+		\end{description}
+		
+	\end{resumo}
+	
+	% Abstract
+	\begin{abstract}
+		The evolution of technology has brought to our lives several innovations that are changing the way to deal with many situations. We reached new heights in how we treat business, personal relationships, the search for new knowledge, among other things. All this led us to seek to understand a type of application that has become increasingly present in the tools we use.
+		
+		The real-time applications are the subject of this work. First of all, we seek some applications's references to support us with the development of a geographic location based chat. We found in our references several aspects that were considered for the choice of how and which technologies to use to build the functionalities.
+		
+		Based on all the possibilities that we had to implement, we delimited the problem of building a tool with modern technology and used in the market for application purposes similar to ours, and to demonstrate the elemental operation of real-time data transmission in the web.
+		
+		Thus, the development was subdivided into two main parts, which are the application server and client.
+		
+		\begin {itemize}
+		\item The application server will play the role of receiving the client application information, process them, and distribute them to other clients through a bidirectional connection that allows us to implement a real-time communication between the application's users.
+		\end {itemize}
+		
+		\begin {itemize}
+		\item The client application can be briefly considered the interface which users interact with the application. Through it, you can find, by a terrestrial map, another user who is using the application at the same time, it will be identified as a marked point where the geolocation data collected by the server report. After found the user location, it can be contacted by a text communication window.
+		\end {itemize}
+		
+		The architecture used was inspired by some standards that shape the application infrastructure to favor scalability actions, therefore we present part of this scheme implemented in our system, and another complementary part theoretically.
+		
+		\begin{description}
+			\item[Keywords] Real-time Application. Chat by location. Scalability. NodeJS. SocketIO. Redis. MongoDB. AngularJS. Google Maps.
+		\end{description}
+		
+	\end{abstract}
+	\listoffigures
+	
+	\listoftables
+	
+	%Lista de abreviaturas
+	\newpage
+	
+	\vfill 
+	\null
+	\begin{center}
+		{\Huge {\bfseries\itshape Lista de Abreviaturas}}\\[3cm]
+	\end{center}
+	
+	\begin{espacoduplo}
+		\begin{description}
+			\item[PUB/SUB] Publish/Subscription
+			\item[SQL] Structured Query Language
+			\item[NoSQL] Not Only Structured Query Language
+		\end{description}
+	\end{espacoduplo}
+	
+	\tableofcontents{}
+	
+	\include{introducao}
+	\include{trabalhos_relacionados}
+	\include{problematizacao}
+	
+	%===================================================================================
+	%\backmatter
+	%===================================================================================
+	
+	%\bibliography{monografia}{}
+	%\bibliographystyle{abnt-alf}
+	
+	% OUTRA FORMA DE CRIAR A BIBLIOGRAFIA:
+	\begin{thebibliography}{9}
+		
+		%
+		%	Capitulo 1 - Introdução
+		%
+		\bibitem{startup-email-innovation1}Liveclicker Delivers Dynamic Messaging Capability with RealTime Email Solution. Disponível em: \url{http://www.destinationcrm.com/Articles/CRM-News/CRM-Featured-News/Liveclicker-Delivers-Dynamic-Messaging-Capability-with-RealTime-Email-Solution-97439.aspx}.
+		Acesso em: 19 Out. 2016.
+		
+		\bibitem{startup-email-innovation2}Liveclicker RealTime Email Solution. Disponível em: \url{http://www.realtime.email/}.
+		Acesso em: 19 Out. 2016.
+		
+		\bibitem{uber-statistics}50 Amazing Uber Statistics (October 2016). Disponível em: \url{http://expandedramblings.com/index.php/uber-statistics/}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{uber}Uber. Disponível em: \url{https://www.uber.com/}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{uber-how-scales}How Uber Scales Their Real-Time Market Platform. Disponível em: \url{http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{redis-pubsub-redismva}Redis Publish-Subscribe (RedisMVA). Disponível em: \url{https://github.com/sayar/RedisMVA/blob/master/module6_redis_pubsub/README.md#redis-publish-subscribe}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{browsers-usage}Web browsers usage table. Disponível em: \url{http://caniuse.com/usage-table}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{redis-pubsub-rajaraodv}Redis Pub/Sub (Rajaraodv). Disponível em: \url{https://github.com/rajaraodv/redispubsub}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{fanmappr}FanMappr. Disponível em: \url{http://h.fanapp.mobi/modules/fanmappr/fanmappr.php?fid=1056666}.
+		Acesso em: 20 Out. 2016.
+		
+		\bibitem{radiusim}RadiusIM – Social Messenger Com Busca Por Geotagging. Disponível em: \url{http://br.wwwhatsnew.com/2008/09/radiusim-%E2%80%93-social-messenger-por-com-busca-por-geotagging/}.
+			Acesso em: 20 Out. 2016.
+			
+			\bibitem{notnotcitricsquid}NOTNOTCITRICSQUID. Do location based chat apps start trending again?. Disponível em: \url{https://www.reddit.com/r/startups/comments/1tkc3f/do_location_based_chat_apps_start_trending_again/}.
+			Acesso em: 21 Out. 2016.
+			
+			\bibitem{snapchat}Snapchat. Disponível em: \url{https://www.snapchat.com/}.
+			Acesso em: 21 Out. 2016.
+			
+			\bibitem{tinder}Tinder. Disponível em: \url{https://www.gotinder.com/}.
+			Acesso em: 21 Out. 2016.
+			
+			\bibitem{happn}Happn. Disponível em: \url{https://www.happn.com/}.
+			Acesso em: 21 Out. 2016.
+			
+		\end{thebibliography}
+		
+		
+		\anexo
+	\end{document}
