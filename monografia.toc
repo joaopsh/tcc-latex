@@ -8,4 +8,8 @@
 \contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{15}
 \contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{16}
 \contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{17}
-\contentsline {chapter}{Refer\^encias}{19}
+\contentsline {chapter}{\numberline {3}Problematiza\IeC {\c c}\IeC {\~a}o}{19}
+\contentsline {section}{\numberline {3.1}Caracteriza\IeC {\c c}\IeC {\~a}o do Problema}{19}
+\contentsline {section}{\numberline {3.2}Solu\IeC {\c c}\IeC {\~a}o Proposta}{20}
+\contentsline {section}{\numberline {3.3}Objetivos Espec\IeC {\'\i }ficos}{20}
+\contentsline {chapter}{Refer\^encias}{21}
