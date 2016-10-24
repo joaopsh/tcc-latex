@@ -1,15 +1,40 @@
 \select@language {brazil}
-\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{12}
-\contentsline {section}{\numberline {1.1}Motiva\IeC {\c c}\IeC {\~a}o}{12}
-\contentsline {section}{\numberline {1.2}Objetivos}{13}
-\contentsline {chapter}{\numberline {2}Trabalhos Relacionados}{14}
-\contentsline {section}{\numberline {2.1}Uber}{14}
-\contentsline {section}{\numberline {2.2}Redis Publish-Subscribe (RedisMVA) }{15}
-\contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{15}
-\contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{16}
-\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{17}
-\contentsline {chapter}{\numberline {3}Problematiza\IeC {\c c}\IeC {\~a}o}{19}
-\contentsline {section}{\numberline {3.1}Caracteriza\IeC {\c c}\IeC {\~a}o do Problema}{19}
-\contentsline {section}{\numberline {3.2}Solu\IeC {\c c}\IeC {\~a}o Proposta}{20}
-\contentsline {section}{\numberline {3.3}Objetivos Espec\IeC {\'\i }ficos}{20}
-\contentsline {chapter}{Refer\^encias}{21}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{13}
+\contentsline {section}{\numberline {1.1}Motiva\IeC {\c c}\IeC {\~a}o}{13}
+\contentsline {section}{\numberline {1.2}Objetivos}{14}
+\contentsline {chapter}{\numberline {2}Trabalhos Relacionados}{15}
+\contentsline {section}{\numberline {2.1}Uber}{15}
+\contentsline {section}{\numberline {2.2}Redis Publish-Subscribe (RedisMVA) }{16}
+\contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{16}
+\contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{17}
+\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{18}
+\contentsline {chapter}{\numberline {3}Problematiza\IeC {\c c}\IeC {\~a}o}{20}
+\contentsline {section}{\numberline {3.1}Caracteriza\IeC {\c c}\IeC {\~a}o do Problema}{20}
+\contentsline {section}{\numberline {3.2}Solu\IeC {\c c}\IeC {\~a}o Proposta}{21}
+\contentsline {chapter}{\numberline {4}Hardware e Software Utilizados}{23}
+\contentsline {section}{\numberline {4.1}Codifica\IeC {\c c}\IeC {\~a}o e Testes}{23}
+\contentsline {subsection}{\numberline {4.1.1}Ambiente de Desenvolvimento}{23}
+\contentsline {subsection}{\numberline {4.1.2}Editores de Texto}{24}
+\contentsline {section}{\numberline {4.2}Back-end}{25}
+\contentsline {subsection}{\numberline {4.2.1}NodeJS}{25}
+\contentsline {subsection}{\numberline {4.2.2}NPM}{25}
+\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{25}
+\contentsline {subsection}{\numberline {4.2.4}SocketIO}{25}
+\contentsline {subsection}{\numberline {4.2.5}MongoDB}{25}
+\contentsline {subsection}{\numberline {4.2.6}Redis}{25}
+\contentsline {section}{\numberline {4.3}Front-end}{25}
+\contentsline {subsection}{\numberline {4.3.1}Bower}{25}
+\contentsline {subsection}{\numberline {4.3.2}AngularJS}{25}
+\contentsline {subsection}{\numberline {4.3.3}Angular Material}{25}
+\contentsline {subsection}{\numberline {4.3.4}Gulp}{25}
+\contentsline {subsection}{\numberline {4.3.5}SASS}{25}
+\contentsline {subsection}{\numberline {4.3.6}Webpack}{25}
+\contentsline {subsection}{\numberline {4.3.7}Babel}{25}
+\contentsline {subsection}{\numberline {4.3.8}Nginx}{25}
+\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{26}
+\contentsline {section}{\numberline {5.1}Back-end}{26}
+\contentsline {section}{\numberline {5.2}Front-end}{26}
+\contentsline {chapter}{\numberline {6}Resultados}{27}
+\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{28}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{29}
+\contentsline {chapter}{Refer\^encias}{30}
