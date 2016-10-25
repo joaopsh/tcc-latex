@@ -55,7 +55,7 @@ Tendo em mente todos esses conceitos do funcionamento da arquitetura do NodeJS, 
 Por outro lado, quando o entendimento é claro e o desenvolvimento é correto, a utilização dos recursos naturalmente é escalável e distribuída, pois a própria singularidade da plataforma nos faz trabalhar conceitos de sistemas distribuídos, como por exemplo, para que possamos aproveitar de todos os recursos de um processador multi-core com NodeJS, temos que executar mais de uma instância da aplicação, o que nos leva a trabalhar conceitos de clusterização, comunicação de processos e etc, o que facilita no escalonamento horizontal da aplicação em múltiplos servidores.
 
 \subsection{NPM}
-O NPM é o gerenciador de pacotes do NodeJS. A função do NPM é oferecer um repositório central de qual se pode baixar diversos módulos distribuídos pela própria equipe que desenvolve o NodeJS ou que outros usuários tenham contribuído.
+O NPM \cite{npm} é o gerenciador de pacotes do NodeJS. A função do NPM é oferecer um repositório central de qual se pode baixar diversos módulos distribuídos pela própria equipe que desenvolve o NodeJS ou que outros usuários tenham contribuído.
 
 A evolução do NPM se tornou dominante, sendo considerado o maior repositório de registro de conteúdo Javascript do mundo. Devida a utilização do Javascript para outras finalidades além do desenvolvimento em NodeJS, muitos dos módulos disponibilizados pelo NPM não são parcialmente ou completamente desenvolvidos para a utilização com o NodeJS, sendo que muitos usuários e desenvolvedores utilizam e publicam conteúdo voltado para o desenvolvimento \textit{frontend}, que também utiliza o Javascript como principal linguagem. Talvez este seja um dos grandes motivos de sucesso do NPM em números.
 
@@ -64,7 +64,9 @@ Sua utilização é feita basicamente via linha de comando, onde iniciamos um no
 A utilização de um gerenciador de pacotes traz diversos vantagens, dentre estas, a facilitação no versionamento de código, pois não é necessário manter uma cópia de um conteúdo que poderá ser baixado posteriormente de um local central, o controle das versões de cada biblioteca que se está utilizando no sistema, facilitando a resolução de problemas de compatibilidade e dependências uma das outras, local único para busca e contribuição de soluções na linguagem, entre outras.
 
 \subsection{ExpressJS}
+O ExpressJS \cite{expressjs} é o principal \textit{framework} NodeJS para desenvolvimento de aplicações \textit{web} e APIs. A sua proposta é ser simples, performático e \textit{loosely coupled} na construção de aplicações, sem interferir nas características padrões que o NodeJS oferece.
 
+O desenvolvimento com o ExpressJS é bem intuitivo pela organização que ele propõe para a aplicação. Suas abstrações são apenas essenciais, que não interferem na utilização dos artifícios da própria linguagem nativa do NodeJS para a resolução dos problemas, sem muitas automatizações, sendo ainda mais conveniente oferecendo mecanismos de \textit{middlewares} que possibilitam total manipulação das requisições e seus atributos, injeção de \textit{template-engines} e outros \textit{handlers} e \textit{plugins} que podem ser baixados via NPM. A comunidade possui diversas soluções empregadas, o que também facilita na curva de aprendizado, produtividade e resolução de problemas. Rapidamente é possível instalá-lo na aplicação e se disponibilizar um servidor HTTP pronto para receber, tratar e responder requisições como API ou UI.
 
 \subsection{SocketIO}
 

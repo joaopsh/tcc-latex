@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {4.2}Back-end}{25}
 \contentsline {subsection}{\numberline {4.2.1}NodeJS}{25}
 \contentsline {subsection}{\numberline {4.2.2}NPM}{27}
-\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{28}
+\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{27}
 \contentsline {subsection}{\numberline {4.2.4}SocketIO}{28}
 \contentsline {subsection}{\numberline {4.2.5}MongoDB}{28}
 \contentsline {subsection}{\numberline {4.2.6}Redis}{28}
