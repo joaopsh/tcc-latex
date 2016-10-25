@@ -14,27 +14,28 @@
 \contentsline {chapter}{\numberline {4}Hardware e Software Utilizados}{23}
 \contentsline {section}{\numberline {4.1}Codifica\IeC {\c c}\IeC {\~a}o e Testes}{23}
 \contentsline {subsection}{\numberline {4.1.1}Ambiente de Desenvolvimento}{23}
-\contentsline {subsection}{\numberline {4.1.2}Editores de Texto}{24}
+\contentsline {subsection}{\numberline {4.1.2}Versionamento de C\IeC {\'o}digo}{24}
+\contentsline {subsection}{\numberline {4.1.3}Editores de Texto}{24}
 \contentsline {section}{\numberline {4.2}Back-end}{25}
 \contentsline {subsection}{\numberline {4.2.1}NodeJS}{25}
-\contentsline {subsection}{\numberline {4.2.2}NPM}{25}
-\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{25}
-\contentsline {subsection}{\numberline {4.2.4}SocketIO}{25}
-\contentsline {subsection}{\numberline {4.2.5}MongoDB}{25}
-\contentsline {subsection}{\numberline {4.2.6}Redis}{25}
-\contentsline {section}{\numberline {4.3}Front-end}{25}
-\contentsline {subsection}{\numberline {4.3.1}Bower}{25}
-\contentsline {subsection}{\numberline {4.3.2}AngularJS}{25}
-\contentsline {subsection}{\numberline {4.3.3}Angular Material}{25}
-\contentsline {subsection}{\numberline {4.3.4}Gulp}{25}
-\contentsline {subsection}{\numberline {4.3.5}SASS}{25}
-\contentsline {subsection}{\numberline {4.3.6}Webpack}{25}
-\contentsline {subsection}{\numberline {4.3.7}Babel}{25}
-\contentsline {subsection}{\numberline {4.3.8}Nginx}{25}
-\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{26}
-\contentsline {section}{\numberline {5.1}Back-end}{26}
-\contentsline {section}{\numberline {5.2}Front-end}{26}
-\contentsline {chapter}{\numberline {6}Resultados}{27}
-\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{28}
-\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{29}
-\contentsline {chapter}{Refer\^encias}{30}
+\contentsline {subsection}{\numberline {4.2.2}NPM}{27}
+\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{28}
+\contentsline {subsection}{\numberline {4.2.4}SocketIO}{28}
+\contentsline {subsection}{\numberline {4.2.5}MongoDB}{28}
+\contentsline {subsection}{\numberline {4.2.6}Redis}{28}
+\contentsline {section}{\numberline {4.3}Front-end}{28}
+\contentsline {subsection}{\numberline {4.3.1}Bower}{28}
+\contentsline {subsection}{\numberline {4.3.2}AngularJS}{28}
+\contentsline {subsection}{\numberline {4.3.3}Angular Material}{28}
+\contentsline {subsection}{\numberline {4.3.4}Gulp}{28}
+\contentsline {subsection}{\numberline {4.3.5}SASS}{28}
+\contentsline {subsection}{\numberline {4.3.6}Webpack}{28}
+\contentsline {subsection}{\numberline {4.3.7}Babel}{28}
+\contentsline {subsection}{\numberline {4.3.8}Nginx}{28}
+\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{29}
+\contentsline {section}{\numberline {5.1}Back-end}{29}
+\contentsline {section}{\numberline {5.2}Front-end}{29}
+\contentsline {chapter}{\numberline {6}Resultados}{30}
+\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{31}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{32}
+\contentsline {chapter}{Refer\^encias}{33}
