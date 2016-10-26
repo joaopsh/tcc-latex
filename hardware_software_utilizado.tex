@@ -97,20 +97,37 @@ A utilização principal do Redis é para servir como \textit{cache} e/ou \texti
 \section{Front-end}
 
 \subsection{Bower}
-O Bower é um gerenciador de pacotes, assim como o NPM, mas com conteúdo focado para o \textit{frontend}. Através dele é possível fazer \textit{download} de diversas bibliotecas, como AngularJS, jQuery e Bootstrap. Sua utilização se dá através de linha de comando, onde ao criar um novo projeto \textit{frontend} o usuário deve iniciar o Bower no mesmo diretório, através de linha de comando, e este criará um arquivo chamado bower.json, que conterá informações do projeto e todas os nomes e versões de bibliotecas baixadas do seu repositório oficial, permitindo-se assim o gerenciamento de novos pacotes e resolução de dependências entre eles.
+O Bower \cite{bower} é um gerenciador de pacotes, assim como o NPM, mas com conteúdo focado para o \textit{frontend}. Através dele é possível fazer \textit{download} de diversas bibliotecas, como AngularJS, jQuery e Bootstrap. Sua utilização se dá através de linha de comando, onde ao criar um novo projeto \textit{frontend} o usuário deve iniciar o Bower no mesmo diretório, através de linha de comando, e este criará um arquivo chamado bower.json, que conterá informações do projeto e todas os nomes e versões de bibliotecas baixadas do seu repositório oficial, permitindo-se assim o gerenciamento de novos pacotes e resolução de dependências entre eles.
 
 O NPM também oferece muitas das bibliotecas disponíveis no Bower, e o contrário muitas vezes não é válido, sendo assim, é comum a utilização dos dois gerenciadores de pacotes no projeto \textit{frontend}, o Bower e NPM.
 
 \subsection{AngularJS}
+O AngularJS \cite{angular} é um \textit{framework} Javascript para desenvolvimento de interfaces \textit{web}. Mais do que apenas interfaces, o AngularJS auxilia na criação de aplicações complexas no lado cliente da comunicação. Com o avanço das tecnologias e formas de se construir sistemas, ferramentas como o AngularJS vieram para ajudar na organização e qualidade dos sistemas que estavam se desenvolvendo.
 
+A abordagem do AngularJS na construção de aplicações \textit{frontend} é completa, oferecendo suporte para manipulação do DOM, \textit{data binding}, gerenciamento de rotas, padrões de projeto (MVW, MVVM, MVC), entre outros. Apesar da fragmentação de alguns recursos em módulos separados, como as rotas, o produto AngularJS consegue oferecer uma solução completa para o desenvolvimento de interfaces de usuário.
+
+O desenvolvimento de uma aplicação AngularJS, normalmente segue as diretivas de uma aplicação SPA com o estilo de programação declarativa, tendo em vista a forma com que se desenvolve interfaces para os \textit{browsers}, as tecnologias envolvidas, como o próprio HTML, em um ambiente orientado a eventos, se faz mais adequada este tipo de abordagem declarativa, que segue uma lógica mais comum as interfaces.
+
+A arquitetura moldada ao um formato de API também é um fator determinante para a utilização de um \textit{framework} como o AngularJS, pois ele já oferece módulos e serviços para o consumo de dados através de \textit{endpoints} que forneçam dados em formato XML ou JSON.
 
 \subsection{Angular Material}
+O Angular Material \cite{angular-material} é uma outra solução do produto Angular, também para interfaces, mas focado em conceitos e características de \textit{design}, UX, reutilização, acessibilidade, compatibilidade \textit{cross-browsers}, responsividade, entre outros. 
 
+A ferramenta oferece diversos componentes visuais de interface com efeitos e estilizações próprios, levando em conta diversos conceitos abstratos de \textit{design}, que enriquecem a experiência e agradabilidade do usuário ao ver e interagir com eles. Os componentes do Angular Material são totalmente compatíveis com as implementações AngularJS, facilitando na integração entre os componentes. Um grande problema que é evitado utilizando um \textit{framework} como este, são os de problemas de compatibilidade entre os diversos navegadores no mercado, onde cada um possui especificidades que podem causar comportamentos inesperados nos comentos de interface. Acessibilidade e outras otimizações também são importantes para a inclusão do site e SEO.
+
+Por último, um benefício importante que o Angular Material dispõe, é o seu \textit{grid system}, baseado no CSS3 \textit{flexbox}. Esta característica possibilita que todo o conteúdo apresentado no site se redimensione de acordo com o tamanho da tela do dispositivo que está exibindo o conteúdo, possibilitando assim uma experiência viável para dispositivos móveis, do qual já citamos a importância em números \cite{internet-traffic-stats1} \cite{internet-traffic-stats2} \cite{internet-traffic-stats3}.  
 
 \subsection{Gulp}
+O Gulp \cite{gulp} é uma ferramenta de automatização de tarefas Javascript, comumente utilizado para automatizações de fluxos de trabalho no desenvolvimento \textit{frontend}. Sua utilização se dá por linha de comando e um arquivo de configuração chamado gulpfile.js. Neste arquivo Javascript podemos criar \textit{tasks} que irão realizar tarefas diversas, de acordo com a programação realiza, como por exemplo a execução de testes unitários, concatenação e minificação de arquivos, compilação de linguagens intermediárias, como o SASS, \textit{autoprefixer}, \textit{lint}, entre outros.
 
+Existem diversos \textit{plugins} disponíveis no NPM que executam tarefas específicas, como as citadas anteriormente, bastando ao usuário baixá-las e chamá-las em suas \textit{tasks}, que podem executar uma ou mais funcionalidades organizadas através de chamadas síncronas pelo método pipe de cada \textit{task}.
 
 \subsection{SASS}
+O SASS \cite{sass} é uma linguagem de \textit{script} que pode ser interpretada para CSS. O CSS tem uma sintaxe muito simples e com poucas funcionalidades para estruturação, reaproveitamento e modularizarão de código, onde o SASS oferece uma série de funcionalidades, como variáveis, operadores, herança e modularização, que podem ser aplicadas para a geração de folhas de estilos.
+
+Todas as funcionalidades do SASS facilitam a construção de interfaces complexas, onde se exigem muitos componentes, classes, hierarquização de seletores, entre outros. A interpretação do código SASS para CSS pode ser feita por diversos interpretadores, inclusive o próprio Gulp oferece \textit{plugins} para este fim.
+
+\subsection{HAML}
 
 
 \subsection{Webpack}
