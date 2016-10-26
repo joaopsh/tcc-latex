@@ -69,18 +69,37 @@ O ExpressJS \cite{expressjs} é o principal \textit{framework} NodeJS para desen
 O desenvolvimento com o ExpressJS é bem intuitivo pela organização que ele propõe para a aplicação. Suas abstrações são apenas essenciais, que não interferem na utilização dos artifícios da própria linguagem nativa do NodeJS para a resolução dos problemas, sem muitas automatizações, sendo ainda mais conveniente oferecendo mecanismos de \textit{middlewares} que possibilitam total manipulação das requisições e seus atributos, injeção de \textit{template-engines} e outros \textit{handlers} e \textit{plugins} que podem ser baixados via NPM. A comunidade possui diversas soluções empregadas, o que também facilita na curva de aprendizado, produtividade e resolução de problemas. Rapidamente é possível instalá-lo na aplicação e se disponibilizar um servidor HTTP pronto para receber, tratar e responder requisições como API ou UI.
 
 \subsection{SocketIO}
+O SocketIO é uma biblioteca para a criação de aplicações tempo-real na \textit{web}, que permite troca de mensagens em formato binário ou texto de forma bi-direcional e instantânea. Ele funciona através de duas bases de código, uma aplicada no servidor NodeJS e outra no \textit{browser} do cliente. A biblioteca faz uso da tecnologia WebSocket para estabelecer uma comunicação bi-direcional e persistente entre servidor e cliente, mas em casos de problemas de compatibilidade, é utilizado o método de \textit{long polling} para estabelecer este tipo de comunicação. As bibliotecas do SocketIO utilizadas no servidor e no cliente possuem chamadas semelhantes, o que facilita na realização da interação dos dois lados.
 
+A figura a seguir demonstra simplificadamente a forma de conexão entre servidor e cliente descrita anteriormente:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.67]{imagens/socketio.png}
+	\caption{\small Conexão entre servidor e cliente com SocketIO. Fonte: ifollow \cite{img-socketio}}
+	\label{fig:socketio}
+\end{figure}
+
+Apesar do SocketIO ser um encapsulador da tecnologia \textit{websocket}, as chamadas de sua API são muito semelhantes a utilização do \textit{websocket} diretamente, onde a biblioteca apenas adiciona funcionalidades que são convenientes para o gerenciamento das conexões dos \textit{sockets}, como \textit{broadcast} de mensagens, atrelar informações específicas do usuário de cada \textit{socket}, entre outros.
+
+A tecnologia \textit{websocket} é baseada em canais TCP, o que significa que os dados trafegados por ele tem a garantia de ordem e não perca de informações, o que torna a comunicação mais confiável e capaz de atender um abrangente número de necessidades. Também é preciso levar em conta os custos que canais TCP podem ter dependendo do tipo de dados que se quer transmitir, onde apesar da possibilidade de transmissão de conteúdo binário por \textit{websockets}, muitas das vezes é mais eficiente a utilização de um canal UDP, como faz uso a tecnologia WebRTC, que é muito utilizada para \textit{streaming} de vídeos, por exemplo.
 
 \subsection{MongoDB}
+O MongoDB é um banco de dados de alta performance, enquadrado nos conceitos de bancos de dados NoSQL. A escolha por este tipo de ferramenta se faz pelas características que o modelo de arquitetura escolhido traz para a aplicação. Os bancos de dados NoSQL foram criados para oferecer novas possibilidades para as demandas que exigem escalabilidade horizontal e performance na estrita e leitura de dados, o que se encaixa com os atributos das tecnologias da aplicação desenvolvida.
 
-
+A forma como este tipo de banco de dados funciona remete diretamente aos ganhos de desempenho e escalabilidade, pois existe uma quebra de conceitos dos bancos de dados relacionais, como o ACID, que trazem flexibilidade em como se tratam os dados armazenados para se ter os benefícios citados. O MongoDB além de adotar estes conceitos, é um banco de dados orientado a documentos, onde a persistência dos dados é realizada em formato JSON. Apesar do conceito NoSQL ser uma grande ruptura de paradigmas, a maior parte da popularidade do MongoDB se deve a sua forma de interação com o usuário, que é amigável a quem está migrando dos conceitos relacionais para o modelo NoSQL. Apesar de não existir a necessidade de criação de tabelas, definição de relações, entre outros, a API do MongoDB oferece a criação de esquemas que remetem a conceitos parecidos, e também habilitam outras possibilidades, como a indexação de campos para buscas mais eficientes. As chamadas de busca no banco também são amigáveis, utilizando palavras chaves como \textit{SELECT, WHERE, ORDER BY}, entre outros. É importante salientar que algumas das funcionalidades citadas se devem ao uso de um modelador de dados chamado Mongoose \cite{mongoose}, ferramenta da qual oferece um \textit{set} de utilidades para se trabalhar com o MongoBD.
+ 
 \subsection{Redis}
+O Redis é um banco de dados NoSQL em memória, que implementa apenas alguns tipos de estruturas de dados, como \textit{strings, hashes, lists, sets} e \textit{sorted hashes}, e funcionalidades para gerência, busca e transmissão dos dados armazenados, o que o torna muito enxuto. Devido ao Redis ser um banco de dados que funciona em memória, seu desempenho é muito alto, tendo em vista que a memória RAM é um dos componentes de armazenamento de dados mais rápidos em leitura, escrita e transmissão na arquitetura computacional. Por outro lado, a memória RAM é volátil, o que nos leva a buscar entender qual a proposta de um banco de dados em memória.
 
+A utilização principal do Redis é para servir como \textit{cache} e/ou \textit{message broker} de informações em sistemas. Em implementações \textit{stateless} o Redis pode servir como \textit{cache} de dados muito requisitados, pois seu rápido desempenho em memória pode ser vital para atender requisições em tempo hábil. Outra utilidade do Redis, que é o caso deste projeto, é do compartilhamento de dados entre servidores distintos de uma aplicação, onde através das estruturas de dados fornecidas pelo Redis e algumas funcionalidades, como a do protocolo PUB/SUB, é possível que se armazene dados no Redis e outra instância da aplicação sendo executada em outro local possa buscar estes mesmos dados. Devido a simplicidade e robustez que o Redis possui, uma única instância é capaz de realizar milhares de operações, aproximadamente 1.5 milhões por segundo \cite{redis-metrics}, podendo funcionar muito bem sendo este tipo de centralizador, pois o escalonamento de servidores de aplicação ocorre com muito mais frequência do que a de instâncias Redis. 
 
 \section{Front-end}
 
 \subsection{Bower}
+O Bower é um gerenciador de pacotes, assim como o NPM, mas com conteúdo focado para o \textit{frontend}. Através dele é possível fazer \textit{download} de diversas bibliotecas, como AngularJS, jQuery e Bootstrap. Sua utilização se dá através de linha de comando, onde ao criar um novo projeto \textit{frontend} o usuário deve iniciar o Bower no mesmo diretório, através de linha de comando, e este criará um arquivo chamado bower.json, que conterá informações do projeto e todas os nomes e versões de bibliotecas baixadas do seu repositório oficial, permitindo-se assim o gerenciamento de novos pacotes e resolução de dependências entre eles.
 
+O NPM também oferece muitas das bibliotecas disponíveis no Bower, e o contrário muitas vezes não é válido, sendo assim, é comum a utilização dos dois gerenciadores de pacotes no projeto \textit{frontend}, o Bower e NPM.
 
 \subsection{AngularJS}
 

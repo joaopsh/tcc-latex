@@ -21,21 +21,21 @@
 \contentsline {subsection}{\numberline {4.2.2}NPM}{27}
 \contentsline {subsection}{\numberline {4.2.3}ExpressJS}{27}
 \contentsline {subsection}{\numberline {4.2.4}SocketIO}{28}
-\contentsline {subsection}{\numberline {4.2.5}MongoDB}{28}
-\contentsline {subsection}{\numberline {4.2.6}Redis}{28}
-\contentsline {section}{\numberline {4.3}Front-end}{28}
-\contentsline {subsection}{\numberline {4.3.1}Bower}{28}
-\contentsline {subsection}{\numberline {4.3.2}AngularJS}{28}
-\contentsline {subsection}{\numberline {4.3.3}Angular Material}{28}
-\contentsline {subsection}{\numberline {4.3.4}Gulp}{28}
-\contentsline {subsection}{\numberline {4.3.5}SASS}{28}
-\contentsline {subsection}{\numberline {4.3.6}Webpack}{28}
-\contentsline {subsection}{\numberline {4.3.7}Babel}{28}
-\contentsline {subsection}{\numberline {4.3.8}Nginx}{28}
-\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{29}
-\contentsline {section}{\numberline {5.1}Back-end}{29}
-\contentsline {section}{\numberline {5.2}Front-end}{29}
-\contentsline {chapter}{\numberline {6}Resultados}{30}
-\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{31}
-\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{32}
-\contentsline {chapter}{Refer\^encias}{33}
+\contentsline {subsection}{\numberline {4.2.5}MongoDB}{29}
+\contentsline {subsection}{\numberline {4.2.6}Redis}{29}
+\contentsline {section}{\numberline {4.3}Front-end}{30}
+\contentsline {subsection}{\numberline {4.3.1}Bower}{30}
+\contentsline {subsection}{\numberline {4.3.2}AngularJS}{31}
+\contentsline {subsection}{\numberline {4.3.3}Angular Material}{31}
+\contentsline {subsection}{\numberline {4.3.4}Gulp}{31}
+\contentsline {subsection}{\numberline {4.3.5}SASS}{31}
+\contentsline {subsection}{\numberline {4.3.6}Webpack}{31}
+\contentsline {subsection}{\numberline {4.3.7}Babel}{31}
+\contentsline {subsection}{\numberline {4.3.8}Nginx}{31}
+\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{32}
+\contentsline {section}{\numberline {5.1}Back-end}{32}
+\contentsline {section}{\numberline {5.2}Front-end}{32}
+\contentsline {chapter}{\numberline {6}Resultados}{33}
+\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{34}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{35}
+\contentsline {chapter}{Refer\^encias}{36}
