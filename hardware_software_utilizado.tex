@@ -128,12 +128,30 @@ O SASS \cite{sass} é uma linguagem de \textit{script} que pode ser interpretada
 Todas as funcionalidades do SASS facilitam a construção de interfaces complexas, onde se exigem muitos componentes, classes, hierarquização de seletores, entre outros. A interpretação do código SASS para CSS pode ser feita por diversos interpretadores, inclusive o próprio Gulp oferece \textit{plugins} para este fim.
 
 \subsection{HAML}
+O HAML \cite{haml} é uma linguagem que tem a proposta de facilitar a escrita do HTML através de uma sintaxe mais curta, edentação de código e alguns conceitos de HTML dinâmico. Neste projeto utilizamos mais especificamente o HAMLJS \cite{hamljs}, que é uma derivação da versão principal do HAML, que habitualmente é utilizado com Ruby on Rails. Essa derivação do HAML oferece uma implementação em Javascript, assim possibilitando sua utilização em diversas ferramentas que utilizam a linguagem. O funcionamento do HAML é parecido com o do SASS e a interpretação dos arquivos HAML para HTML pode ser feita por diversas ferramentas, inclusive \textit{plugins} do próprio Gulp podem realizar esta tarefa.
 
+Apesar da escolha de utilização de uma ferramenta transcrita de outra linguagem, existem diversas opções de \textit{template engines} feita exclusivamente para a utilização com Javascript, como o Jade e o EJS, e que podem trazer melhor qualidade das funcionalidades e \textit{releases} mais curtos com novas implementações.
 
 \subsection{Webpack}
+O WebPack \cite{webpack} é um Javascript \textit{module bundler}. Devido a linguagem Javascript não possuir um sistema para isolamento de escopo dos diversos blocos de código que podem existir em uma aplicação, o WebPack proporciona essa funcionalidade baseando-se nos principais padrões de módulos Javascript utilizados, como o AMD e CommonJS, onde ele é capaz de gerenciar todas as dependências entre módulos e gerar \textit{assets} estáticos para a utilização.
 
+A utlização do WebPack se faz principalmente no desenvolvimento \textit{frontend}, pois o NodeJS, principal ambiente de desenvolvimento com Javascript do lado servidor, já adota o sistema de módulos CommonJS, o que aproxima ainda mais os conhecimentos de desenvolvimento \textit{frontend} e \textit{backend} com a adoção de módulos CommonJS nos dois lados, além dos benefícios na organização e isolamento de códigos. Também é possível a utilização de \textit{plugins} intermediários com o WebPack, estes podem oferecer diversas funcionalidades, como interpretação de ECMAScript 2015 ou TypeScript.
 
 \subsection{Babel}
+O Babel \cite{babel} é um compilador Javascript que permite a utilização das novas funcionalidades do ES2015. Devido a esta grande atualização do Javascript não ser compatível com uma grande maioria dos navegadores do mercado, o Babel oferece a opção de se escrever o código Javascript com a sintaxe ES2015 e ter a geração de outro arquivo traduzido para o ES5, que é a implementação com maior compatibilidade entre navegadores.
 
+A utilização do Babel pode ser feita utilizando diversas ferramentas, como o Gulp ou o WebPack. Quando se utiliza o WebPack no projeto, é preferível que se faça a integração do Babel com ele, pois como ele cuida da resolução de dependências entre os módulos, ele consegue tratar no momento certo a tradução do código em ES2015 para ES5, evitando problemas de interpretação e compatibilidade. 
 
 \subsection{Nginx}
+O Nginx \cite{nginx} é um servidor \textit{web} de alta performance \textit{single-threaded}, uma arquitetura parecida com a do NodeJS, com funcionalidades que o permitem atuar como \textit{proxy} reverso e/ou \textit{load balancer} de aplicações. Para demonstrar onde o Nginx se encaixa na infraestrutura de uma aplicação \textit{web}, podemos observar a seguinte imagem:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=1]{imagens/nginx.png}
+	\caption{\small Localização do Nginx na arquitetura de aplicações \textit{web}. Fonte: Thunder-Boy \cite{img-nginx}}
+	\label{fig:nginx}
+\end{figure}
+
+O conceito de \textit{proxy reverso} se dá pela capacidade do Nginx encaminhar requisições de entrada para os servidores da rede privada, ao contrário do que ocorre com os \textit{proxys} comuns, que encaminham o tráfego de saída da rede. Sendo assim, o Nginx está na frente dos servidores de aplicação e gerencia todas as conexões que chegam de um determinado domínio, possibilitando assim que também gerencie controles de \textit{cache}, conexões SSL, \textit{streaming}, fornecimento de conteúdos estáticos da aplicação, como arquivos HTML, folhas de estilo, scripts, imagens, entre outros.
+
+O Nginx também pode funcionar como um \textit{load balancer}, tendo em vista que ele recebe todas as conexões e conhece todos os caminhos para os servidores, bastando apenas a implementação de um ou mais algoritmos de balanceamento de carga, como Round Robin, Least Traffic, Least Latency, URL, entre outros. Uma funcionalidade importante que também pode ser implementada com a ajuda do Nginx é o conceito de \textit{sticky sessions}, que por exemplo, é uma opção para o funcionamento de conexões \textit{websockets} em aplicações distribuídas em múltiplos servidores, devido a necessidade de se manter as requisições traçadas ao mesmo servidor que contém suas informações de conexão.

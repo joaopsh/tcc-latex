@@ -30,13 +30,13 @@
 \contentsline {subsection}{\numberline {4.3.4}Gulp}{33}
 \contentsline {subsection}{\numberline {4.3.5}SASS}{33}
 \contentsline {subsection}{\numberline {4.3.6}HAML}{33}
-\contentsline {subsection}{\numberline {4.3.7}Webpack}{33}
-\contentsline {subsection}{\numberline {4.3.8}Babel}{33}
-\contentsline {subsection}{\numberline {4.3.9}Nginx}{33}
-\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{34}
-\contentsline {section}{\numberline {5.1}Back-end}{34}
-\contentsline {section}{\numberline {5.2}Front-end}{34}
-\contentsline {chapter}{\numberline {6}Resultados}{35}
-\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{36}
-\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{37}
-\contentsline {chapter}{Refer\^encias}{38}
+\contentsline {subsection}{\numberline {4.3.7}Webpack}{34}
+\contentsline {subsection}{\numberline {4.3.8}Babel}{34}
+\contentsline {subsection}{\numberline {4.3.9}Nginx}{35}
+\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{36}
+\contentsline {section}{\numberline {5.1}Back-end}{36}
+\contentsline {section}{\numberline {5.2}Front-end}{36}
+\contentsline {chapter}{\numberline {6}Resultados}{37}
+\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{38}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{39}
+\contentsline {chapter}{Refer\^encias}{40}
