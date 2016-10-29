@@ -70,7 +70,7 @@ As rotas de aplicação estão organizadas no diretório controller da aplicaç�
 
 As rotas seguem o padrão de utilização dos métodos HTTP para realização do CRUD em APIs, sendo os \textit{endpoints} citados funcionalidades da aplicação, e são protegidos de acordo com as especificações faladas no tópico Autenticação e Autorização. Estes \textit{endpoints} são chamados pela aplicação \textit{frontend}, que passa em cada \textit{request} todas as informações de autenticação necessária, e trata os dados de sucesso ou erro que cada \textit{endpoint} retorna.
 
-\subsection{Chat}
+\subsection{Socket}
 O desenvolvimento da comunicação em tempo real do \textit{chat} é a principal funcionalidade do \textit{backend} da aplicação. Os arquivos de implementação estão localizados no diretório domain, onde três arquivos implementam todas as funcionalidades relacionadas.
 
 Inicialmente foi feito o \textit{download} pelo NPM das bibliotecas socket.io e redis. A inicialização do servidor de conexão do socket.io foi feita no arquivo de inicialização do servidor através da porta 1200. A conexão com o banco de dados Redis foi feita no arquivo que trava os eventos dos \textit{sockets}.
