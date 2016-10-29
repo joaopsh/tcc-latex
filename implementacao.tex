@@ -55,11 +55,54 @@ Como já introduzido, o restante dos das rotas da aplicação são protegidos at
 	\label{fig:oauth2}
 \end{figure}
 
+Um detalhe importante que deve ser falado, é a utilização do método bcrypt \cite{bcrypt} para criptografia da senha dos usuários e a utilização do crypt \cite{crypt} para a criptografia do Access Token e Refresh Token. Como o bcrypt é um tipo de criptografia mais complexa, que leva em conta o custo de processamento, utilizamos-o em funcionalidades menos requisitadas, como o \textit{login}, e utilizamos o crypt (SHA256) para a criptografia dos \textit{tokens}, pois são requisitados na maioria das rotas do sistema, consequentemente necessitando-se fazer a verificação de chaves a todo momento, sendo assim, a utilização de um método menos custoso se faz benéfico.
+
 \subsection{Rotas}
+As rotas de aplicação estão organizadas no diretório controller da aplicação, tendo sido implementadas de acordo com o tipo de persistência que elas representam. A seguir, uma listagem organizada pelos \textit{endpoints} das rotas e uma descrição sobre sua funcionalidade:
 
+\begin{description}
+	\item[client] A rota client possui dois \textit{endpoints} que podem ser acessados através de chamadas pelo método HTTP GET e HTTP POST. O método GET retorna uma lista em formato JSON de todos os clients cadastrados no sistema. O método POST recebe um client em formato JSON e cadastra-o no banco.
+	
+	\item[token] A rota token possui apenas um \textit{endpoint} chamado revoke, o qual é responsável por remover do banco de dados o Access Token e Refresh Token relacionados a um determinado cliente. Este \textit{endpoint} é utilizado para realizar o \textit{signout} da aplicação.
+	
+	\item[user] A rota user possui quatro \textit{endpoints}, sendo o primeiro podendo ser chamado pelo método GET e retornando todos os usuários persistidos. O segundo pelo método GET, passando-se como parâmetro o id do usuário que se quer retornar. O terceiro pelo método POST, passando-se como parâmetro o usuário em formato JSON que se quer persistir. O quarto pelo \textit{endpoint} accesstoken e método GET, passando-se como parâmetro o Access Token do usuário que se quer retornar.
+\end{description}
 
-\subsection{Socket}
+As rotas seguem o padrão de utilização dos métodos HTTP para realização do CRUD em APIs, sendo os \textit{endpoints} citados funcionalidades da aplicação, e são protegidos de acordo com as especificações faladas no tópico Autenticação e Autorização. Estes \textit{endpoints} são chamados pela aplicação \textit{frontend}, que passa em cada \textit{request} todas as informações de autenticação necessária, e trata os dados de sucesso ou erro que cada \textit{endpoint} retorna.
 
+\subsection{Chat}
+O desenvolvimento da comunicação em tempo real do \textit{chat} é a principal funcionalidade do \textit{backend} da aplicação. Os arquivos de implementação estão localizados no diretório domain, onde três arquivos implementam todas as funcionalidades relacionadas.
+
+Inicialmente foi feito o \textit{download} pelo NPM das bibliotecas socket.io e redis. A inicialização do servidor de conexão do socket.io foi feita no arquivo de inicialização do servidor através da porta 1200. A conexão com o banco de dados Redis foi feita no arquivo que trava os eventos dos \textit{sockets}.
+
+Com a biblioteca devidamente configurada, o servidor já está pronto para receber conexões \textit{socket}. No arquivo socketBootstrap.js criamos um sistema de inicialização que cria um \textit{namespace} de conexão chamado chat, e também realiza a autenticação dos usuários que tentam estabelecer uma conexão por \textit{socket} com o servidor. Para tratar a autenticação, utilizamos uma biblioteca \cite{socketio-auth} que oferece uma solução semelhante a explicada no tópico Autenticação e Autorização.
+
+No arquivo chatSocketHandler.js implementamos todos os eventos de envio e recebimento de mensagens dos \textit{sockets}. Visando a utilização do protocolo PUB/SUB, abrimos três conexões/canais com o nosso servidor Redis, o primeiro para \textit{publish} de mensagens, o segundo para \textit{subcription} e o terceiro para \textit{storage} de informações dos usuários \textit{online}.
+
+A seguir uma lista dos eventos emitidos e recebidos no \textit{namespace} chat e a descrição de seu funcionamento:
+
+\begin{description}
+	\item[disconnect] Este evento é emitido por um cliente que se desconectou do servidor. Neste evento tratamos de remover este usuário da lista de usuários \textit{online} do \textit{storage} e lançamos um evento chat:signout, comunicando a todos os usuários que aquele usuário se desconectou, logo devem o remove-lo de seu mapa.
+	
+	\item[chat:signout] Este evento é emitido para todos os usuários, informando-os o id de um usuário que acabou de se desconectar do servidor. Quando este evento é recebido pelo cliente, ele procura e remove este usuário do seu mapa.
+	
+	\item[chat:new] Este evento é emitido pelo cliente quando ele inicia um \textit{chat} com outro usuário. Este evento procura no banco de dados a existência de uma conversa entre os dois usuários, caso exista, esta conversa é lida com as últimas 15 mensagens registradas. Caso não exista, é criada uma nova conversa entre os usuários.
+	
+	\item[chat:online:list] Este evento é recebido pelo servidor e emitido por ele próprio com uma lista de informações de todos os usuários \textit{online}, inclusive suas respectivas localizações geográficas.
+	
+	\item[chat:message:send] Este evento é emitido pelo cliente quando ele clica no botão de enviar de um janela de \textit{chat}. Neste evento é enviado os dados do \textit{chat}, como a mensagem e o id do chat, e o \textit{handler} deste evento no servidor registra e mensagem no banco de dados e a envia para todos os membros da conversa.
+	
+	\item[chat:message] Todo cliente é capaz de receber este evento. Quando o servidor recebe um evento chat:message:send, ele registra a mensagem no banco e envia para cada membro do \textit{chat} a respectiva mensagem através deste evento.
+	
+	\item[chat:position:update] Este evento é emitido pelo cliente, com latitude e longitude de sua localização geográfica, quando ele se conecta ao \textit{chat} e quando ele se movimento pelo menos 100 metros em alguma direção. Após receber este evento o servidor emite o mesmo, juntamente com os dados do usuário para todos os outros clientes, assim eles podem atualizar a localização real do usuário em seus mapas.
+	
+	\item[chat:ready] Este evento é emitido pelo servidor para um usuário que acabou de se conectar após todos os eventos relacionados aquele a ele tenham sido registrados.
+\end{description}
+
+É importante frisar a emissão de eventos por parte do servidor são feitas através da função init, que é registrada quando se executa o servidor, onde esta função utiliza o sistema de PUB/SUB do redis para receber as mensagens, procurar a existência do \textit{socket} de destino em sua lista de \textit{sockets} conectados a aquele servidor, e se encontrado a mensagem é enviada a ele. Este esquema de funcionamento é que permite a comunicação entre os diversos servidores que a aplicação pode ter, pois todos os servidores irão receber uma mensagem publicada no Redis por algum deles, podendo assim verificar se a mensagem pertence a algum de seus clientes e enviá-la ou não.
+
+Toda a interação com o banco de dados é feita através do repositório criado no arquivo chatSocketHandler.js. Neste arquivo estão implementados diversos métodos e serviços de CRUD para os eventos dos \textit{sockets}.
 
 \section{Frontend}
+
 
