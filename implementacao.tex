@@ -1,7 +1,7 @@
 \chapter{Implementação}
 A implementação do sistema segue todas as diretrizes de tecnologias e conceitos apresentados até este tópico. A descrição de como a implementação foi feita será dividida em duas partes principais: \textit{backend} e \textit{frontend}. Sendo a parte de \textit{backend} a implementação da infraestrutura e servidor da aplicação, e na parte do \textit{frontend} a implementação de interface com o usuário. No desenvolvimento elegemos um nome fictício para a aplicação, chamado Orb. Este nome será utilizado para remeter a aplicação em alguns textos, logos, implementações, entre outros.
 
-O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \textit{software open-source}, liberado para utilização através da licença MIT \cite{mit}. A abordagem utilizada para a descrição da implementação feita fará referências pontuais a trechos do código-fonte que poderão ser consultados pelo leitor no repositório informado \cite{orb}, evitando-se ao máximo a exposição de código neste formato de texto que não é favorável a análise deste tipo de conteúdo.
+O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \textit{software open-source}, liberado para utilização através da licença MIT \cite{mit}. A abordagem utilizada para a descrição da implementação feita fará referências pontuais a trechos do código-fonte que poderão ser consultados pelo leitor no repositório informado \cite{orb}, evitando-se assim a exposição de código neste formato de texto que não é favorável a análise deste tipo de conteúdo.
 
 \section{Backend}
 Primeiramente iremos descrever a criação do ambiente de desenvolvimento do projeto, onde inicialmente foi instalado o sistema operacional e todas as ferramentas que decidimos utilizar para a construção da aplicação, e posteriormente iniciamos o processo de codificação.
@@ -104,5 +104,40 @@ A seguir uma lista dos eventos emitidos e recebidos no \textit{namespace} chat e
 Toda a interação com o banco de dados é feita através do repositório criado no arquivo chatSocketHandler.js. Neste arquivo estão implementados diversos métodos e serviços de CRUD para os eventos dos \textit{sockets}.
 
 \section{Frontend}
+O desenvolvimento da aplicação \textit{frontend} foi feito com AngularJS. O uso deste \textit{framework} trouxe para a aplicação algumas características importantes para a construção de interfaces, como o conceito de SPA e um padrão de projeto, que quando se lançou a ferramenta a documentação declarava este padrão como MVVA, mas ao longo do tempo os desenvolvedores foram adquirindo novas formas de se trabalhar com o AngularJS, criando-se divergências sobre qual modelo realmente é empregado, sendo assim a documentação oficial declarou o modelo MVW. Este modelo de \textit{design pattern} tem algumas semelhanças com o aplicado no projeto de \textit{backend}.
 
+Para começar o desenvolvimento, criamos um diretório chamado \textit{frontend} na pasta raiz da aplicação. Dentro deste diretório criamos duas pastas, dist e src, onde na pasta dist ficam todos os arquivos que estão prontos para serem distribuídos pelo servidor da aplicação, como imagens, bibliotecas de terceiros e fontes. Na pasta src contém todos os arquivos que serão processados por algum \textit{plugin} do Gulp que gerará um arquivo correspondente na pasta dist, como os arquivos da pasta app, referente a aplicação Angular, arquivos SASS, referente a estilos, entre outros. Também inicializamos os gerenciadores de pacotes NPM e Bower, e o WebPack.
 
+No diretório app, temos os arquivos relacionados ao projeto AngularJS. Na pasta controller deste diretório estão implementados os \textit{controllers}, que controlam blocos de componentes HTML em uma página, eles são ligados ao DOM, e através deles é possível manipular os dados da \textit{view} através dos \textit{models} implementados, assim como vincular métodos com ações, entre outras funcionalidades. Os \textit{controllers} foram utilizados para criar diversas interações na aplicação, como a abertura de novas janelas de \textit{chat}, envio de mensagens, \textit{handlers} dos eventos dos \textit{sockets}, entre outros. O diretório directives possui pastas que contém implementações de diretivas AngularJS, como o painel de \textit{chats}, a janela de \textit{chat}, lista de contatos, entre outros. Cada pasta possui todos os arquivos relacionados a aquela diretiva específica, como \textit{controllers}, \textit{services} e \textit{view}. O diretório services possui serviços AngularJS que implementam funcionalidades de lógica de negócio e de repositórios que fazem acesso aos \textit{endpoints} da API para inserir ou ler dados.
+
+Apesar da utilização do Angular Material em muitos dos componentes da interface, também implementamos alguns componentes próprios, como o \textit{header}, painel de \textit{chats}, a janela de \textit{chat}, entre outros. O diretório styles possui todas as implementações em SASS das folhas de estilo.
+
+A seguir podemos observar algumas imagens da interface depois de implementada:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.37]{imagens/pagina_signin.png}
+	\caption{\small Página de acesso ao sistema.}
+	\label{fig:pagina-signin}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.37]{imagens/pagina.png}
+	\caption{\small Página principal}
+	\label{fig:pagina}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=1]{imagens/aside_menu.png}
+	\caption{\small Menu lateral}
+	\label{fig:aside-menu}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=1]{imagens/chat_panel.png}
+	\caption{\small Janelas de \textit{chat}}
+	\label{fig:chat-panel}
+\end{figure}

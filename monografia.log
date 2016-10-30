@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  29 OCT 2016 04:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  30 OCT 2016 02:24
 entering extended mode
 **./monografia.tex
 (monografia.tex
@@ -1203,12 +1203,53 @@ File: imagens/oauth2.png Graphic file (type png)
 Package pdftex.def Info: imagens/oauth2.png used on input line 53.
 (pdftex.def)             Requested size: 413.14711pt x 200.30257pt.
 
-[40 <./imagens/oauth2.png>] [41] [42]) [43]
+[40 <./imagens/oauth2.png>] [41] [42] [43]
+<imagens/pagina_signin.png, id=155, 1264.725pt x 790.45313pt>
+File: imagens/pagina_signin.png Graphic file (type png)
+
+<use imagens/pagina_signin.png>
+Package pdftex.def Info: imagens/pagina_signin.png used on input line 119.
+(pdftex.def)             Requested size: 467.94093pt x 292.46307pt.
+
+Overfull \hbox (12.69682pt too wide) in paragraph at lines 119--120
+ [][] 
+ []
+
+<imagens/pagina.png, id=156, 1264.725pt x 790.45313pt>
+File: imagens/pagina.png Graphic file (type png)
+
+<use imagens/pagina.png>
+Package pdftex.def Info: imagens/pagina.png used on input line 126.
+(pdftex.def)             Requested size: 467.94093pt x 292.46307pt.
+
+Overfull \hbox (12.69682pt too wide) in paragraph at lines 126--127
+ [][] 
+ []
+
+<imagens/aside_menu.png, id=157, 263.48438pt x 263.48438pt>
+File: imagens/aside_menu.png Graphic file (type png)
+
+<use imagens/aside_menu.png>
+Package pdftex.def Info: imagens/aside_menu.png used on input line 133.
+(pdftex.def)             Requested size: 263.48372pt x 263.48372pt.
+
+<imagens/chat_panel.png, id=158, 451.6875pt x 150.5625pt>
+File: imagens/chat_panel.png Graphic file (type png)
+
+<use imagens/chat_panel.png>
+Package pdftex.def Info: imagens/chat_panel.png used on input line 140.
+(pdftex.def)             Requested size: 451.68639pt x 150.56212pt.
+) [44]
+
+LaTeX Warning: Text page 45 contains only floats.
+
+[45 <./imagens/pagina_signin.png> <./imagens/pagina.png>] [46 <./imagens/aside_
+menu.png> <./imagens/chat_panel.png>]
 \openout2 = `resultados.aux'.
 
  (resultados.tex
 Cap\'{\i }tulo 6.
-) [44
+) [47
 
 
 
@@ -1217,7 +1258,7 @@ Cap\'{\i }tulo 6.
 
  (trabalhos_futuros.tex
 Cap\'{\i }tulo 7.
-) [45
+) [48
 
 
 
@@ -1226,199 +1267,199 @@ Cap\'{\i }tulo 7.
 
  (conclusao.tex
 Cap\'{\i }tulo 8.
-) [46
+) [49
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
 []\T1/ptm/m/n/12 Liveclicker De-li-vers Dy-na-mic Mes-sa-ging Ca-pa-bi-lity wit
 h Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
 \T1/ptm/m/n/12 al-Time Email So-lu-tion. Dis-po-ní-vel em: $\T1/pcr/m/n/12 http
  : / / www .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
 \T1/pcr/m/n/12 destinationcrm . com / Articles / CRM-[]News / CRM-[]Featured-[]
 News /
  []
 
 
-Overfull \hbox (89.32103pt too wide) in paragraph at lines 270--272
+Overfull \hbox (89.32103pt too wide) in paragraph at lines 271--273
 \T1/pcr/m/n/12 Liveclicker-[]Delivers-[]Dynamic-[]Messaging-[]Capability-[]with
 -[]RealTime-[]Email-[]Solution-[]97439 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 []\T1/ptm/m/n/12 50 Ama-zing Uber Sta-tis-tics (Oc-to-ber 2016). Dis-po-ní-vel 
 em: $\T1/pcr/m/n/12 http : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 \T1/pcr/m/n/12 expandedramblings . com / index . php / uber-[]statistics/$\T1/p
 tm/m/n/12 . Acesso em: 20 Out.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 283--285
 []\T1/ptm/m/n/12 How Uber Sca-les Their Real-Time Mar-ket Plat-form. Dis-po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 283--285
 \T1/ptm/m/n/12 ní-vel em: $\T1/pcr/m/n/12 http : / / highscalability . com / bl
 og / 2015 / 9 / 14 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 283--285
 \T1/pcr/m/n/12 how-[]uber-[]scales-[]their-[]real-[]time-[]market-[]platform . 
 html$\T1/ptm/m/n/12 . Acesso em: 20
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--287
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
 []\T1/ptm/m/n/12 Redis Publish-Subscribe (Re-disMVA). Dis-po-ní-vel em: $\T1/pc
 r/m/n/12 https : / / github .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--287
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
 \T1/pcr/m/n/12 com / sayar / RedisMVA / blob / master / module6 _ redis _ pubsu
 b / README . md #
  []
 
 
-Underfull \hbox (badness 6461) in paragraph at lines 291--293
+Underfull \hbox (badness 6461) in paragraph at lines 292--294
 []\T1/ptm/m/n/12 Redis Pub/-Sub (Ra-ja-ra-odv). Dis-po-ní-vel em: $\T1/pcr/m/n/
 12 https : / / github . com / rajaraodv /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--299
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
 []\T1/ptm/m/n/12 RadiusIM  So-cial Mes-sen-ger Com Busca Por Ge-o-tag-ging. Di
 s-po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--299
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
 \T1/ptm/m/n/12 ní-vel em: $\T1/pcr/m/n/12 http : / / br . wwwhatsnew . com / 20
 08 / 09 / radiusim-[] % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 297--299
+Underfull \hbox (badness 3930) in paragraph at lines 298--300
 \T1/pcr/m/n/12 93-[]social-[]messenger-[]por-[]com-[]busca-[]por-[]geotagging/$
 \T1/ptm/m/n/12 . Acesso em: 20 Out.
  []
 
-[47
+[50
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 []\T1/ptm/m/n/12 How Much Web Traf-fic Is On Mo-bile De-vi-ces (Re-ally)? Dis-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 \T1/ptm/m/n/12 po-ní-vel em: $\T1/pcr/m/n/12 https : / / keriganmarketing . com
  / freelunch / view /
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 315--317
+Underfull \hbox (badness 1694) in paragraph at lines 316--318
 []\T1/ptm/m/n/12 Internet stats and facts for 2016. Dis-po-ní-vel em: $\T1/pcr/
 m/n/12 https : / / hostingfacts . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--320
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
 []\T1/ptm/m/n/12 Mobile Mar-ke-ting Sta-tis-tics com-pi-la-tion. Dis-po-ní-vel 
 em: $\T1/pcr/m/n/12 http : / / www .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--320
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
 \T1/pcr/m/n/12 smartinsights . com / mobile-[]marketing / mobile-[]marketing-[]
 analytics /
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 321--323
+Underfull \hbox (badness 1377) in paragraph at lines 322--324
 []\T1/ptm/m/n/12 Notebook HP 1000-1460BR. Dis-po-ní-vel em: $\T1/pcr/m/n/12 htt
 p : / / www . lojahp . com . br / Voce /
  []
 
 
-Overfull \hbox (390.08006pt too wide) in paragraph at lines 321--323
+Overfull \hbox (390.08006pt too wide) in paragraph at lines 322--324
 \T1/pcr/m/n/12 Notebook / Notebook-[]HP-[]1000-[]1460BR-[]com-[]Intel-[]Core-[]
 i5-[]3230M-[]Windows-[]8-[]4GB-[]500GB-[]Gravador-[]de-[]DVD-[]Leitor-[]de-[]Ca
 rtoes-[]HDMI-[]e-[]LED-[]14-[]2177574 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--329
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
 []\T1/ptm/m/n/12 Red Hat En-ter-prise Li-nux Ato-mic Host ex-pands to Go-o-gle 
 Com-pute En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--329
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
 \T1/ptm/m/n/12 gine. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https : / / cloudplatfor
 m . googleblog . com / 2014 / 07 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--329
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
 \T1/pcr/m/n/12 red-[]hat-[]enterprise-[]linux-[]atomic-[]host-[]expands-[]to-[]
 google-[]compute-[]engine .
  []
 
 
-Underfull \hbox (badness 4316) in paragraph at lines 348--350
+Underfull \hbox (badness 4316) in paragraph at lines 349--351
 []\T1/ptm/m/n/12 Introdução ao Node.js. Dis-po-ní-vel em: $\T1/pcr/m/n/12 http 
 : / / maxroecker . github . io / blog /
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 423--425
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
 []\T1/ptm/m/n/12 passport-http-bearer. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https 
 : / / github . com / jaredhanson /
  []
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 426--428
+Underfull \hbox (badness 3646) in paragraph at lines 427--429
 []\T1/ptm/m/n/12 OAuth2orize. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https : / / git
 hub . com / jaredhanson / oauth2orize$\T1/ptm/m/n/12 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--431
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
 []\T1/ptm/m/n/12 OAUTH 2.0 SER-VER. Dis-po-ní-vel em: $\T1/pcr/m/n/12 http : / 
 / jlabusch . github . io /
  []
 
-[49]
+[52]
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[50] (monografia.aux (introducao.aux) (trabalhos_relacionados.aux)
+[53] (monografia.aux (introducao.aux) (trabalhos_relacionados.aux)
 (problematizacao.aux) (hardware_software_utilizado.aux) (implementacao.aux)
 (resultados.aux) (trabalhos_futuros.aux) (conclusao.aux)) ) 
 Here is how much of TeX's memory you used:
- 7309 strings out of 493335
- 95029 string characters out of 3139244
- 177117 words of memory out of 3000000
- 10553 multiletter control sequences out of 15000+200000
+ 7333 strings out of 493335
+ 95571 string characters out of 3139244
+ 177161 words of memory out of 3000000
+ 10573 multiletter control sequences out of 15000+200000
  75516 words of font info for 119 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,43p,1505b,355s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1428,9 +1469,9 @@ e1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
 mb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (51 pages, 1013325 bytes).
+Output written on monografia.pdf (54 pages, 1336795 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 215 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
