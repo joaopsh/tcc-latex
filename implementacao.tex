@@ -6,9 +6,9 @@ O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \texti
 \section{Backend}
 Primeiramente iremos descrever a criação do ambiente de desenvolvimento do projeto, onde inicialmente foi instalado o sistema operacional e todas as ferramentas que decidimos utilizar para a construção da aplicação, e posteriormente iniciamos o processo de codificação.
 
-Iniciando-se pelo sistema operacional, foi criada uma partição separada no disco rígido do computar que dispúnhamos, com volume de 60 GBs. O sistema operacinal escolhido para o ambiente de desenvolvimento foi de uma distribuição Linux chamada CentOS \cite{centos}, versão 7. A instalação do sistema operacional foi feita através de um \textit{pendrive} e foram seguidas todas as configurações padrões do \textit{wizard} de instalação do sistema.
+Iniciando-se pelo sistema operacional, foi criada uma partição separada no disco rígido, com volume de 60 GBs. O sistema operacinal escolhido para o ambiente de desenvolvimento foi de uma distribuição Linux chamada CentOS \cite{centos}, versão 7. A instalação do sistema operacional foi feita através de um \textit{pendrive} e foram seguidas todas as configurações padrões do \textit{wizard} de instalação do sistema.
 
-Após a instalação do sistema operacional, fizemos a instalação de todas as ferramentas, a nível de O.S., que foram escolhidas para o desenvolvimento da aplicação, como o NodeJS, MongoDB, Redis, editores de texto e navegadores. Todas estas ferramentas foram instaladas através do repositório de pacotes padrão do sistema CentOS 7, chamado YUM. Para algumas ferramentas foram necessário a atualização das fontes do repositório YUM e outras foram instaladas através de pacotes RPM disponibilizados no próprio site da ferramenta.
+Após a instalação do sistema operacional, foi feita a instalação de todas as ferramentas que foram escolhidas para o desenvolvimento da aplicação, como o NodeJS, MongoDB, Redis, editores de texto e navegadores. Todas estas ferramentas foram instaladas através do repositório de pacotes padrão do sistema CentOS 7, chamado YUM. Para algumas ferramentas foram necessário a atualização das fontes do repositório YUM e outras foram instaladas através de pacotes RPM (Red Hat Package Manager ou RPM Package Manager) disponibilizados no próprio site da ferramenta.
 
 A implementação do \textit{backend} iniciou-se com a criação de um diretório chamado backend na pasta raiz do projeto, do qual a partir dele foram seguidas recomendações de boas práticas \cite{express-app-structure} para a organização da estrutura de diretórios em aplicações ExpressJS. A seguinte listagem identifica o nome destes diretórios e suas respectivas funcionalidades:
 
@@ -17,7 +17,7 @@ A implementação do \textit{backend} iniciou-se com a criação de um diretóri
 	
 	\item[domain] Este diretório contém os arquivos relacionados a lógica de negócio da aplicação. Os \textit{handlers} que tratam as requisições \textit{websocket} da aplicação estão implementados em arquivos contidos nesta pasta.
 	
-	\item[helpers] Este diretório contém arquivos que implementam funcionalidades que podem ser utilizadas em diversos pontos do sistema, este diretório funciona como um \textit{cross-cutting layer} da aplicação. Nesta pasta estão implementados alguns métodos que ajudam na geração de \textit{random strings} e retorno de \textit{datetime} em formato UTC.
+	\item[helpers] Este diretório contém arquivos que implementam funcionalidades que podem ser utilizadas em diversos pontos do sistema, este diretório funciona como um \textit{cross-cutting layer} da aplicação. Nesta pasta estão implementados alguns métodos que ajudam na geração de \textit{random strings} e retorno de \textit{datetime} em formato UTC (Coordinated Universal Time).
 	
 	\item[middlewares] Este diretório contém arquivos relacionados a \textit{middlewares} de tratamento de requisições que chegam ao servidor, como realização de autenticação e autorização de acesso as rotas da aplicação.
 	
@@ -29,14 +29,14 @@ Após a definição da estrutura de diretórios da aplicação, foi realizada a 
 \subsection{Persistência}
 A persistência dos dados foi feita em um banco de dados MongoDB, onde para sua utilização foi feito o \textit{download} doo pacote Mongoose pelo NPM. A conexão com o banco foi feita no arquivo de inicialização da aplicação, através do método connect do próprio Mongoose, passando-se como parâmetros uma \textit{connection string} com o endereço local do banco de dados. Por ser um ambiente de testes, não utilizamos autenticação com o banco de dados, mas caso fosse necessário, bastava-se apenas adicionar os dados de \textit{username:password} na própria \textit{connection string}.
 
-No diretório \textit{models} foram criados arquivos para cada objeto que fosse ser persistido no banco. As implementações da persistência utilizaram o Mongoose como modelo, exportando de cada módulo o objeto \textit{schema} de cada persistência, podendo através deste realizar todas as operações de CRUD.
+No diretório \textit{models} foram criados arquivos para cada objeto que fosse ser persistido no banco. As implementações da persistência utilizaram o Mongoose como modelo, exportando de cada módulo o objeto \textit{schema} de cada persistência, podendo através deste realizar todas as operações de CRUD (Create, Read, Update, Delete).
 
 A seguinte imagem ilustra a representação dos objetos persistidos no banco de dados:
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[scale=0.85]{imagens/models_uml.png}
-	\caption{\small Representação UML dos modelos persistidos no banco de dados.}
+	\caption{\small Representação UML (Unified Modeling Language) dos modelos persistidos no banco de dados.}
 	\label{fig:modelsuml}
 \end{figure}
 
@@ -104,7 +104,7 @@ A seguir uma lista dos eventos emitidos e recebidos no \textit{namespace} chat e
 Toda a interação com o banco de dados é feita através do repositório criado no arquivo chatSocketHandler.js. Neste arquivo estão implementados diversos métodos e serviços de CRUD para os eventos dos \textit{sockets}.
 
 \section{Frontend}
-O desenvolvimento da aplicação \textit{frontend} foi feito com AngularJS. O uso deste \textit{framework} trouxe para a aplicação algumas características importantes para a construção de interfaces, como o conceito de SPA e um padrão de projeto, que quando se lançou a ferramenta a documentação declarava este padrão como MVVA, mas ao longo do tempo os desenvolvedores foram adquirindo novas formas de se trabalhar com o AngularJS, criando-se divergências sobre qual modelo realmente é empregado, sendo assim a documentação oficial declarou o modelo MVW. Este modelo de \textit{design pattern} tem algumas semelhanças com o aplicado no projeto de \textit{backend}.
+O desenvolvimento da aplicação \textit{frontend} foi feito com AngularJS. O uso deste \textit{framework} trouxe para a aplicação algumas características importantes para a construção de interfaces, como o conceito de SPA e um padrão de projeto, que quando se lançou a ferramenta a documentação declarava este padrão como MVVA, mas ao longo do tempo os desenvolvedores foram adquirindo novas formas de se trabalhar com o AngularJS, criando-se divergências sobre qual modelo realmente é empregado, sendo assim a documentação oficial declarou o modelo MVW (Model-View-Whatever). Este modelo de \textit{design pattern} tem algumas semelhanças com o aplicado no projeto de \textit{backend}.
 
 Para começar o desenvolvimento, criamos um diretório chamado \textit{frontend} na pasta raiz da aplicação. Dentro deste diretório criamos duas pastas, dist e src, onde na pasta dist ficam todos os arquivos que estão prontos para serem distribuídos pelo servidor da aplicação, como imagens, bibliotecas de terceiros e fontes. Na pasta src contém todos os arquivos que serão processados por algum \textit{plugin} do Gulp que gerará um arquivo correspondente na pasta dist, como os arquivos da pasta app, referente a aplicação Angular, arquivos SASS, referente a estilos, entre outros. Também inicializamos os gerenciadores de pacotes NPM e Bower, e o WebPack.
 

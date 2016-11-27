@@ -4,43 +4,43 @@
 \contentsline {section}{\numberline {1.2}Objetivos}{15}
 \contentsline {chapter}{\numberline {2}Trabalhos Relacionados}{16}
 \contentsline {section}{\numberline {2.1}Uber}{16}
-\contentsline {section}{\numberline {2.2}Redis Publish-Subscribe (RedisMVA) }{17}
-\contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{17}
-\contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{18}
-\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{19}
-\contentsline {chapter}{\numberline {3}Problematiza\IeC {\c c}\IeC {\~a}o}{21}
-\contentsline {section}{\numberline {3.1}Caracteriza\IeC {\c c}\IeC {\~a}o do Problema}{21}
-\contentsline {section}{\numberline {3.2}Solu\IeC {\c c}\IeC {\~a}o Proposta}{22}
-\contentsline {chapter}{\numberline {4}Hardware e Software Utilizados}{24}
-\contentsline {section}{\numberline {4.1}Codifica\IeC {\c c}\IeC {\~a}o e Testes}{24}
-\contentsline {subsection}{\numberline {4.1.1}Ambiente de Desenvolvimento}{24}
-\contentsline {subsection}{\numberline {4.1.2}Versionamento de C\IeC {\'o}digo}{25}
-\contentsline {subsection}{\numberline {4.1.3}Editores de Texto}{25}
-\contentsline {section}{\numberline {4.2}Back-end}{26}
-\contentsline {subsection}{\numberline {4.2.1}NodeJS}{26}
-\contentsline {subsection}{\numberline {4.2.2}NPM}{28}
-\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{28}
-\contentsline {subsection}{\numberline {4.2.4}SocketIO}{29}
-\contentsline {subsection}{\numberline {4.2.5}MongoDB}{30}
-\contentsline {subsection}{\numberline {4.2.6}Redis}{30}
-\contentsline {section}{\numberline {4.3}Front-end}{31}
-\contentsline {subsection}{\numberline {4.3.1}Bower}{31}
-\contentsline {subsection}{\numberline {4.3.2}AngularJS}{31}
-\contentsline {subsection}{\numberline {4.3.3}Angular Material}{32}
-\contentsline {subsection}{\numberline {4.3.4}Gulp}{33}
-\contentsline {subsection}{\numberline {4.3.5}SASS}{33}
-\contentsline {subsection}{\numberline {4.3.6}HAML}{33}
-\contentsline {subsection}{\numberline {4.3.7}Webpack}{34}
-\contentsline {subsection}{\numberline {4.3.8}Babel}{34}
-\contentsline {subsection}{\numberline {4.3.9}Nginx}{35}
-\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{36}
-\contentsline {section}{\numberline {5.1}Backend}{36}
-\contentsline {subsection}{\numberline {5.1.1}Persist\IeC {\^e}ncia}{38}
-\contentsline {subsection}{\numberline {5.1.2}Autentica\IeC {\c c}\IeC {\~a}o e Autoriza\IeC {\c c}\IeC {\~a}o}{39}
-\contentsline {subsection}{\numberline {5.1.3}Rotas}{40}
-\contentsline {subsection}{\numberline {5.1.4}Socket}{41}
-\contentsline {section}{\numberline {5.2}Frontend}{43}
-\contentsline {chapter}{\numberline {6}Resultados}{46}
-\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{47}
-\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{48}
-\contentsline {chapter}{Refer\^encias}{49}
+\contentsline {section}{\numberline {2.2}Redis Publish-Subscribe (RedisMVA) }{18}
+\contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{18}
+\contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{19}
+\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{22}
+\contentsline {chapter}{\numberline {3}Problematiza\IeC {\c c}\IeC {\~a}o}{25}
+\contentsline {section}{\numberline {3.1}Caracteriza\IeC {\c c}\IeC {\~a}o do Problema}{25}
+\contentsline {section}{\numberline {3.2}Solu\IeC {\c c}\IeC {\~a}o Proposta}{26}
+\contentsline {chapter}{\numberline {4}Hardware e Software Utilizados}{28}
+\contentsline {section}{\numberline {4.1}Codifica\IeC {\c c}\IeC {\~a}o e Testes}{28}
+\contentsline {subsection}{\numberline {4.1.1}Ambiente de Desenvolvimento}{28}
+\contentsline {subsection}{\numberline {4.1.2}Versionamento de C\IeC {\'o}digo}{29}
+\contentsline {subsection}{\numberline {4.1.3}Editores de Texto}{29}
+\contentsline {section}{\numberline {4.2}Back-end}{30}
+\contentsline {subsection}{\numberline {4.2.1}NodeJS}{30}
+\contentsline {subsection}{\numberline {4.2.2}NPM}{31}
+\contentsline {subsection}{\numberline {4.2.3}ExpressJS}{32}
+\contentsline {subsection}{\numberline {4.2.4}SocketIO}{32}
+\contentsline {subsection}{\numberline {4.2.5}MongoDB}{34}
+\contentsline {subsection}{\numberline {4.2.6}Redis}{34}
+\contentsline {section}{\numberline {4.3}Front-end}{35}
+\contentsline {subsection}{\numberline {4.3.1}Bower}{35}
+\contentsline {subsection}{\numberline {4.3.2}AngularJS}{35}
+\contentsline {subsection}{\numberline {4.3.3}Angular Material}{36}
+\contentsline {subsection}{\numberline {4.3.4}Gulp}{37}
+\contentsline {subsection}{\numberline {4.3.5}SASS}{37}
+\contentsline {subsection}{\numberline {4.3.6}HAML}{37}
+\contentsline {subsection}{\numberline {4.3.7}Webpack}{38}
+\contentsline {subsection}{\numberline {4.3.8}Babel}{38}
+\contentsline {subsection}{\numberline {4.3.9}Nginx}{39}
+\contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{40}
+\contentsline {section}{\numberline {5.1}Backend}{40}
+\contentsline {subsection}{\numberline {5.1.1}Persist\IeC {\^e}ncia}{42}
+\contentsline {subsection}{\numberline {5.1.2}Autentica\IeC {\c c}\IeC {\~a}o e Autoriza\IeC {\c c}\IeC {\~a}o}{43}
+\contentsline {subsection}{\numberline {5.1.3}Rotas}{44}
+\contentsline {subsection}{\numberline {5.1.4}Socket}{45}
+\contentsline {section}{\numberline {5.2}Frontend}{47}
+\contentsline {chapter}{\numberline {6}Resultados}{50}
+\contentsline {chapter}{\numberline {7}Trabalhos Futuros}{51}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{52}
+\contentsline {chapter}{Refer\^encias}{53}

@@ -1,59 +1,118 @@
 \chapter{Trabalhos Relacionados}
-Com o objetivo de situar-se melhor em relação ao funcionamento da arquitetura e funcionalidades do sistema, analisamos alguns trabalhos que se assemelham em um ou mais aspectos da aplicação desenvolvida. Dentre estas, estão relacionadas propostas de implementação, que explicam o funcionamento da arquitetura de aplicações tempo-real, e também projetos que foram publicados como produto de mercado.
+Com o objetivo de situar o presente trabalho em relação ao funcionamento da arquitetura e funcionalidades do sistema, analisamos alguns trabalhos que se assemelham em um ou mais aspectos da aplicação desenvolvida. Dentre estas, estão relacionadas propostas de implementação, que explicam o funcionamento da arquitetura de aplicações tempo-real, e também projetos que foram publicados como produto de mercado.
 
-Iremos fazer uma breve análise de cada uma das plataformas, sendo que algumas análises serão fundamentadas em publicações que falam sobre o funcionamento destas, pois as mesmas não se encontram mais disponíveis para acesso. Resolvemos incluí-las em nossa documentação, pois são ferramentas que tentaram como produto final uma aplicação muito semelhante a que iremos desenvolvedor como caso de estudo.
+Será feita uma breve análise de cada uma das plataformas, sendo que algumas análises serão fundamentadas em publicações que falam sobre o funcionamento destas, pois as mesmas não se encontram mais disponíveis para acesso. Contudo, são ferramentas que tentaram como produto final uma aplicação muito semelhante a desenvolvida como caso de estudo neste trabalho.
 
 \section{Uber}
-Iniciando a pesquisa sobre o desenvolvimento de uma aplicação tempo-real, buscamos uma referência de grande escala \cite{uber-statistics}. O Uber \cite{uber} é uma aplicação \textit{web} e \textit{mobile} que oferece serviços de transporte urbano privado através de pessoas que se disponibilizam a serem motoristas e estarem disponíveis na plataforma para alguma oferta de demanda.
+Iniciando a pesquisa sobre o desenvolvimento de uma aplicação tempo-real, foi buscada uma referência, que segundo estatísticas \cite{uber-statistics}, é considerada uma aplicação de grande escala. O Uber \cite{uber} é uma aplicação \textit{web} e \textit{mobile} que oferece serviços de transporte urbano privado através de pessoas que se disponibilizam a serem motoristas e estarem disponíveis na plataforma para alguma oferta de demanda.
+
+\begin{figure}[!b]
+	\centering
+	\includegraphics[scale=0.6]{imagens/uber.png}
+	\caption{\small Interface principal do Uber Mobile. Fonte: Referral SaaSquatch \cite{uber-imgs}}
+	\label{fig:uber-main-interface}
+\end{figure}
+
+\begin{figure}[!b]
+	\centering
+	\includegraphics[scale=0.7]{imagens/uber2.png}
+	\caption{\small Interface de pagamento do Uber Web. Fonte: Referral SaaSquatch \cite{uber-imgs}}
+	\label{fig:uber-payment-interface}
+\end{figure}
+
 
 Encontramos uma publicação \cite{uber-how-scales} que fez-se de grande valia para o inicio da escolha das tecnologias que utilizamos para desenvolver a aplicação deste trabalho. A publicação fala sobre como era a arquitetura do sistema, para quais possibilidades ela foi pensada, e sobre a nova organização do sistema e quais tecnologias utilizam para suportar tamanha demanda \cite{uber-statistics}.
 
-É notório ao longo do trabalho que a arquitetura aplicada para desenvolvimento da aplicação não se aproxima em muitos pontos da aplicada no Uber, mas após o estudo da publicação, fomos fomentados a pesquisar algumas das tecnologias utilizadas e como aplicá-las em nosso projeto, onde a principal influência foi a utilização do Redis como banco de dados em memória, e não diretamente uma influencia, mas uma consolidação de ideias, a utilização do NodeJS e um banco de dados NoSQL para persistência dos dados.
+É notório ao longo do trabalho que a arquitetura aplicada para desenvolvimento da aplicação não se aproxima em muitos pontos da aplicada no Uber, mas após o estudo da publicação, fomos fomentados a pesquisar algumas das tecnologias utilizadas e como aplicá-las em nosso projeto. A principal influência retirada deste projeto foi a utilização do Redis como banco de dados em memória, e não diretamente uma influencia, mas uma consolidação de ideias, a utilização do NodeJS e um banco de dados NoSQL (Not Only Structured Query Language) para persistência dos dados.
 
 \section{Redis Publish-Subscribe (RedisMVA) }
-Esta publicação \cite{redis-pubsub-redismva} faz parte de um projeto demonstrativo da utilização do padrão de comunicação pub/sub, com um banco de dados NoSQL, chamado Redis. A publicação fala sobre a implementação em NodeJS de um \textit{chat} de comunicação por texto, utilizando o padrão pub/sub para realizar a comunicação entre processos, onde os processos são as diversas instâncias que podem ser executadas de um mesmo servidor NodeJS distribuídos em diversos locais na internet.
+Esta publicação \cite{redis-pubsub-redismva} faz parte de um projeto demonstrativo da utilização do padrão de comunicação pub/sub (Publish/Subscription), com um banco de dados NoSQL, chamado Redis. É abordada a implementação em NodeJS de um \textit{chat} de comunicação por texto, utilizando o padrão pub/sub para realizar a comunicação entre processos, onde os processos são as diversas instâncias que podem ser executadas de um mesmo servidor NodeJS distribuídos em diversos locais na internet.
 
 O estudo desta publicação serviu como grande base de aprendizado para a elaboração da arquitetura do sistema que desenvolvemos, pois utilizava tecnologias atuais e que já tínhamos como plano para a implementação do nosso sistema, como citamos no caso do Uber. A utilização da linguagem de programação JavaScript, naturalmente traz um certo intimismo para quem já desenvolve para a \textit{web}, dado que ela pode ser considerada a linguagem da \textit{web} (\textit{client-side}), pois todos os maiores navegadores \textit{web} \cite{browsers-usage} utilizados no mundo interpretam a linguagem nativamente, sendo muito comum programadores voltados para a área já terem tido algum contato com a linguagem.
 
 O autor da publicação disponibiliza todo o código fonte do projeto de demonstração com licença aberta, sendo assim, ele discorre sobre o tema de forma muito objetiva, apenas abordando em seu texto os pontos de interseção em que a implementação da comunicação pub/sub se insere. O texto oferece uma didática teórica de boa qualidade, demonstrando com diagramas e imagens da aplicação real, o funcionamento de cada passo do qual explica no documento.
 
-A demonstração dos fluxos de dados que ocorrem no sistema ficam bem representadas com os diagramas, embora alguns destes fluxos não estejam implementados no sistema, como o balanceador de carga, visto que não era o foco de esclarecimento, é simples entender como a interface envia os dados para o servidor, que distribui os dados para os outros clientes conectados.
+A demonstração dos fluxos de dados que ocorrem no sistema ficam bem representadas com os diagramas, embora alguns destes fluxos não estejam implementados no sistema, como o balanceador de carga, visto que não era o foco de esclarecimento. É simples entender como a interface envia os dados para o servidor, que distribui os dados para os outros clientes conectados.
 
 \section{Redis Pub-Sub (Rajaraodv)}
 Esta publicação \cite{redis-pubsub-rajaraodv} fala sobre o mesmo assunto da citação anterior, que é a implementação de um chat por texto utilizando NodeJS e banco de dados Redis, mas nesta publicação o autor é mais abrangente no quesito de infraestrutura e escalabilidade da aplicação, abordando todos os passos para uma implantação completa do sistema em um servidor.
 
 O texto da publicação é muito explicativo, é possível até para os mais principiantes no assunto de aplicações tempo-real entenderem a implementação e a finalidade de cada passo relatado. O texto também conta com ilustrações dos fluxos de dados na aplicação e demonstrações do funcionamento da interface.
 
-O que se pode extrair do conteúdo desta publicação além da anterior, é a implementação do balanceador de carga, em conjunto com o \textit{proxy} reverso Nginx, o conceito de \textit{sticky sessions} para traçar requisições a um mesmo servidor, e a integração do sistema em um servidor na nuvem (conjunto de recursos computacionais na internet, dedicados a hospedar aplicações de diversos tipos). 
+O que se pode extrair do conteúdo desta publicação além da anterior, é a implementação do balanceador de carga, em conjunto com o \textit{proxy} reverso Nginx (aplicação que controla como será feito o fluxo de dados de fora para dentro da rede de servidores), o conceito de \textit{sticky sessions} (técnica que grava nas requisições de um cliente informações sobre servidor de origem da sessão) para traçar requisições a um mesmo servidor, e a integração do sistema em um servidor na nuvem (conjunto de recursos computacionais na internet, dedicados a hospedar aplicações de diversos tipos). 
 
-Após o estudo da publicação deste autor, utilizamos em nossa implementação a utilização do Nginx. Entendemos a ideia de centralizar a distribuição de conteúdo estático da aplicação, como a interface, e canalizar as conexões aos servidores através de um ponto em comum, facilitando assim o gerenciamento para futuras implementações de \textit{sticky sessions}, balanceamento de carga, reconexão em casos de \textit{scale-up} ou \textit{scale-out} dos servidores (aumento e diminuição do número de servidores), entre outros benefícios que este tipo de arquitetura pode prover para as aplicações modernas, aspirando o rumo em que a tecnologia vem tomando com o crescimento exponencial de usuários, consumo de dados, globalização, entre outros, que contribuem para a necessidade de se construir sistemas que sejam distribuídos e escaláveis, alcançando altos desempenhos.
+Após o estudo da publicação deste autor, utilizamos em nossa implementação a utilização do Nginx. Entendemos a ideia de centralizar a distribuição de conteúdo estático da aplicação, como a interface, e canalizar as conexões aos servidores através de um ponto em comum, facilitando assim o gerenciamento para futuras implementações de \textit{sticky sessions}, balanceamento de carga, reconexão em casos de \textit{scale-up} ou \textit{scale-out} dos servidores (aumento e diminuição do número de servidores), entre outros benefícios que este tipo de arquitetura pode prover para as aplicações modernas. Tudo isso aspira o rumo em que a tecnologia vem tomando com o crescimento exponencial de usuários, consumo de dados, globalização, entre outros, que contribuem para a necessidade de se construir sistemas que sejam distribuídos e escaláveis, alcançando altos desempenhos.
 
 \section{FanMappr e RadiusIM}
-O FanMappr \cite{fanmappr} e o RadiousIM \cite{radiusim} são aplicações baseadas em \textit{chat} por localização geográfica, mas que foram disponibilizadas como produto, com a proposta de criarem relações sociais através da busca de usuários por localização, ou seja, são redes sociais e tinham isso como proposta final. Após uma análise mais técnica nos dois últimos tópicos em relação ao desenvolvimento da aplicação, agora iremos analisar ferramentas que implementam como um produto, aplicações que tem funcionalidades semelhantes as do nosso projeto.  
+O FanMappr \cite{fanmappr} e o RadiousIM \cite{radiusim} são aplicações baseadas em \textit{chat} por localização geográfica, mas que foram disponibilizadas como produto, com a proposta de criarem relações sociais através da busca de usuários por localização, ou seja, são redes sociais e tinham isso como proposta final. Após uma análise mais técnica nos dois últimos tópicos em relação ao desenvolvimento da aplicação, agora iremos analisar ferramentas que implementam como um produto, aplicações que tem funcionalidades semelhantes as do nosso projeto.
 
-Encontramos o FanMappr e RadiusIM após algumas poucas pesquisas que buscavam especificamente produtos que tivessem funcionalidades muito próximas das que implementamos em nossa aplicação. O FanMappr é uma aplicação com interface e funcionalidades aparentemente modestas, navegando entre os poucos menus que possui, percebemos que as funcionalidades se restringem somente ao \textit{chat} por texto e a um mapa terrestre onde os usuários são localizados. O RadiusIM não está mais disponível para acesso, mas encontramos uma publicação \cite{radiusim} que possuía algumas imagens sobre a aplicação e uma breve explicação do seu funcionamento, que também é muito semelhante com do FanMappr, mas o RadiusIM, apesar de parecer ter tido mais sucesso, nos anos 2000, presume-se que teve um investimento maior, pois possuía uma interface mais harmoniosa e funcionalidades que eram o de se esperar para sua época.
+\begin{figure}[!b]
+	\centering
+	\includegraphics[scale=0.5]{imagens/fanmappr.png}
+	\caption{\small Interface principal do FanMappr}
+	\label{fig:fanmappr-principal}
+\end{figure}
+
+Encontramos o FanMappr e RadiusIM após algumas poucas pesquisas que buscavam especificamente produtos que tivessem funcionalidades muito próximas das que implementamos em nossa aplicação. O FanMappr é uma aplicação com interface e funcionalidades aparentemente modestas, navegando entre os poucos menus que possui, percebemos que as funcionalidades se restringem somente ao \textit{chat} por texto e a um mapa terrestre onde os usuários são localizados. O RadiusIM não está mais disponível para acesso, mas encontramos uma publicação \cite{radiusim} que possuía algumas imagens sobre a aplicação e uma breve explicação do seu funcionamento.
+
+\begin{figure}[]
+	\centering
+	\includegraphics[scale=0.9]{imagens/radiusim.jpg}
+	\caption{\small Interface principal do RadiusIM Fonte: wwwhats new \cite{radiusim}}
+	\label{fig:radiusim-principal}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[scale=0.9]{imagens/radiusim2.jpg}
+	\caption{\small Janela de \textit{chat} do RadiusIM Fonte: wwwhats new \cite{radiusim}}
+	\label{fig:radiusim-chat}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[scale=0.9]{imagens/radiusim3.jpg}
+	\caption{\small Interface de configuração do RadiusIM Fonte: wwwhats new \cite{radiusim}}
+	\label{fig:radiusim-configs}
+\end{figure}
+
+
+É possível notar que o RadiusIM também é muito semelhante com do FanMappr, apesar de parecer ter tido mais sucesso, nos anos 2000, presume-se que teve um investimento maior, pois possuía uma interface mais harmoniosa e funcionalidades que eram o de se esperar para sua época.
 
 É interessante perceber que estas aplicações não tiveram grande sucesso colocando como produto final uma ferramenta de comunicação com funcionalidades semelhantes a que iremos implementar, o que nos leva a interpretar que a \textit{web} em tempo real não é uma inovação a qualquer custo. É importante considerar que as melhorias que se pode ter com informações em tempo real devem ser mensuradas, e ela é apenas mais uma opção que está ganhando mais importância com as demandas que estão surgindo.
 
 \section{Snapchat, Happn, Tinder e afins}
 Neste tópico iremos fazer uma análise, mais filosófica do que técnica, sobre a utilização de aplicações tempo-real na vida dos usuários, pois achamos interessante fundamentar onde estão se rompendo os limites para a necessidade de aplicações deste tipo, e gostaríamos de ressaltar que Snapchat \cite{snapchat}, Happn \cite{happn} e Tinder \cite{tinder} foram escolhas que achamos que representam um grupo de aplicações com características próximas, mas que para muitas outras aplicações existentes, caberiam-se a mesma análise.
 
-A seguinte citação \cite{notnotcitricsquid} nos traz algumas importantes informações sobre a opinião de um usuário comum:
+A seguir foi feita a síntese de uma citação \cite{notnotcitricsquid} que nos traz algumas importantes informações sobre a opinião de um usuário comum:
 
 \begin{quote}
-	\small "There's a fundamental difference between location based chat and chat applications like Snapchat. Snapchat changed how people communicate, it did not change how they found people to communicate with... it may have helped better relationships form but it did not create them out of nothing.
+	\small "Há uma diferença fundamental entre chat baseado em localização e aplicativos de chat, como o Snapchat. O Snapchat mudou como as pessoas se comunicam, não mudou como elas encontram as pessoas para se comunicar.
 	
-	Arbitrary things like age and location don't define who we are or what we enjoy, and who we are and what we enjoy is a big part of whether or not we will enjoy being friends with someone. Relationships are an investment, most people don't want to talk to a bunch of new people every day but never form any lasting relationship. If they want to form a lasting relationship it needs to be based on more than "I saw you at whole foods"... maybe their phone will ping in whole foods and maybe it'll be someone interesting and maybe they'll become friends and maybe it'll be a fantastic relationship, but what are the chances of that happening? How many people are willing to go through hundreds and hundreds of worthless chats just to find one friend?
+	A localização em si não define quem somos ou o que gostamos, as pessoas buscam se comunicar com pessoas que possuam outros tipos de afinidades, e estas é que devem ser exploradas para se criar um aplicativo que seja interessante." 
 	
-	Maybe one day it will be time for a location based chat app to take off, but I don't think that time is now." 
-	
-	("Do location based chat apps start trending again?" \cite{notnotcitricsquid}, NOTNOTCITRICSQUID, 2012)
+	(Síntese de "Do location based chat apps start trending again?" \cite{notnotcitricsquid}, NOTNOTCITRICSQUID, 2012)
 \end{quote}
 
-A resposta a pergunta do tópico expressa uma opinião que condiz com alguns pontos que pudemos notar ao longo do conteúdo apresentado até aqui, que se relacionam com como as aplicações tem obtido sucesso na inserção da experiência de tempo real na vida dos usuários mais comuns, e aplicações como o FanMappr e o RadiusIM não alcançaram o mesmo resultado. Snapchat, Happn e Tinder são aplicações que funcionam baseando parcialmente e/ou totalmente suas funcionalidades em \textit{chat} por localização geográfica, mas diferem-se com uma certa cautela da experiência exposta aos seus usuários nas suas aplicações, e este é um ponto que acreditamos ser o diferencial para a aceitação das ferramentas, pelo fato não infringir algumas barreiras que existem na interação humana com o mundo virtual.
+A resposta a pergunta do tópico expressa uma opinião que condiz com alguns pontos que pudemos notar ao longo do conteúdo apresentado até aqui, que se relacionam com como as aplicações tem obtido sucesso na inserção da experiência de tempo real na vida dos usuários mais comuns, e aplicações como o FanMappr e o RadiusIM não alcançaram o mesmo resultado. Snapchat, Happn e Tinder são aplicações que utilizam localização geográfica em muitas de suas funcionalidades, mas trabalham a experiência do usuário com este tipo de funcionalidade de uma forma que preserva conceitos como os abordados na citação anterior, e este é um ponto que acreditamos ser o diferencial para a aceitação das ferramentas deste tipo, pelo fato de não infringir algumas barreiras que existem na interação humana com o mundo virtual.
 
-A possibilidade da informação instantânea tem muito a contribuir em diversas áreas, oferecendo vantagem competitiva para quem está no mundo dos negócios, antecipação de tomada de decisões, entre outros benefícios. Este mundo do tempo-real está a cada vez mais tomando conta do nosso presente como usuários comuns, e a tendência é que essa forma de compartilhamento instantâneo se torne mais natural.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{imagens/happn.jpg}
+	\caption{\small Banner de telas do Happn Fonte: TigerFunk \cite{happn-img}}
+	\label{fig:happn-img}
+\end{figure}
 
-Como as pessoas utilizam e disponibilizam dados, tem uma importância fundamental no impacto em que isso pode ter em suas vidas. Desde as necessidades no mundo dos negócios, às necessidades do cotidiano de cada um. Por parte de quem está inovando no setor, é preciso entender comportamentos e como não romper barreiras que irão fracassar a relação entre tecnologia e pessoas. 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.7]{imagens/snapchat.png}
+	\caption{\small Banner de telas do Snapchat Fonte: SmartnTechs \cite{snapchat-img}}
+	\label{fig:snapchat-img}
+\end{figure}
 
-Fazemos a ressalva de que a nossa implementação não busca oferecer funcionalidades que atendam aos requisitos que entendemos como necessários em relação a estes conceitos, mas abordamos o assunto pelo interesse em mostrar como a tecnologia também está envolvida com as relações humanas.
+\begin{figure}[t]
+	\centering
+	\includegraphics[scale=0.7]{imagens/tinder.jpg}
+	\caption{\small Banner de telas do Tinder Fonte: News \cite{tinder-img}}
+	\label{fig:tinder-img}
+\end{figure}
