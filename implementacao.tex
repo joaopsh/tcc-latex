@@ -1,6 +1,13 @@
 \chapter{Implementação}
 A implementação do sistema segue todas as diretrizes de tecnologias e conceitos apresentados até este tópico. A descrição de como a implementação foi feita será dividida em duas partes principais: \textit{backend} e \textit{frontend}. Sendo a parte de \textit{backend} a implementação da infraestrutura e servidor da aplicação, e na parte do \textit{frontend} a implementação de interface com o usuário. No desenvolvimento elegemos um nome fictício para a aplicação, chamado Orb. Este nome será utilizado para remeter a aplicação em alguns textos, logos, implementações, entre outros.
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.75]{imagens/estrutura_arquivos.png}
+	\caption{\small Estrutura de arquivos do projeto.}
+	\label{fig:estrutura-arquivos}
+\end{figure}
+
 O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \textit{software open-source}, liberado para utilização através da licença MIT \cite{mit}. A abordagem utilizada para a descrição da implementação feita fará referências pontuais a trechos do código-fonte que poderão ser consultados pelo leitor no repositório informado \cite{orb}, evitando-se assim a exposição de código neste formato de texto que não é favorável a análise deste tipo de conteúdo.
 
 \section{Backend}
@@ -31,13 +38,20 @@ A persistência dos dados foi feita em um banco de dados MongoDB, onde para sua 
 
 No diretório \textit{models} foram criados arquivos para cada objeto que fosse ser persistido no banco. As implementações da persistência utilizaram o Mongoose como modelo, exportando de cada módulo o objeto \textit{schema} de cada persistência, podendo através deste realizar todas as operações de CRUD (Create, Read, Update, Delete).
 
-A seguinte imagem ilustra a representação dos objetos persistidos no banco de dados:
+A figura \ref{fig:modelsuml} ilustra a representação dos objetos persistidos no banco de dados:
 
-\begin{figure}[!htb]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.85]{imagens/models_uml.png}
 	\caption{\small Representação UML (Unified Modeling Language) dos modelos persistidos no banco de dados.}
 	\label{fig:modelsuml}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.60]{imagens/mongo_console.png}
+	\caption{\small Demonstração de utilização do MongoDB pelo terminal do CentOS.}
+	\label{fig:mongoconsole}
 \end{figure}
 
 

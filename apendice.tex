@@ -1,0 +1,999 @@
+%Apêndice
+\apendice
+\chapter{Principais códigos do software}
+
+\begin{flushleft}
+	% authentication.js
+	\textbf{Arquivo authentication.js:}
+	
+	var passport = require('passport')
+	, BasicStrategy = require('passport-http').BasicStrategy
+	, ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy
+	, BearerStrategy = require('passport-http-bearer').Strategy
+	, User = require('../models/user')
+	, Client = require('../models/client')
+	, AccessToken = require('../models/accessToken')
+	, crypto = require('crypto')
+	, allowedOrigins = require('../config.json').origins;
+	
+	var isStrategiesConfigured = false;
+	
+	passport.use("clientBasic", new BasicStrategy(
+	function (clientId, clientSecret, done) {
+		clientSecret = crypto.createHash('sha1').update(clientSecret).digest('hex')
+		
+		Client.findOne({ clientId: clientId }, function (err, client) {
+			if (err)
+			return done(err, false);
+			
+			if (!client)
+			return done(null, false);
+			
+			if (!client.isTrusted)
+			return done(null, false);
+			
+			if (client.clientSecret === clientSecret)
+			return done(null, client);
+			else
+			return done(null, false);
+		});
+	}
+	));
+	
+	passport.use("clientPassword", new ClientPasswordStrategy(
+	function (clientId, clientSecret, done) {
+		clientSecret = crypto.createHash('sha1').update(clientSecret).digest('hex');
+		
+		Client.findOne({ clientId: clientId }, function (err, client) {
+			if (err) 
+			return done(err, false);
+			
+			if (!client)
+			return done(null, false);
+			
+			if (!client.isTrusted)
+			return done(null, false);
+			
+			if (client.clientSecret == clientSecret)
+			return done(null, client);
+			else
+			return done(null, false);
+		});
+	}
+	));
+	
+	passport.use("accessToken", new BearerStrategy(
+	function (accessToken, done) {
+		var accessTokenHash = crypto.createHash('sha1').update(accessToken).digest('hex');
+		
+		AccessToken.findOne({ token: accessTokenHash }, function (err, token) {
+			if (err) return done(err);
+			
+			if (!token) return done(null, false)
+			
+			if (new Date() > token.expirationDate) {
+				done(null, false);
+				
+			} else {
+			User.findOne({username: token.userId}, function (err, user) {
+				if (err)
+				return done(err);
+				
+				if (!user)
+				return done(null, false);
+				
+				Client.findOne({ clientId: token.clientId }, function(err, client) {
+					if(err)
+					return done(null, false);
+					
+					if(!client)
+					return done(null, false);
+					
+					return done(null, user, { scope: '*' });
+				});
+			});
+		}
+	});
+}
+));
+% ./authentication.js
+
+% authorization.js
+\textbf{Arquivo authorization.js:}
+
+var oauth2orize = require('oauth2orize')
+, passport = require('passport')
+, crypto = require('crypto')
+, utils = require("../helpers/utils")
+, bcrypt = require('bcrypt')
+, User = require('../models/user')
+, AccessToken = require('../models/accessToken')
+, RefreshToken = require('../models/refreshToken');
+
+// create OAuth 2.0 server
+var server = oauth2orize.createServer();
+
+//Resource owner password
+server.exchange(oauth2orize.exchange.password(function (client, email, password, scope, done) {
+	User.findOne({ email: email }, function (err, user) {
+		if (err)
+		return done(err);
+		
+		if (!user)
+		return done(null, false);
+		
+		bcrypt.compare(password, user.password, function (err, res) {
+			if (!res)
+			return done(null, false);
+			
+			var newAccesstoken = utils.uid(256);
+			var newRefreshToken = utils.uid(256);
+			
+			var newAccessTokenHash = crypto.createHash('sha1').update(newAccesstoken).digest('hex');
+			var newRefreshTokenHash = crypto.createHash('sha1').update(newRefreshToken).digest('hex');
+			
+			// 10 minutes token
+			var expirationDate = new Date(new Date().getTime() + (1000 * 60 * 200));
+			
+			var accessToken = new AccessToken();
+			
+			accessToken.token = newAccessTokenHash;
+			accessToken.expirationDate = expirationDate;
+			accessToken.clientId = client.clientId;
+			accessToken.userEmail = email;
+			
+			AccessToken.remove({ clientId: client.clientId, userEmail: email }, function(err) {
+				if(err)
+				return done(err);
+			});
+			
+			accessToken.save(function (err) {
+				if (err)
+				return done(err);
+				
+				var refreshToken = new RefreshToken();
+				
+				refreshToken.token = newRefreshTokenHash;
+				refreshToken.clientId = client.clientId;
+				refreshToken.userEmail = email;
+				
+				RefreshToken.remove({ clientId: client.clientId, userEmail: email }, function(err) {
+					if(err)
+					return done(err);
+				});
+				
+				refreshToken.save(function(err) {
+					if (err)
+					return done(err);
+					
+					done(null, newAccesstoken, newRefreshToken, { expires\_in: expirationDate });
+				});
+			});
+		});
+	});
+}));
+
+//Refresh Token
+server.exchange(oauth2orize.exchange.refreshToken(function (client, refreshToken, scope, done) {
+	var refreshTokenHash = crypto.createHash('sha1').update(refreshToken).digest('hex');
+	
+	
+	RefreshToken.findOne({ token: refreshTokenHash }, function (err, foundRefreshToken) {
+		if (err)
+		return done(err);
+		
+		if (!foundRefreshToken)
+		return done(null, false);
+		
+		if (client.clientId !== foundRefreshToken.clientId)
+		return done(null, false);
+		
+		var newAccesstoken = utils.uid(256);
+		var newRefreshToken = utils.uid(256);
+		
+		var newAccessTokenHash = crypto.createHash('sha1').update(newAccesstoken).digest('hex');
+		var newRefreshTokenHash = crypto.createHash('sha1').update(newRefreshToken).digest('hex');
+		
+		// 10 minutes token
+		var expirationDate = new Date(new Date().getTime() + (1000 * 60 * 200));
+		
+		var accessToken = new AccessToken();
+		
+		accessToken.token = newAccessTokenHash;
+		accessToken.expirationDate = expirationDate;
+		accessToken.clientId = client.clientId;
+		accessToken.userEmail = foundRefreshToken.userEmail;
+		
+		AccessToken.remove({ clientId: client.clientId, userEmail: foundRefreshToken.userEmail }, function(err) {
+			if(err)
+			return done(err);
+		});
+		
+		accessToken.save(function (err) {
+			if (err)
+			return done(err);
+			
+			var refreshToken = new RefreshToken();
+			
+			refreshToken.token = newRefreshTokenHash;
+			refreshToken.clientId = client.clientId;
+			refreshToken.userEmail = foundRefreshToken.userEmail;
+			
+			RefreshToken.remove({ clientId: client.clientId, userEmail: foundRefreshToken.userEmail }, function(err) {
+				if(err)
+				return done(err);
+			});
+			
+			refreshToken.save(function(err) {
+				if (err)
+				return done(err);
+				
+				
+				done(null, newAccesstoken, newRefreshToken, { expires\_in: expirationDate });
+			});
+		});
+	});
+}));
+
+// token endpoint
+exports.token = [
+passport.authenticate(['clientBasic', 'clientPassword'], { session: false }),
+server.token(),
+server.errorHandler()
+]
+
+% chatSocketHandler.js
+\textbf{Arquivo chatSocketHandler.js:}
+
+var config = require('../config.json')
+, redis = require('redis')
+, storage = redis.createClient(config.redis.port, config.redis.host)
+, sub = redis.createClient(config.redis.port, config.redis.host)
+, pub = redis.createClient(config.redis.port, config.redis.host)
+, utils = require('../helpers/utils')
+, Chat = require('../models/chat')
+, repo = require('./chatSocketHandlerRepository');
+
+storage.on('connect', function() {
+	if(process.env.NODE\_ENV === 'dev') {
+		storage.del('chat.onlineList');
+	}
+	
+	storage.del('subscribers');  
+	
+	console.log('Redis clients connected on HOST ' + config.redis.host + ':' + config.redis.port);
+});
+
+
+//It's limited to ten listeners. Zero means infinity
+sub.setMaxListeners(0);
+
+var \_init = function(chatNamespace) {
+	sub.on('message', function(channel, message) {
+		switch(channel) {
+			case 'chat:position:update':
+			var data = JSON.parse(message);
+			
+			chatNamespace.emit('chat:position:update', {
+				id: data.id,
+				email: data.email,
+				firstName: data.firstName,
+				lastName: data.lastName,
+				coords: {
+					latitude: data.latitude,
+					longitude: data.longitude
+				}
+			});
+			break;
+			case 'chat:signout':
+			chatNamespace.emit('chat:signout', JSON.parse(message));
+			break;
+			case 'chat:message':
+			var parsedMessage = JSON.parse(message);
+			
+			parsedMessage.chat.members.forEach(function(member) {
+				for (var property in chatNamespace.connected) {
+					if (chatNamespace.connected.hasOwnProperty(property)) {
+						
+						if(chatNamespace.connected[property].user.id === member.id) {
+							chatNamespace.connected[property].emit('chat:room', parsedMessage);
+							break;
+						}
+					}
+				}
+			});
+			
+			break;
+		}
+		
+	});
+	
+}
+
+//Global list of channels subscriptions (It should subscribes only once)
+var subs = [];
+
+//handler
+var \_handler = function(socket) {
+	if(subs.indexOf('chat:position:update') === -1) {
+		subs.push('chat:position:update');
+		sub.subscribe('chat:position:update');
+	}
+	
+	if(subs.indexOf('chat:signout') === -1) {
+		subs.push('chat:signout');
+		sub.subscribe('chat:signout');
+	}
+	
+	if(subs.indexOf('chat:invitation') === -1) {
+		subs.push('chat:invitation');
+		sub.subscribe('chat:invitation');
+	}
+	
+	if(subs.indexOf('chat:message') === -1) {
+		subs.push('chat:message');
+		sub.subscribe('chat:message');
+	}
+	
+	//receptors
+	socket.on('chat:position:update', function(data) {
+		// Add or update the user in the online list
+		storage.hmset('chat.onlineList'
+		, socket.user.email
+		, JSON.stringify({
+			id: socket.user.id,
+			firstName: socket.user.firstName,
+			lastName: socket.user.lastName,
+			coords: {
+				latitude: data.latitude,
+				longitude: data.longitude
+			}
+		})
+		);
+		
+		data.id = socket.user.id;
+		data.email = socket.user.email;
+		data.firstName = socket.user.firstName;
+		data.lastName = socket.user.lastName;
+		
+		pub.publish('chat:position:update', JSON.stringify(data));
+	});
+	
+	socket.on('chat:message:send', function(message) {
+		message.from = socket.user.id;
+		
+		repo.addMessageAndReturnService(message).then(function(message) {
+			pub.publish('chat:message', JSON.stringify(message));
+			
+		}, function(err) { throw new Error(err); });
+		
+	});
+	
+	// Creates a chat room and invites the target user
+	socket.on('chat:new', function(invitedUsers) {
+		if(!Array.isArray(invitedUsers))
+		throw new Error('invitedUsers variable in chat:new event is not an array.');
+		
+		var invitedUsersIds = [socket.user.id];
+		
+		invitedUsers.forEach(function(invitedUser) {
+			invitedUsersIds.push(invitedUser.id);
+		});
+		
+		// Get an existing chat or create a new one, then gets the full user objects
+		repo.getChatAndMembersAndMessagesService(invitedUsersIds).then(function(chat) {
+			socket.emit('chat:new', chat);
+		});
+		
+	});
+	
+	// Get online users
+	socket.on('chat:online:list', function(data) {
+		storage.hgetall('chat.onlineList', function(err, onlineList) { 
+			if(onlineList === null)
+			onlineList = {};
+			
+			var result = [];
+			var keys = Object.keys(onlineList);
+			
+			for(var i = 0; i < keys.length; i++) {
+				var userInfoParse = JSON.parse(onlineList[keys[i]]);
+				
+				result.push({
+					id: userInfoParse.id,
+					email: keys[i],
+					firstName: userInfoParse.firstName,
+					lastName: userInfoParse.lastName,
+					coords: {
+						latitude: userInfoParse.coords.latitude,
+						longitude: userInfoParse.coords.longitude
+					}
+				});
+				
+			}
+			
+			socket.emit('chat:online:list', result);
+		});
+	});
+	
+	// When disconnect
+	socket.on('disconnect', function() {
+		storage.hdel('chat.onlineList', socket.user.email);
+		
+		pub.publish('chat:signout', JSON.stringify({
+			id: socket.user.id
+		}));
+	});
+	
+	socket.emit('chat:ready', {});
+}
+
+exports.handler = \_handler;
+exports.init = \_init;
+% ./chatSocketHandler.js
+
+% chatSocketHandlerRepository.js
+\textbf{Arquivo chatSocketHandlerRepository.js:}
+
+var Q = require('q')
+, Chat = require('../models/chat')
+, Message = require('../models/message')
+, User = require('../models/user')
+, helper = require('../helpers/utils')
+, mongoose = require('mongoose');
+
+var \_createChatAndReturn = function(members) {
+	var deferred = Q.defer();
+	
+	new Chat({
+		members: members
+	}).save(function(err) {
+	if(err)
+	deferred.reject(err);
+	
+	\_findChatByUsers(members).then(function(chat) {
+		deferred.resolve(chat);
+		
+	}, function(err) {
+	deferred.reject(err);
+	
+});
+
+});
+
+return deferred.promise
+}
+
+var \_findChatByUsers = function(members) {
+	var deferred = Q.defer();
+	
+	Chat.findOne(
+	{ \$and: [{ members: { \$all: members } }, { members: { \$size: members.length } }] }
+	, '-\_\_v'
+	, function(err, chat) {
+		if(err)
+		deferred.reject(err);
+		
+		deferred.resolve(chat);
+	}
+	);
+	
+	return deferred.promise;
+}
+
+var \_getUsersByIds = function(ids) {
+	var deferred = Q.defer();
+	
+	var mongoIds = [];
+	
+	ids.forEach(function(id) {
+		mongoIds.push(new mongoose.Types.ObjectId(id));
+	});
+	
+	User.find({ \_id: { \$in: mongoIds }}
+	, '-\_\_v -password'
+	, function(err, users) {
+		if(err)
+		deferred.reject(err);
+		
+		deferred.resolve(users);
+	});
+	
+	return deferred.promise;
+}
+
+var \_getMessagesByChatId = function(chatId) {
+	var deferred = Q.defer();
+	
+	Message.find({ chatId: chatId }, '-\_\_v').sort({ timestamp: 'desc' }).limit(15).exec(function(err, messages) {
+		if(err)
+		deferred.reject(err);
+		
+		// The older messages should be in the initial array positions, like a push natural behavior.
+		messages.reverse();
+		
+		deferred.resolve(messages);
+	});
+	
+	return deferred.promise;
+}
+
+var \_getChatOrCreateAndReturn = function(members) {
+	var deferred = Q.defer();
+	
+	\_findChatByUsers(members).then(function(chat) {
+		if(!chat) {
+			\_createChatAndReturn(members).then(function(chat) {
+				deferred.resolve(chat);
+				
+			}, function(err) { deferred.reject(err); });
+			
+		} else {
+		deferred.resolve(chat);
+	}
+	
+}, function(err) { deferred.reject(err); });
+
+return deferred.promise;
+}
+
+var \_addMessageAndReturn = function(message) {
+	var deferred = Q.defer();
+	
+	var timestamp = helper.getUTCTimestamp();
+	
+	new Message({
+		chatId: message.chatId,
+		from: message.from,
+		timestamp: timestamp,
+		text: message.text
+	}).save(function(err) {
+	if(err)
+	deferred.reject(err);
+	
+	Message.findOne(
+	{ \$and: [{ timestamp: timestamp }, { chatId: message.chatId }] }
+	, '-\_\_v',
+	function(err, message) {
+		if(err)
+		deferred.reject(err);
+		
+		deferred.resolve(message);
+	});
+	
+	
+	
+});
+
+return deferred.promise;
+}
+
+var \_getChatById = function(id) {
+	var deferred = Q.defer();
+	
+	Chat.findOne({ \_id: new mongoose.Types.ObjectId(id) }, '-\_\_v', function(err, chat) {
+		if(err)
+		deferred.reject(err);
+		
+		deferred.resolve(chat);
+	});
+	
+	return deferred.promise;
+}
+
+//services (services are everything that handles data to something. Eg. multiple db calls, obj structure changes and so on.
+var \_getChatAndMembersAndMessagesService = function(members) {
+	var deferred = Q.defer();
+	
+	\_getChatOrCreateAndReturn(members).then(function(chat) {
+		\_getMessagesByChatId(chat.\_id).then(function(messages) {
+			\_getUsersByIds(members).then(function(users) {
+				var handledUsers = [];
+				
+				users.forEach(function(user) {
+					handledUsers.push({
+						id: user.\_id.toString(),
+						email: user.email,
+						firstName: user.firstName,
+						lastName: user.lastName
+					});
+				});
+				
+				deferred.resolve({
+					id: chat.\_id.toString(),
+					members: handledUsers,
+					messages: messages
+				});
+				
+			}, function(err) { return deferred.reject(err); });
+		}, function(err) { return deferred.reject(err); });
+	}, function(err) { return deferred.reject(err); });
+	
+	return deferred.promise;
+}
+
+var \_addMessageAndReturnService = function(message) {
+	var deferred = Q.defer();
+	
+	\_addMessageAndReturn(message).then(function(message){
+		\_getChatById(message.chatId).then(function(chat) {
+			\_getMessagesByChatId(message.chatId).then(function(messages) {
+				\_getUsersByIds(chat.members).then(function(users) {
+					var handledUsers = [];
+					
+					users.forEach(function(user) {
+						handledUsers.push({
+							id: user.\_id.toString(),
+							email: user.email,
+							firstName: user.firstName,
+							lastName: user.lastName
+						});
+					});
+					
+					deferred.resolve({
+						chat: {
+							id: chat.\_id.toString(),
+							members: handledUsers,
+							messages: messages
+						},
+						message: {
+							id: message.\_id.toString(),
+							chatId: message.chatId,
+							from: message.from,
+							timestamp: message.timestamp,
+							text: message.text
+						}
+					});
+					
+				}, function(err){ deferred.reject(err); });
+				
+			}, function(err){ deferred.reject(err); });
+			
+		}, function(err){ deferred.reject(err); });
+		
+	}, function(err){ deferred.reject(err); });
+	
+	return deferred.promise;
+}
+
+exports.createChatAndReturn = \_createChatAndReturn;
+exports.findChatByUsers = \_findChatByUsers;
+exports.getUsersByIds = \_getUsersByIds;
+exports.getMessagesByChatId = \_getMessagesByChatId;
+exports.getChatOrCreateAndReturn = \_getChatOrCreateAndReturn;
+exports.addMessageAndReturn = \_addMessageAndReturn;
+exports.getChatById = \_getChatById;
+
+exports.getChatAndMembersAndMessagesService = \_getChatAndMembersAndMessagesService;
+exports.addMessageAndReturnService = \_addMessageAndReturnService;
+% ./chatSocketHandlerRepository.js
+
+% ./socketBootstrap.js
+\textbf{Arquivo socketBootstrap.js:}
+
+var auth = require('socketio-auth')
+, crypto = require('crypto')
+, User = require('../models/user')
+, AccessToken = require('../models/accessToken')
+, chatSocketHandler = require('./chatSocketHandler');
+
+var socketBootstrap = function(io) {
+	//creates a namespace called "chat"
+	var chat = io.of('/chat');
+	
+	chatSocketHandler.init(chat);
+	
+	//chat authentication
+	auth(chat, {
+		authenticate: function (socket, data, callback) {
+			if(!data.credentials || !data.credentials.access\_token)
+			return callback(new Error("Invalid access token"));
+			
+			var accessTokenHash = crypto.createHash('sha1').update(data.credentials.access\_token).digest('hex');
+			
+			AccessToken.findOne({ token: accessTokenHash }, function(err, accessToken) {
+				if(err)
+				return callback(new Error("Internal server error."));
+				
+				if(!accessToken)
+				return callback(new Error("Access token not found."));
+				
+				
+				if (new Date() > accessToken.expirationDate)
+				return callback(new Error("Expired access token."));
+				
+				User.findOne({ email: accessToken.userEmail }, function (err, user) {
+					if (err)
+					return callback(new Error("Internal server error."));
+					
+					if (!user)
+					return callback(new Error("User not found."));
+					
+					//bind the user informations with the socket
+					socket.user = {
+						id: user.\_id.toString(),
+						email: user.email,
+						firstName: user.firstName,
+						lastName: user.lastName
+					}
+					
+					return callback(null, true);
+				});
+			});
+			
+		},
+		postAuthenticate: function(socket, data) {
+			chatSocketHandler.handler(socket);
+		},
+		timeout: 1000 * 20
+	});
+}
+
+module.exports = socketBootstrap;
+
+% ./socketBootstrap.js
+
+% ./userController.js
+\textbf{Arquivo userController.js:}
+
+var express = require('express')
+, router = express.Router()
+, crypto = require('crypto')
+, User = require('../models/user')
+, AccessToken = require('../models/accessToken')
+, mongoose = require('mongoose')
+, passport = require('passport');
+
+router.get('/', passport.authenticate('accessToken', { session: false }), function(req, res) {
+	User.find({}, '-password -\_\_v', function(err, users) {
+		
+		var results = users.map(function(user) {
+			return {
+				id: user.id,
+				firstName: user.firstName,
+				lastName: user.lastName,
+				email: user.email
+			};
+			
+		});
+		
+		return res.json({
+			status: 'OK',
+			users: results
+		});
+	});
+	
+});
+
+router.get('/:id', passport.authenticate('accessToken', { session: false }), function(req, res) {
+	User.findOne({ \_id: req.params.id }, '-password -\_\_v', function(err, user) {
+		if(err)
+		return res.status(500).json({ status: 'ERROR', message: 'Internal Server Error.'});
+		
+		if(user) {
+			return res.json({
+				status: 'OK',
+				user: {
+					id: user.id,
+					firstName: user.firstName,
+					lastName: user.lastName,
+					email: user.email
+				}
+			});
+			
+		} else {
+		res.status(400).json({ status: 'ERROR', message: 'User does not exist.' });
+	}
+	
+});
+
+});
+
+router.get('/accesstoken/:accessToken', passport.authenticate('accessToken', { session: false }), function(req, res) {
+	if(!req.params.accessToken)
+	return res.status(400).json({ status: 'ERROR', message: 'Missing access token parameter.'});
+	
+	var accessTokenHash = crypto.createHash('sha1').update(req.params.accessToken).digest('hex');
+	
+	AccessToken.findOne({ token: accessTokenHash }, function(err, accessToken) {
+		if(err)
+		return res.status(500).json({ status: 'ERROR', message: 'Internal Server Error.'});
+		
+		if(!accessToken)
+		return res.status(400).json({ status: 'ERROR', message: 'Invalid access token.'});
+		
+		User.findOne({ email: accessToken.userEmail }, '-password -\_\_v', function(err, user) {
+			if(err)
+			return res.status(500).json({ status: 'ERROR', message: 'Internal Server Error.'});
+			
+			if(user) {
+				return res.status(200).json({
+					status: 'OK',
+					user: {
+						id: user.id,
+						firstName: user.firstName,
+						lastName: user.lastName,
+						email: user.email
+					}
+				});
+				
+			} else {
+			return res.status(400).json({ status: 'ERROR', message: 'User does not exist.' });
+		}
+		
+	});
+	
+});
+
+});
+
+router.post('/', function(req, res) {
+	req.checkBody('user.firstName', 'First name is required.').notEmpty();
+	req.checkBody('user.lastName', 'Last name is required.').notEmpty();
+	req.checkBody('user.email', 'E-mail is required.').notEmpty();
+	req.checkBody('user.password', 'Password is required.').notEmpty();
+	
+	var errors = req.validationErrors();
+	
+	if(errors)
+	return res.status(400).json(errors);
+	
+	User.findOne({ email: req.body.user.email }, function(err, foundUser) {
+		if(err) {
+			return res.status(500).json({ status: 'ERROR', message: 'Internal Server Error.'});
+		}
+		
+		if(foundUser) {
+			res.status(400).json({ status: 'ERROR', message: 'User already exists.' });
+			
+		} else {
+		
+		var user = new User();
+		
+		user.firstName = req.body.user.firstName;
+		user.lastName = req.body.user.lastName;
+		user.email = req.body.user.email;
+		user.password = req.body.user.password;
+		
+		user.save(function(err) {
+			if(err) {
+				if(err.name == 'ValidationError')
+				return res.status(400).json({ status: 'ERROR', message: 'Validation Error.'});
+				
+				return res.status(500).json({ status: 'ERROR', message: 'Internal Server Error.'});
+			}
+			else {
+				return res.status(200).json({ 
+					status: 'OK', 
+					user: {
+						id: user.\_id,
+						firstName: user.firstName,
+						lastName: user.lastName,
+						email: user.email
+					}
+				});
+				
+			}
+			
+		});
+		
+	}
+	
+});
+});
+
+module.exports = router;
+
+% ./userController.js
+
+% ./user.js
+\textbf{Arquivo user.js:}
+
+var mongoose = require('mongoose')
+, bcrypt = require('bcrypt');
+
+var userSchema = new mongoose.Schema({
+	firstName: {
+		type: String,
+		required: true,
+	},
+	lastName: {
+		type: String,
+		required: true,
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true,
+	},
+	password: {
+		type: String,
+		required: true,
+	},
+	image: {
+		type: String,
+		default: '/dist/images/profile-default.jpeg'
+	},
+});
+
+userSchema.pre('save', function(next) {
+	var user = this;
+	
+	if(!user.isModified('password'))
+	return next();
+	
+	bcrypt.genSalt(10, function(err, salt) {
+		if(err)
+		return next(err);
+		
+		bcrypt.hash(user.password, salt, function(err, hash) {
+			if(err)
+			return next(err);
+			
+			user.password = hash;
+			
+			return next();
+		});
+	});
+});
+
+var User = mongoose.model('User', userSchema);
+
+module.exports = User;
+% ./user.js
+
+% server.js
+\textbf{Arquivo server.js:}
+
+var config = require('./config.json')
+, express = require('express')
+, app = module.exports = express()
+, io = require('socket.io')(config.app.socketioPort)
+, chatSocketHandler = require('./domain/socketBootstrap')(io)
+, mongoose = require('mongoose')
+, bodyParser = require('body-parser')
+, passport = require('passport')
+, expressValidator = require('express-validator')
+, authentication = require('./middlewares/authentication')
+, oauth = require('./middlewares/authorization');
+
+//controllers import
+var userController = require('./controllers/userController')
+, clientController = require('./controllers/clientController')
+, tokenController = require('./controllers/tokenController');
+
+//set environment
+process.env.NODE\_ENV = 'dev';
+
+mongoose.connect(config.mongodb);
+
+//middlewares register
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(expressValidator());
+app.use(passport.initialize());
+
+app.use(function(req, res, next) {
+	res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+	res.set('Access-Control-Expose-Headers', 'WWW-Authenticate');
+	res.set('Access-Control-Allow-Origin', config.allowedOrigins);
+	
+	if(req.method === 'OPTIONS')
+	res.sendStatus(200);
+	else
+	return next();
+	
+});
+
+//routes register
+app.post('/oauth/token', oauth.token);
+app.use('/oauth', passport.authenticate('accessToken', { session: false }), tokenController);
+app.use('/user', userController);
+app.use('/client', passport.authenticate('accessToken', { session: false }), clientController);
+
+app.listen(config.app.apiPort, function(){
+	console.log('Orb API running on PORT ' + config.app.apiPort);
+});
+% ./server.js
+\end{flushleft}
+
