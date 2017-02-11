@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  4 DEC 2016 20:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  11 FEB 2017 17:37
 entering extended mode
 **./monografia.tex
 (monografia.tex
@@ -1581,7 +1581,7 @@ Apendice A.
 Here is how much of TeX's memory you used:
  7437 strings out of 493335
  97739 string characters out of 3139244
- 177695 words of memory out of 3000000
+ 177693 words of memory out of 3000000
  10660 multiletter control sequences out of 15000+200000
  78598 words of font info for 127 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1592,7 +1592,7 @@ X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb
 i8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (73 pages, 2463946 bytes).
+Output written on monografia.pdf (73 pages, 2448500 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

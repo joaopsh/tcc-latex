@@ -36,14 +36,14 @@ Para o desenvolvimento do \textit{backend} e parte do \textit{frontend}, utiliza
 \begin{figure}[!b]
 	\centering
 	\includegraphics[scale=0.35]{imagens/visualstudio_code.png}
-	\caption{\small Visão geral do Visual Studio Code.}
+	\caption{\small Visão geral do Visual Studio Code. Fonte: Captura de tela}
 	\label{fig:vscode}
 \end{figure}
 
 \begin{figure}[!b]
 	\centering
 	\includegraphics[scale=0.35]{imagens/sublime3.png}
-	\caption{\small Visão geral do Sublime Text 3.}
+	\caption{\small Visão geral do Sublime Text 3.  Fonte: Captura de tela}
 	\label{fig:sublime3}
 \end{figure}
 
@@ -81,7 +81,7 @@ O ExpressJS \cite{expressjs} é o principal \textit{framework} NodeJS para desen
 O desenvolvimento com o ExpressJS é bem intuitivo pela organização que ele propõe para a aplicação. Suas abstrações são apenas essenciais, que não interferem na utilização dos artifícios da própria linguagem nativa do NodeJS para a resolução dos problemas, sem muitas automatizações, sendo ainda mais conveniente oferecendo mecanismos de \textit{middlewares} que possibilitam total manipulação das requisições e seus atributos, injeção de \textit{template-engines} e outros \textit{handlers} e \textit{plugins} que podem ser baixados via NPM. A comunidade possui diversas soluções empregadas, o que também facilita na curva de aprendizado, produtividade e resolução de problemas. Rapidamente é possível instalá-lo na aplicação e se disponibilizar um servidor HTTP (Hypertext Transfer Protocol) pronto para receber, tratar e responder requisições como API ou UI (User Interface).
 
 \subsection{SocketIO}
-O SocketIO é uma biblioteca para a criação de aplicações tempo-real na \textit{web}, que permite troca de mensagens em formato binário ou texto de forma bi-direcional e instantânea. Ele funciona através de duas bases de código, uma aplicada no servidor NodeJS e outra no \textit{browser} do cliente. A biblioteca faz uso da tecnologia WebSocket para estabelecer uma comunicação bi-direcional e persistente entre servidor e cliente, mas em casos de problemas de compatibilidade, é utilizado o método de \textit{long polling}, que sempre mantem uma requisição aguardando por uma nova mensagem do servidor, e com isso consegue alcançar este tipo de comunicação. As bibliotecas do SocketIO utilizadas no servidor e no cliente possuem chamadas semelhantes, o que facilita na realização da interação dos dois lados.
+O SocketIO é uma biblioteca para a criação de aplicações de tempo real na \textit{web}, que permite troca de mensagens em formato binário ou texto de forma bi-direcional e instantânea. Ele funciona através de duas bases de código, uma aplicada no servidor NodeJS e outra no \textit{browser} do cliente. A biblioteca faz uso da tecnologia WebSocket para estabelecer uma comunicação bi-direcional e persistente entre servidor e cliente, mas em casos de problemas de compatibilidade, é utilizado o método de \textit{long polling}, que sempre mantem uma requisição aguardando por uma nova mensagem do servidor, e com isso consegue alcançar este tipo de comunicação. As bibliotecas do SocketIO utilizadas no servidor e no cliente possuem chamadas semelhantes, o que facilita na realização da interação dos dois lados.
 
 A figura \ref{fig:socketio} demonstra simplificadamente a forma de conexão entre servidor e cliente descrita anteriormente:
 

@@ -1,10 +1,10 @@
 \chapter{Trabalhos Relacionados}
-Com o objetivo de situar o presente trabalho em relação ao funcionamento da arquitetura e funcionalidades do sistema, analisamos alguns trabalhos que se assemelham em um ou mais aspectos da aplicação desenvolvida. Dentre estas, estão relacionadas propostas de implementação, que explicam o funcionamento da arquitetura de aplicações tempo-real, e também projetos que foram publicados como produto de mercado.
+Com o objetivo de situar o presente trabalho em relação ao funcionamento da arquitetura e funcionalidades do sistema, analisamos alguns trabalhos que se assemelham em um ou mais aspectos da aplicação desenvolvida. Dentre estas, estão relacionadas propostas de implementação, que explicam o funcionamento da arquitetura de aplicações de tempo real, e também projetos que foram publicados como produto de mercado.
 
 Será feita uma breve análise de cada uma das plataformas, sendo que algumas análises serão fundamentadas em publicações que falam sobre o funcionamento destas, pois as mesmas não se encontram mais disponíveis para acesso. Contudo, são ferramentas que tentaram como produto final uma aplicação muito semelhante a desenvolvida como caso de estudo neste trabalho.
 
 \section{Uber}
-Iniciando a pesquisa sobre o desenvolvimento de uma aplicação tempo-real, foi buscada uma referência, que segundo estatísticas \cite{uber-statistics}, é considerada uma aplicação de grande escala. O Uber \cite{uber} é uma aplicação \textit{web} e \textit{mobile} que oferece serviços de transporte urbano privado através de pessoas que se disponibilizam a serem motoristas e estarem disponíveis na plataforma para alguma oferta de demanda.
+Iniciando a pesquisa sobre o desenvolvimento de uma aplicação de tempo real, foi buscada uma referência, que segundo estatísticas \cite{uber-statistics}, é considerada uma aplicação de grande escala. O Uber \cite{uber} é uma aplicação \textit{web} e \textit{mobile} que oferece serviços de transporte urbano privado através de pessoas que se disponibilizam a serem motoristas e estarem disponíveis na plataforma para alguma oferta de demanda.
 
 \begin{figure}[!b]
 	\centering
@@ -37,7 +37,7 @@ A demonstração dos fluxos de dados que ocorrem no sistema ficam bem representa
 \section{Redis Pub-Sub (Rajaraodv)}
 Esta publicação \cite{redis-pubsub-rajaraodv} fala sobre o mesmo assunto da citação anterior, que é a implementação de um chat por texto utilizando NodeJS e banco de dados Redis, mas nesta publicação o autor é mais abrangente no quesito de infraestrutura e escalabilidade da aplicação, abordando todos os passos para uma implantação completa do sistema em um servidor.
 
-O texto da publicação é muito explicativo, é possível até para os mais principiantes no assunto de aplicações tempo-real entenderem a implementação e a finalidade de cada passo relatado. O texto também conta com ilustrações dos fluxos de dados na aplicação e demonstrações do funcionamento da interface.
+O texto da publicação é muito explicativo, é possível até para os mais principiantes no assunto de aplicações de tempo real entenderem a implementação e a finalidade de cada passo relatado. O texto também conta com ilustrações dos fluxos de dados na aplicação e demonstrações do funcionamento da interface.
 
 O que se pode extrair do conteúdo desta publicação além da anterior, é a implementação do balanceador de carga, em conjunto com o \textit{proxy} reverso Nginx (aplicação que controla como será feito o fluxo de dados de fora para dentro da rede de servidores), o conceito de \textit{sticky sessions} (técnica que grava nas requisições de um cliente informações sobre servidor de origem da sessão) para traçar requisições a um mesmo servidor, e a integração do sistema em um servidor na nuvem (conjunto de recursos computacionais na internet, dedicados a hospedar aplicações de diversos tipos). 
 
@@ -49,7 +49,7 @@ O FanMappr \cite{fanmappr} e o RadiousIM \cite{radiusim} são aplicações basea
 \begin{figure}[!b]
 	\centering
 	\includegraphics[scale=0.5]{imagens/fanmappr.png}
-	\caption{\small Interface principal do FanMappr}
+	\caption{\small Interface principal do FanMappr. Fonte: Captura de tela}
 	\label{fig:fanmappr-principal}
 \end{figure}
 
@@ -82,7 +82,7 @@ Encontramos o FanMappr e RadiusIM após algumas poucas pesquisas que buscavam es
 É interessante perceber que estas aplicações não tiveram grande sucesso colocando como produto final uma ferramenta de comunicação com funcionalidades semelhantes a que iremos implementar, o que nos leva a interpretar que a \textit{web} em tempo real não é uma inovação a qualquer custo. É importante considerar que as melhorias que se pode ter com informações em tempo real devem ser mensuradas, e ela é apenas mais uma opção que está ganhando mais importância com as demandas que estão surgindo.
 
 \section{Snapchat, Happn, Tinder e afins}
-Neste tópico iremos fazer uma análise, mais filosófica do que técnica, sobre a utilização de aplicações tempo-real na vida dos usuários, pois achamos interessante fundamentar onde estão se rompendo os limites para a necessidade de aplicações deste tipo, e gostaríamos de ressaltar que Snapchat \cite{snapchat}, Happn \cite{happn} e Tinder \cite{tinder} foram escolhas que achamos que representam um grupo de aplicações com características próximas, mas que para muitas outras aplicações existentes, caberiam-se a mesma análise.
+Neste tópico iremos fazer uma análise, mais filosófica do que técnica, sobre a utilização de aplicações de tempo real na vida dos usuários, pois achamos interessante fundamentar onde estão se rompendo os limites para a necessidade de aplicações deste tipo, e gostaríamos de ressaltar que Snapchat \cite{snapchat}, Happn \cite{happn} e Tinder \cite{tinder} foram escolhas que achamos que representam um grupo de aplicações com características próximas, mas que para muitas outras aplicações existentes, caberiam-se a mesma análise.
 
 A seguir foi feita a síntese de uma citação \cite{notnotcitricsquid} que nos traz algumas importantes informações sobre a opinião de um usuário comum:
 
