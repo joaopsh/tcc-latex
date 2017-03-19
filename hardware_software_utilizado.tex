@@ -21,7 +21,7 @@ O ambiente para desenvolvimento da solução foi criado em um único computador,
 
 Especificamos apenas algumas informações que julgamos serem de relevância para alguma análise de desempenho da aplicação por parte do leitor. Em nossa solução não iremos realizar levantamentos de dados sobre desempenho, pois este não pode ser considerado um ambiente que simule a realidade em servidores de aplicações, do qual seria de relevância este tipo de medição.
 
-O sistema operacional escolhido para nosso ambiente de desenvolvimento foi o CentOS 7. O CentOS é uma distribuição Linux baseada no Red Hat \cite{centos-redhat-based}. A Red Hat é uma empresa privada, que possui um sistema operacional chamado Red Hat Enterprise Linux (RHEL), e tem como proposta oferecer produtos \textit{enterprise} baseados no GNU/Linux. Tendo em conta que toda distribuição baseada no \textit{core} do Linux deve seguir uma série de regras contidas em sua licença, a Red Hat concentra seus faturamentos em suporte as distribuições que ela construiu. Ter um sistema compatível com o RHEL traz alguns benefícios que ainda não foram alcançados sem que se tenha um time de pessoas dedicadas ao desenvolvimento de um \textit{software} específico, como no caso da maioria dos sistemas open-sources, que é o alto padrão em testes contra erros e problemas de segurança, \textit{releases} mais curtos, correções de problemas em curto prazo, entre outros benefícios que o CentOS consegue absorver da comunidade Red Hat. Além disso, o CentOS já possui uma considerável comunidade ativa, que facilita na resoluções de problemas mais específicos e no desenvolvimento de novas funcionalidades. O sistema também já possui grandes \textit{cases} de sucesso, como Facebook \cite{facebook-distro} e Google \cite{google-redhat}, o que passa uma maior confiança para a adoção em outros negócios e uma perspectiva de crescimento contínua.
+O sistema operacional escolhido para nosso ambiente de desenvolvimento foi o CentOS 7. O CentOS é uma distribuição Linux baseada no Red Hat \cite{centos-redhat-based}. A Red Hat é uma empresa privada, que possui um sistema operacional chamado Red Hat Enterprise Linux (RHEL), e tem como proposta oferecer produtos \textit{enterprise} baseados no GNU/Linux. Tendo em conta que toda distribuição baseada no \textit{core} do Linux deve seguir uma série de regras contidas em sua licença, a Red Hat concentra seus faturamentos em suporte as distribuições que ela construiu. Ter um sistema compatível com o RHEL traz alguns benefícios que ainda não foram alcançados sem que se tenha um time de pessoas dedicadas ao desenvolvimento de um \textit{software} específico, como no caso da maioria dos sistemas open-sources, que é o alto padrão de qualidade em testes contra erros e problemas de segurança, \textit{releases} mais curtos, correções de problemas em curto prazo, entre outros benefícios que o CentOS consegue absorver da comunidade Red Hat. Além disso, o CentOS já possui uma considerável comunidade ativa, que facilita na resoluções de problemas mais específicos e no desenvolvimento de novas funcionalidades. O sistema também já possui grandes \textit{cases} de sucesso, como Facebook \cite{facebook-distro} e Google \cite{google-redhat}, o que passa uma maior confiança para a adoção em outros negócios e uma perspectiva de crescimento contínua.
 
 \subsection{Versionamento de Código}
 O versionamento de código é uma tecnologia que permite traçar históricos de mudanças nos arquivos de código escrito através de um gerenciamento multi-usuário. Este gerenciamento permite que uma ou mais pessoas possam modificar um ou mais arquivos simultaneamente ou não, sendo controlados através de funcionalidades que permitem junção, revisão de conflitos, entre outros.
@@ -29,22 +29,24 @@ O versionamento de código é uma tecnologia que permite traçar históricos de 
 A tecnologia utilizada para versionamento de código neste projeto foi o Git. Este é um sistema de versionamento distribuído que atende a diversos tipos de \textit{workflows} de trabalho. A escolha por esta tecnologia se deve ao fato de ser umas das mais difundidas no mercado, e onde se encontram os maiores e mais confiáveis repositórios de código. Embora o fluxo de desenvolvimento tenha sido muito simples, utilizamos um \textit{workflow} chamado \textit{Gitflow Workflow} \cite{gitflow} que divide o desenvolvimento basicamente em dois \textit{branches} (subdivisões de versionamento de código) principais, um de produção e outro de desenvolvimento, podendo ser criado \textit{branches} de cada \textit{feature} sobre o \textit{branch} de desenvolvimento. 
 
 \subsection{Editores de Texto}
-Para o desenvolvimento majoritário do \textit{frontend}, utilizamos o editor de texto SublimeText 3 \cite{sublime}, apoiado de alguns \textit{plugins} para auxílio de escrita e design, todos encontrados no repositório de pacotes packagecontrol.io \cite{packagecontrolio}.
+Para o desenvolvimento majoritário do \textit{frontend}, utilizamos o editor de texto Sublime Text 3 \cite{sublime}, apoiado de alguns \textit{plugins} para auxílio de escrita e design, todos encontrados no repositório de pacotes packagecontrol.io \cite{packagecontrolio}. A imagem \ref{fig:sublime3} oferece uma visão geral do Sublime Text 3 com o tema Material Theme aplicado a sua interface, onde existe ao lado direito uma área que mostra a estrutura de diretórios do projeto e seus arquivos, e a esquerda o editor de texto propriamente dito, com \textit{syntax highlighting}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.51]{imagens/sublime3.png}
+	\caption{\small Visão geral do Sublime Text 3.  Fonte: Captura de tela}
+	\label{fig:sublime3}
+\end{figure}
 
 Para o desenvolvimento do \textit{backend} e parte do \textit{frontend}, utilizamos o editor de texto Visual Studio Code 1.6 \cite{vscode}. A escolha por este outro editor de texto se fez principalmente pela funcionalidade de \textit{debug}, que apresentou melhores resultados em sua utilização, além de ser uma funcionalidade nativa da aplicação, assim como a ferramenta para versionamento de código. Também foi utilizado \textit{plugins} semelhantes aos escolhidos no SublimeText para auxílio de escrita de código, todos encontrados no repositório de pacotes padrão do editor.
 
-\begin{figure}[!b]
+A imagem \ref{fig:vscode} mostra a visão geral do Visual Studio Code. A distribuição dos componentes se assemelham as do Sublime, mas é possível notar na imagem uma barra na extremidade esquerda, que possui alguns componentes nativos do editor, como o componente de listagem de arquivos e diretórios, pesquisa, controle de versão (GIT), \textit{marketplace}, e principalmente a sua ferramenta de debug, que foi um dos principais motivos para adoção desse editor, como citado anteriormente.
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.35]{imagens/visualstudio_code.png}
+	\includegraphics[scale=0.52]{imagens/visualstudio_code.png}
 	\caption{\small Visão geral do Visual Studio Code. Fonte: Captura de tela}
 	\label{fig:vscode}
-\end{figure}
-
-\begin{figure}[!b]
-	\centering
-	\includegraphics[scale=0.35]{imagens/sublime3.png}
-	\caption{\small Visão geral do Sublime Text 3.  Fonte: Captura de tela}
-	\label{fig:sublime3}
 \end{figure}
 
 \section{Back-end}
@@ -83,9 +85,9 @@ O desenvolvimento com o ExpressJS é bem intuitivo pela organização que ele pr
 \subsection{SocketIO}
 O SocketIO é uma biblioteca para a criação de aplicações de tempo real na \textit{web}, que permite troca de mensagens em formato binário ou texto de forma bi-direcional e instantânea. Ele funciona através de duas bases de código, uma aplicada no servidor NodeJS e outra no \textit{browser} do cliente. A biblioteca faz uso da tecnologia WebSocket para estabelecer uma comunicação bi-direcional e persistente entre servidor e cliente, mas em casos de problemas de compatibilidade, é utilizado o método de \textit{long polling}, que sempre mantem uma requisição aguardando por uma nova mensagem do servidor, e com isso consegue alcançar este tipo de comunicação. As bibliotecas do SocketIO utilizadas no servidor e no cliente possuem chamadas semelhantes, o que facilita na realização da interação dos dois lados.
 
-A figura \ref{fig:socketio} demonstra simplificadamente a forma de conexão entre servidor e cliente descrita anteriormente:
+A figura \ref{fig:socketio} demonstra simplificadamente a forma de conexão entre servidor e cliente descrita anteriormente. No lado esquerdo da figura é representado uma aplicação NodeJS com um servidor \textit{websocket} (socket.io) em funcionamento, e as conexões bi-direcionais representadas pelas setas que ligam ao lado direito da figura. Neste lado da figura está representado os clientes, que estão possivelmente executando a aplicação em seus \textit{web browsers} com uma biblioteca javascript que realiza a conexão com o servidor através da tecnologia \textit{websocket} por uma URL que identifica o servidor.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.67]{imagens/socketio.png}
 	\caption{\small Conexão entre servidor e cliente com SocketIO. Fonte: ifollow \cite{img-socketio}}
@@ -102,7 +104,7 @@ O MongoDB é um banco de dados de alta performance, enquadrado nos conceitos de 
 A forma como este tipo de banco de dados funciona remete diretamente aos ganhos de desempenho e escalabilidade, pois existe uma quebra de conceitos dos bancos de dados relacionais, como o ACID (Atomicity, Consistency, Isolation, Durability), que trazem flexibilidade em como se tratam os dados armazenados para se ter os benefícios citados. O MongoDB além de adotar estes conceitos, é um banco de dados orientado a documentos, onde a persistência dos dados é realizada em formato JSON. Apesar do conceito NoSQL ser uma grande ruptura de paradigmas, a maior parte da popularidade do MongoDB se deve a sua forma de interação com o usuário, que é amigável a quem está migrando dos conceitos relacionais para o modelo NoSQL. Apesar de não existir a necessidade de criação de tabelas, definição de relações, entre outros, a API do MongoDB oferece a criação de esquemas que remetem a conceitos parecidos, e também habilitam outras possibilidades, como a indexação de campos para buscas mais eficientes. As chamadas de busca no banco também são amigáveis, utilizando palavras chaves como \textit{SELECT, WHERE, ORDER BY}, entre outros. É importante salientar que algumas das funcionalidades citadas se devem ao uso de um modelador de dados chamado Mongoose \cite{mongoose}, ferramenta da qual oferece um \textit{set} de utilidades para se trabalhar com o MongoBD.
  
 \subsection{Redis}
-O Redis é um banco de dados NoSQL em memória, que implementa apenas alguns tipos de estruturas de dados, como \textit{strings, hashes, lists, sets} e \textit{sorted hashes}, e funcionalidades para gerência, busca e transmissão dos dados armazenados, o que o torna muito enxuto. Devido ao Redis ser um banco de dados que funciona em memória, seu desempenho é muito alto, tendo em vista que a memória RAM é um dos componentes de armazenamento de dados mais rápidos em leitura, escrita e transmissão na arquitetura computacional. Por outro lado, a memória RAM é volátil, o que nos leva a buscar entender qual a proposta de um banco de dados em memória.
+O Redis é um banco de dados NoSQL em memória, que implementa apenas alguns tipos de estruturas de dados, como \textit{strings, hashes, lists, sets} e \textit{sorted hashes}, e funcionalidades para gerência, busca e transmissão dos dados armazenados, o que o torna muito enxuto. Devido ao Redis ser um banco de dados que funciona em memória, ele possui uma alta performance, tendo em vista que a memória RAM é um dos componentes de armazenamento de dados mais rápidos em leitura, escrita e transmissão na arquitetura computacional. Por outro lado, a memória RAM é volátil, o que nos leva a buscar entender qual a proposta de um banco de dados em memória.
 
 A utilização principal do Redis é para servir como \textit{cache} e/ou \textit{message broker} de informações em sistemas. Em implementações \textit{stateless} o Redis pode servir como \textit{cache} de dados muito requisitados, pois seu rápido desempenho em memória pode ser vital para atender requisições em tempo hábil. Outra utilidade do Redis, que é o caso deste projeto, é do compartilhamento de dados entre servidores distintos de uma aplicação, onde através das estruturas de dados fornecidas pelo Redis e algumas funcionalidades, como a do protocolo PUB/SUB, é possível que se armazene dados no Redis e outra instância da aplicação sendo executada em outro local possa buscar estes mesmos dados. Devido a simplicidade e robustez que o Redis possui, uma única instância é capaz de realizar milhares de operações, aproximadamente 1.5 milhões por segundo \cite{redis-metrics}, podendo funcionar muito bem sendo este tipo de centralizador, pois o escalonamento de servidores de aplicação ocorre com muito mais frequência do que a de instâncias Redis. 
 
@@ -157,12 +159,14 @@ A utilização do Babel pode ser feita utilizando diversas ferramentas, como o G
 \subsection{Nginx}
 O Nginx \cite{nginx} é um servidor \textit{web} de alta performance \textit{single-threaded}, uma arquitetura parecida com a do NodeJS, com funcionalidades que o permitem atuar como \textit{proxy} reverso e/ou \textit{load balancer} de aplicações. Para demonstrar onde o Nginx se encaixa na infraestrutura de uma aplicação \textit{web}, podemos observar a seguinte imagem:
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{imagens/nginx.png}
 	\caption{\small Localização do Nginx na arquitetura de aplicações \textit{web}. Fonte: Thunder-Boy \cite{img-nginx}}
 	\label{fig:nginx}
 \end{figure}
+
+Na imagem \ref{fig:nginx} o fluxo representativo de dados é da esquerda para a direita, onde no exemplo é feita uma requisição HTTP através de internet para uma URL, a qual encaminha a requisição para o Nginx, o qual encaminha a requisição para um dos servidores da rede privada.
 
 O conceito de \textit{proxy reverso} se dá pela capacidade do Nginx encaminhar requisições de entrada para os servidores da rede privada, ao contrário do que ocorre com os \textit{proxys} comuns, que encaminham o tráfego de saída da rede. Sendo assim, o Nginx está na frente dos servidores de aplicação e gerencia todas as conexões que chegam de um determinado domínio, possibilitando assim que também gerencie controles de \textit{cache}, conexões SSL (Secure Sockets Layer), \textit{streaming}, fornecimento de conteúdos estáticos da aplicação, como arquivos HTML, folhas de estilo, scripts, imagens, entre outros.
 

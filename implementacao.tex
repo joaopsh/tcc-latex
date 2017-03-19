@@ -1,14 +1,16 @@
 \chapter{Implementação}
 A implementação do sistema segue todas as diretrizes de tecnologias e conceitos apresentados até este tópico. A descrição de como a implementação foi feita será dividida em duas partes principais: \textit{backend} e \textit{frontend}. Sendo a parte de \textit{backend} a implementação da infraestrutura e servidor da aplicação, e na parte do \textit{frontend} a implementação de interface com o usuário. No desenvolvimento elegemos um nome fictício para a aplicação, chamado Orb. Este nome será utilizado para remeter a aplicação em alguns textos, logos, implementações, entre outros.
 
-\begin{figure}[!h]
+O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \textit{software open-source}, liberado para utilização através da licença MIT \cite{mit}. A abordagem utilizada para a descrição da implementação feita fará referências pontuais a trechos do código-fonte que poderão ser consultados pelo leitor no repositório informado \cite{orb}, evitando-se assim a exposição de código neste formato de texto que não é favorável a análise deste tipo de conteúdo.
+
+A figura \ref{fig:estrutura-arquivos} mostra a estrutura de diretórios e como alguns arquivos da aplicação real estão alocados neles. A esquerda está representada a estrutura de diretórios da aplicação backend, seguindo o modelo de estruturação do ExpressJS e o diretório \textit{domain}, criado para alocação de lógica de negócio da aplicação. A direita da imagem é representado a estrutura de diretórios do \textit{frontend}, assim como a da aplicação Angular, que segue o padrão MVC.
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{imagens/estrutura_arquivos.png}
 	\caption{\small Estrutura de arquivos do projeto. Fonte: Captura de tela}
 	\label{fig:estrutura-arquivos}
 \end{figure}
-
-O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \textit{software open-source}, liberado para utilização através da licença MIT \cite{mit}. A abordagem utilizada para a descrição da implementação feita fará referências pontuais a trechos do código-fonte que poderão ser consultados pelo leitor no repositório informado \cite{orb}, evitando-se assim a exposição de código neste formato de texto que não é favorável a análise deste tipo de conteúdo.
 
 \section{Backend}
 Primeiramente iremos descrever a criação do ambiente de desenvolvimento do projeto, onde inicialmente foi instalado o sistema operacional e todas as ferramentas que decidimos utilizar para a construção da aplicação, e posteriormente iniciamos o processo de codificação.
@@ -36,7 +38,7 @@ Após a definição da estrutura de diretórios da aplicação, foi realizada a 
 \subsection{Persistência}
 A persistência dos dados foi feita em um banco de dados MongoDB, onde para sua utilização foi feito o \textit{download} doo pacote Mongoose pelo NPM. A conexão com o banco foi feita no arquivo de inicialização da aplicação, através do método connect do próprio Mongoose, passando-se como parâmetros uma \textit{connection string} com o endereço local do banco de dados. Por ser um ambiente de testes, não utilizamos autenticação com o banco de dados, mas caso fosse necessário, bastava-se apenas adicionar os dados de \textit{username:password} na própria \textit{connection string}.
 
-No diretório \textit{models} foram criados arquivos para cada objeto que fosse ser persistido no banco. As implementações da persistência utilizaram o Mongoose como modelo, exportando de cada módulo o objeto \textit{schema} de cada persistência, podendo através deste realizar todas as operações de CRUD (Create, Read, Update, Delete).
+No diretório \textit{models} foram criados arquivos para cada objeto que fosse ser persistido no banco, como ilustra a imagem \ref{fig:modelsuml}. As implementações da persistência utilizaram o Mongoose como modelo, exportando de cada módulo o objeto \textit{schema} de cada persistência, podendo através deste realizar todas as operações de CRUD (Create, Read, Update, Delete).
 
 A figura \ref{fig:modelsuml} ilustra a representação dos objetos persistidos no banco de dados:
 
@@ -47,9 +49,11 @@ A figura \ref{fig:modelsuml} ilustra a representação dos objetos persistidos n
 	\label{fig:modelsuml}
 \end{figure}
 
+Apesar de utilizar um banco de dados não relacional, a imagem \ref{fig:modelsuml} demonstra o relacionamento entre as entidades do sistema. A ideia de banco de dados não relacional vem da não aplicação de uma regra que deve ser respeitada na persistência dos dados, mas isso não quer dizer que não possamos ter referências para as outras entidades. O intuito desse tipo de banco é oferecer flexibilidade de acordo com a necessidade, sendo assim, podemos persistir documentos sem seguir uma série de princípios de bancos de dados relacionais. Na figura \ref{fig:mongoconsole} demonstramos uma breve utilização do do MongoDB, onde são executados comandos para exibir os bancos existentes no servidor, seleção do banco de dados da aplicação, exibição das coleções de documentos, e finalmente a exibição de um registro em formato JSON da coleção \textit{users}.  
+
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.60]{imagens/mongo_console.png}
+	\includegraphics[scale=0.75]{imagens/mongo_console.png}
 	\caption{\small Demonstração de utilização do MongoDB pelo terminal do CentOS.}
 	\label{fig:mongoconsole}
 \end{figure}
@@ -58,11 +62,11 @@ A figura \ref{fig:modelsuml} ilustra a representação dos objetos persistidos n
 \subsection{Autenticação e Autorização}
 Para a implementação do sistema de autenticação, cujos códigos estão no diretório middlewares, utilizamos três pacotes NPM, que funcionam como \textit{middlewares} que extraem de um \textit{request} as informações de autenticação, e através de uma \textit{callback} é possível validar essas informações e sinalizar se as informações estão corretas para concretização da autenticação. Para o sistema de autorização, utilizamos o OAuth2 com algumas modificações em seu padrão para atender aplicações \textit{trusted}, como o nosso \textit{frontend app} desenvolvido em AngularJS, que é um tipo de aplicação que não necessita de autorização do usuário da conta para acessar suas informações confidenciais.
 
-Como estamos utilizando um sistema de \textit{tokens}, para realizar acesso ao \textit{endpoint} token, o qual é utilizado no sistema de \textit{login} para se conseguir um Access Token e um Refresh Token através do fornecimento de \textit{e-mail} e senha, é realizada a autenticação pelos padrões Basic \cite{passport-basic} e Client \cite{passport-client}. Após esta autenticação, o usuário é encaminhado para um \textit{exchange} do OAuth2 que irá gerar, persistir e retornar um Access Token e um Refresh Token para o solicitante, que poderá usá-lo para acessar os demais \textit{endpoints} da aplicação.
+A figura \ref{fig:oauth2} representa o fluxo de autenticação utilizado no sistema. Como estamos utilizando um sistema de \textit{tokens}, para realizar acesso ao \textit{endpoint} token (Authorization Server na figura), o qual é utilizado no sistema de \textit{login} para se conseguir um Access Token e um Refresh Token através do fornecimento de \textit{e-mail} e senha, é realizada a autenticação pelos padrões Basic \cite{passport-basic} e Client \cite{passport-client}. Após esta autenticação, o usuário é encaminhado para um \textit{exchange} do OAuth2 que irá gerar, persistir e retornar um Access Token e um Refresh Token para o solicitante, que poderá usá-lo para acessar os demais \textit{endpoints} da aplicação (Resource Server na figura).
 
-Como já introduzido, o restante dos das rotas da aplicação são protegidos através do padrão de autenticação Bearer \cite{passport-bearer}, que procura em cada requisição feita um Access Token, que será verificado, e caso seja válido permitirá o acesso ao \textit{endpoint} solicitado. Em caso do Access Token não ser válido, o servidor irá emitir uma resposta de erro, HTTP 401, informando o problema ocorrido, e se o problema for a expiração do Access Token, ele poderá utilizar o Refresh Token para conseguir um novo Access Token válido por mais um determinado tempo, evitando de ter que realizar toda o processo de autenticação com \textit{e-mail} e senha novamente.
+Como já introduzido, o restante dos das rotas da aplicação são protegidos através do padrão de autenticação Bearer \cite{passport-bearer}, que procura em cada requisição feita um Access Token, que será verificado, e caso seja válido permitirá o acesso ao \textit{endpoint} solicitado. Em caso do Access Token não ser válido, o servidor irá emitir uma resposta de erro, HTTP 401, informando o problema ocorrido, e se o problema for a expiração do Access Token, ele poderá utilizar o Refresh Token para conseguir um novo Access Token válido por mais um determinado tempo, evitando de ter que realizar toda o processo de autenticação com \textit{e-mail} e senha novamente. É interessante ressaltar que o \textit{Resource Server} e o \textit{Authorization Server} foram implementados na mesma aplicação, diferentemente do que se pode entender com a figura \ref{fig:oauth2} demonstrando elementos separados.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.49]{imagens/oauth2.png}
 	\caption{\small Fluxo de acesso aos recursos com OAuth2. Fonte: jlabusch \cite{img-jlabusch}}
@@ -126,32 +130,53 @@ No diretório app, temos os arquivos relacionados ao projeto AngularJS. Na pasta
 
 Apesar da utilização do Angular Material em muitos dos componentes da interface, também implementamos alguns componentes próprios, como o \textit{header}, painel de \textit{chats}, a janela de \textit{chat}, entre outros. O diretório styles possui todas as implementações em SASS das folhas de estilo.
 
+\section{Resultados}
+
+O principal objetivo do trabalho foi alcançado na implementação do sistema, que foi explorar o funcionamento de aplicações de tempo real. Com a ajuda de todas as ferramentas citadas, foi possível desenvolver uma aplicação \textit{web} com alguns fluxos de utilização que facilitam o entendimento do que é e como pode ser aplicada esse tipo de tecnologia na construção de uma ferramenta de comunicação, além do estudo de uma arquitetura que pode ser utilizada para outros tipos de finalidade. 
+
+Para o projeto entregue foram alcançados a comunicação por mensagens de texto entre dois usuários, demonstrado na imagem \ref{fig:pagina}, a exibição e alteração da localização real do usuário, o sistema de autenticação \textit{stateless} através de \textit{tokens}, criação de novas contas de usuário, demonstrado na imagem \ref{fig:pagina-signin}, persistência de mensagens no banco de dados e utilização de conceitos de escalabilidade em aplicações. 
+
+As arquitetura do sistema seguiu conceitos de escalabilidade os quais não puderam ser testados em sua totalidade devidas a não extensão do tempo de elaboração do trabalho final, apenas demonstramos teoricamente a função de cada tecnologia em um ambiente que se possa ter diversas instâncias da aplicação distribuídas em uma rede de servidores. Assim como a proficiência em desempenho também não foi alvo de análise.
+
+Alguns componentes de interface, apesar de existirem visualmente, não foram implementadas as funcionalidades para a execução das tarefas, como as alterações de informações da conta do usuário, lista de contatos, mostrados na imagem \ref{fig:aside-menu}, e página de sobre. Apesar da utilização de um \textit{framework} que provê compatibilidade e responsividade de componentes entre diversos \textit{browsers}, alguns componentes foram desenvolvidos a parte, e não foram realizados testes \textit{cross-browsers} para verificar o funcionamento correto de todos os componentes, sendo as funcionalidades apenas validadas no navegador de testes para desenvolvimento, o Google Chrome, versão 54.
+
 A seguir podemos observar algumas imagens da interface depois de implementada:
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.37]{imagens/pagina_signin.png}
-	\caption{\small Página de acesso ao sistema. Fonte: Captura de tela}
-	\label{fig:pagina-signin}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[scale=0.37]{imagens/pagina.png}
+	\includegraphics[scale=0.32]{imagens/pagina.png}
 	\caption{\small Página principal. Fonte: Captura de tela}
 	\label{fig:pagina}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{imagens/pagina_signin.png}
+	\caption{\small Página de acesso ao sistema. Fonte: Captura de tela}
+	\label{fig:pagina-signin}
+\end{figure}
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{imagens/aside_menu.png}
 	\caption{\small Menu lateral. Fonte: Captura de tela}
 	\label{fig:aside-menu}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{imagens/chat_panel.png}
 	\caption{\small Janelas de \textit{chat}. Fonte: Captura de tela}
 	\label{fig:chat-panel}
+\end{figure}
+
+A figura \ref{fig:architecture} demonstra como ficou arquitetado o funcionamento do sistema. O Frontend, representado no topo da figura, é do escopo de utilização do usuário, onde a aplicação funciona no \textit{web browser} dos clientes e oferece as interações necessárias para utilização do sistema. A aplicação \textit{frontend} se comunica com a aplicação \textit{backend} através de chamadas HTTP à API, e também conexões websockets.
+
+As linhas que interligam os componentes da arquitetura representam o caminho pelo qual os dados trafegam na rede, onde estes são transmitidos e recebidos através de rede pública (internet) e privada (rede de comunicação interna entre as camadas do servidor), que tem em seu escopo o Nginx, servidores de aplicação NodeJS e banco de dados.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.8]{imagens/arquitetura.png}
+	\caption{\small Representação da arquitetura do sistema. Fonte: Autoria própria}
+	\label{fig:architecture}
 \end{figure}

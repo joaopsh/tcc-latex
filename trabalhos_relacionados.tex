@@ -1,29 +1,32 @@
 \chapter{Trabalhos Relacionados}
 Com o objetivo de situar o presente trabalho em relação ao funcionamento da arquitetura e funcionalidades do sistema, analisamos alguns trabalhos que se assemelham em um ou mais aspectos da aplicação desenvolvida. Dentre estas, estão relacionadas propostas de implementação, que explicam o funcionamento da arquitetura de aplicações de tempo real, e também projetos que foram publicados como produto de mercado.
 
-Será feita uma breve análise de cada uma das plataformas, sendo que algumas análises serão fundamentadas em publicações que falam sobre o funcionamento destas, pois as mesmas não se encontram mais disponíveis para acesso. Contudo, são ferramentas que tentaram como produto final uma aplicação muito semelhante a desenvolvida como caso de estudo neste trabalho.
+Será feita uma breve análise de cada uma das plataformas, sendo que algumas análises serão fundamentadas em sites que falam sobre o funcionamento destas, pois as mesmas não se encontram mais disponíveis para acesso. Contudo, são ferramentas que tentaram como produto final uma aplicação muito semelhante a desenvolvida como caso de estudo neste trabalho.
 
 \section{Uber}
 Iniciando a pesquisa sobre o desenvolvimento de uma aplicação de tempo real, foi buscada uma referência, que segundo estatísticas \cite{uber-statistics}, é considerada uma aplicação de grande escala. O Uber \cite{uber} é uma aplicação \textit{web} e \textit{mobile} que oferece serviços de transporte urbano privado através de pessoas que se disponibilizam a serem motoristas e estarem disponíveis na plataforma para alguma oferta de demanda.
 
-\begin{figure}[!b]
+Encontrou-se um site \cite{uber-how-scales} que fez-se de grande valia para o inicio da escolha das tecnologias que utilizamos para desenvolver a aplicação deste trabalho. A publicação fala sobre como era a arquitetura do sistema, para quais possibilidades ela foi pensada, e sobre a nova organização do sistema e quais tecnologias utilizam para suportar tamanha demanda \cite{uber-statistics}.
+
+É notório ao longo do trabalho que a arquitetura aplicada para desenvolvimento da aplicação não se aproxima em muitos pontos da aplicada no Uber, mas após o estudo da publicação, fomos fomentados a pesquisar algumas das tecnologias utilizadas e como aplicá-las em nosso projeto. A principal influência retirada deste projeto foi a utilização do Redis como banco de dados em memória, e não diretamente uma influencia, mas uma consolidação de ideias, a utilização do NodeJS e um banco de dados NoSQL (Not Only Structured Query Language) para persistência dos dados.
+
+As imagens \ref{fig:uber-main-interface} e \ref{fig:uber-payment-interface} mostram brevemente a interface do Uber. Na imagem \ref{fig:uber-main-interface} podemos observar a interface principal, e é possível notar a utilização do mapa, o qual nestes são contidos os carros próximos a uma localização, estes com suas posições geográficas atualizadas em tempo real devido ao fato de estarem se movimentando. Estas características representam bem algumas funcionalidades que serão implementadas na aplicação.
+
+A imagem \ref{fig:uber-payment-interface} mostra a aplicação \textit{web} do Uber. Nesta é possível fazer o gerenciamento das contas de usuário em um formato mais cômodo e adequado para análise dos dados gerados através da utilização do aplicativo \textit{mobile}, como é mostrado na imagem \ref{fig:uber-payment-interface} um histórico detalhado de uma corrida, com trajetória realizada, horário, preços, entre outros.
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{imagens/uber.png}
 	\caption{\small Interface principal do Uber Mobile. Fonte: Referral SaaSquatch \cite{uber-imgs}}
 	\label{fig:uber-main-interface}
 \end{figure}
 
-\begin{figure}[!b]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{imagens/uber2.png}
 	\caption{\small Interface de pagamento do Uber Web. Fonte: Referral SaaSquatch \cite{uber-imgs}}
 	\label{fig:uber-payment-interface}
 \end{figure}
-
-
-Encontramos uma publicação \cite{uber-how-scales} que fez-se de grande valia para o inicio da escolha das tecnologias que utilizamos para desenvolver a aplicação deste trabalho. A publicação fala sobre como era a arquitetura do sistema, para quais possibilidades ela foi pensada, e sobre a nova organização do sistema e quais tecnologias utilizam para suportar tamanha demanda \cite{uber-statistics}.
-
-É notório ao longo do trabalho que a arquitetura aplicada para desenvolvimento da aplicação não se aproxima em muitos pontos da aplicada no Uber, mas após o estudo da publicação, fomos fomentados a pesquisar algumas das tecnologias utilizadas e como aplicá-las em nosso projeto. A principal influência retirada deste projeto foi a utilização do Redis como banco de dados em memória, e não diretamente uma influencia, mas uma consolidação de ideias, a utilização do NodeJS e um banco de dados NoSQL (Not Only Structured Query Language) para persistência dos dados.
 
 \section{Redis Publish-Subscribe (RedisMVA) }
 Esta publicação \cite{redis-pubsub-redismva} faz parte de um projeto demonstrativo da utilização do padrão de comunicação pub/sub (Publish/Subscription), com um banco de dados NoSQL, chamado Redis. É abordada a implementação em NodeJS de um \textit{chat} de comunicação por texto, utilizando o padrão pub/sub para realizar a comunicação entre processos, onde os processos são as diversas instâncias que podem ser executadas de um mesmo servidor NodeJS distribuídos em diversos locais na internet.
@@ -46,38 +49,36 @@ Após o estudo da publicação deste autor, utilizamos em nossa implementação 
 \section{FanMappr e RadiusIM}
 O FanMappr \cite{fanmappr} e o RadiousIM \cite{radiusim} são aplicações baseadas em \textit{chat} por localização geográfica, mas que foram disponibilizadas como produto, com a proposta de criarem relações sociais através da busca de usuários por localização, ou seja, são redes sociais e tinham isso como proposta final. Após uma análise mais técnica nos dois últimos tópicos em relação ao desenvolvimento da aplicação, agora iremos analisar ferramentas que implementam como um produto, aplicações que tem funcionalidades semelhantes as do nosso projeto.
 
-\begin{figure}[!b]
+Encontramos o FanMappr e RadiusIM após algumas poucas pesquisas que buscavam especificamente produtos que tivessem funcionalidades muito próximas das que implementamos em nossa aplicação. O FanMappr é uma aplicação com interface e funcionalidades aparentemente modestas, navegando entre os poucos menus que possui, percebemos que as funcionalidades se restringem somente ao \textit{chat} por texto e a um mapa terrestre onde os usuários são localizados.
+
+A imagem \ref{fig:fanmappr-principal} é uma captura de tela da aplicação \textit{web} do FanMappr. Nela é possível notar a simplicidade da aplicação, que não possui personalizações das ferramentas utilizadas, como o mapa, e não utiliza conceitos de responsividade, pois a captura de tela foi realizada em um monitor de 22 polegadas, e a interface da aplicação se manteve no mesmo formato utilizado para tela menores.
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{imagens/fanmappr.png}
+	\includegraphics[scale=0.33]{imagens/fanmappr.png}
 	\caption{\small Interface principal do FanMappr. Fonte: Captura de tela}
 	\label{fig:fanmappr-principal}
 \end{figure}
 
-Encontramos o FanMappr e RadiusIM após algumas poucas pesquisas que buscavam especificamente produtos que tivessem funcionalidades muito próximas das que implementamos em nossa aplicação. O FanMappr é uma aplicação com interface e funcionalidades aparentemente modestas, navegando entre os poucos menus que possui, percebemos que as funcionalidades se restringem somente ao \textit{chat} por texto e a um mapa terrestre onde os usuários são localizados. O RadiusIM não está mais disponível para acesso, mas encontramos uma publicação \cite{radiusim} que possuía algumas imagens sobre a aplicação e uma breve explicação do seu funcionamento.
+O RadiusIM não está mais disponível para acesso, mas encontramos um artigo \cite{radiusim} que possuía algumas imagens sobre a aplicação e uma breve explicação do seu funcionamento.
 
-\begin{figure}[]
+Foi possível notar que o RadiusIM também é muito semelhante com do FanMappr, apesar de parecer ter tido mais sucesso, nos anos 2000, presume-se que teve um investimento maior, pois possuía uma interface mais harmoniosa e funcionalidades que eram o de se esperar para sua época.
+
+Podemos observar nas imagens \ref{fig:radiusim-principal} e \ref{fig:radiusim-chat} alguns detalhes de sua interface que demonstram um pouco da utilização do sistema. A imagem \ref{fig:radiusim-principal} \t mostra que de forma amigável ao usuário, a interface fornece os dados de sua localização, marcação no mapa, e uma série de pessoas nas proximidades e suas respectivas imagens de perfil. Na imagem \ref{fig:radiusim-chat} podemos ver a janela de chat 
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.9]{imagens/radiusim.jpg}
 	\caption{\small Interface principal do RadiusIM Fonte: wwwhats new \cite{radiusim}}
 	\label{fig:radiusim-principal}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.9]{imagens/radiusim2.jpg}
 	\caption{\small Janela de \textit{chat} do RadiusIM Fonte: wwwhats new \cite{radiusim}}
 	\label{fig:radiusim-chat}
 \end{figure}
-
-\begin{figure}[]
-	\centering
-	\includegraphics[scale=0.9]{imagens/radiusim3.jpg}
-	\caption{\small Interface de configuração do RadiusIM Fonte: wwwhats new \cite{radiusim}}
-	\label{fig:radiusim-configs}
-\end{figure}
-
-
-É possível notar que o RadiusIM também é muito semelhante com do FanMappr, apesar de parecer ter tido mais sucesso, nos anos 2000, presume-se que teve um investimento maior, pois possuía uma interface mais harmoniosa e funcionalidades que eram o de se esperar para sua época.
 
 É interessante perceber que estas aplicações não tiveram grande sucesso colocando como produto final uma ferramenta de comunicação com funcionalidades semelhantes a que iremos implementar, o que nos leva a interpretar que a \textit{web} em tempo real não é uma inovação a qualquer custo. É importante considerar que as melhorias que se pode ter com informações em tempo real devem ser mensuradas, e ela é apenas mais uma opção que está ganhando mais importância com as demandas que estão surgindo.
 
@@ -95,24 +96,3 @@ A seguir foi feita a síntese de uma citação \cite{notnotcitricsquid} que nos 
 \end{quote}
 
 A resposta a pergunta do tópico expressa uma opinião que condiz com alguns pontos que pudemos notar ao longo do conteúdo apresentado até aqui, que se relacionam com como as aplicações tem obtido sucesso na inserção da experiência de tempo real na vida dos usuários mais comuns, e aplicações como o FanMappr e o RadiusIM não alcançaram o mesmo resultado. Snapchat, Happn e Tinder são aplicações que utilizam localização geográfica em muitas de suas funcionalidades, mas trabalham a experiência do usuário com este tipo de funcionalidade de uma forma que preserva conceitos como os abordados na citação anterior, e este é um ponto que acreditamos ser o diferencial para a aceitação das ferramentas deste tipo, pelo fato de não infringir algumas barreiras que existem na interação humana com o mundo virtual.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.6]{imagens/happn.jpg}
-	\caption{\small Banner de telas do Happn Fonte: TigerFunk \cite{happn-img}}
-	\label{fig:happn-img}
-\end{figure}
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.7]{imagens/snapchat.png}
-	\caption{\small Banner de telas do Snapchat Fonte: SmartnTechs \cite{snapchat-img}}
-	\label{fig:snapchat-img}
-\end{figure}
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[scale=0.7]{imagens/tinder.jpg}
-	\caption{\small Banner de telas do Tinder Fonte: News \cite{tinder-img}}
-	\label{fig:tinder-img}
-\end{figure}

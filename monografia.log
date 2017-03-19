@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  11 FEB 2017 17:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  19 MAR 2017 19:53
 entering extended mode
 **./monografia.tex
 (monografia.tex
@@ -927,7 +927,7 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
 (monografia.aux (introducao.aux) (trabalhos_relacionados.aux)
 (problematizacao.aux) (hardware_software_utilizado.aux) (implementacao.aux)
-(resultados.aux) (trabalhos_futuros.aux) (conclusao.aux) (apendice.aux))
+(conclusao.aux) (apendice.aux))
 \openout1 = `monografia.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
@@ -1097,7 +1097,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
 
 ] (monografia.lof
-Overfull \hbox (1.42126pt too wide) in paragraph at lines 17--17
+Overfull \hbox (1.42126pt too wide) in paragraph at lines 13--13
  [][] []\T1/ptm/m/n/10.95 Representação UML (Uni-fied Mo-de-ling Lan-guage) dos
  mo-de-los per-sis-ti-dos no banco 
  []
@@ -1108,458 +1108,383 @@ Overfull \hbox (1.42126pt too wide) in paragraph at lines 17--17
 
  [8
 
-] [9] [10] [11] (monografia.toc
+] [9] [10] (monografia.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 2.
- [12
+ [11
 
-] [13])
+] [12])
 \tf@toc=\write5
 \openout5 = `monografia.toc'.
 
- [14]
+ [13]
 \openout2 = `introducao.aux'.
 
  (introducao.tex
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
-[15
+[14
 
 
 
-]) [16]
+]) [15]
 \openout2 = `trabalhos_relacionados.aux'.
 
  (trabalhos_relacionados.tex
 Cap\'{\i }tulo 2.
-<imagens/uber.png, id=62, 296.10625pt x 525.965pt>
+[16
+
+
+
+] <imagens/uber.png, id=62, 296.10625pt x 525.965pt>
 File: imagens/uber.png Graphic file (type png)
  <use imagens/uber.png>
-Package pdftex.def Info: imagens/uber.png used on input line 11.
+Package pdftex.def Info: imagens/uber.png used on input line 19.
 (pdftex.def)             Requested size: 177.66512pt x 315.58142pt.
 
 <imagens/uber2.png, id=63, 602.25pt x 355.3275pt>
 File: imagens/uber2.png Graphic file (type png)
  <use imagens/uber2.png>
-Package pdftex.def Info: imagens/uber2.png used on input line 18.
+Package pdftex.def Info: imagens/uber2.png used on input line 26.
 (pdftex.def)             Requested size: 421.57211pt x 248.72754pt.
 
-[17
-
-
-
-] [18 <./imagens/uber.png> <./imagens/uber2.png>] [19]
+[17 <./imagens/uber.png>] [18 <./imagens/uber2.png>] [19]
 <imagens/fanmappr.png, id=76, 490.08093pt x 707.64375pt>
 File: imagens/fanmappr.png Graphic file (type png)
 
 <use imagens/fanmappr.png>
-Package pdftex.def Info: imagens/fanmappr.png used on input line 51.
-(pdftex.def)             Requested size: 245.03987pt x 353.82101pt.
- [20]
+Package pdftex.def Info: imagens/fanmappr.png used on input line 58.
+(pdftex.def)             Requested size: 161.7272pt x 233.52316pt.
+ [20 <./imagens/fanmappr.png>]
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 67.
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 58.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
+File: omlptm.fd 
+)
+LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 67.
 
 <imagens/radiusim.jpg, id=80, 441.65pt x 330.23375pt>
 File: imagens/radiusim.jpg Graphic file (type jpg)
 
 <use imagens/radiusim.jpg>
-Package pdftex.def Info: imagens/radiusim.jpg used on input line 60.
+Package pdftex.def Info: imagens/radiusim.jpg used on input line 71.
 (pdftex.def)             Requested size: 397.48132pt x 297.20761pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 65.
-
-<imagens/radiusim2.jpg, id=81, 441.65pt x 297.11pt>
+ <imagens/radiusim2.jpg, id=81, 441.65pt x 297.11pt>
 File: imagens/radiusim2.jpg Graphic file (type jpg)
 
 <use imagens/radiusim2.jpg>
-Package pdftex.def Info: imagens/radiusim2.jpg used on input line 67.
+Package pdftex.def Info: imagens/radiusim2.jpg used on input line 78.
 (pdftex.def)             Requested size: 397.48132pt x 267.39651pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 72.
-
-<imagens/radiusim3.jpg, id=82, 441.65pt x 316.18124pt>
-File: imagens/radiusim3.jpg Graphic file (type jpg)
-
-<use imagens/radiusim3.jpg>
-Package pdftex.def Info: imagens/radiusim3.jpg used on input line 74.
-(pdftex.def)             Requested size: 397.48132pt x 284.56049pt.
- [21 <./imagens/fanmappr.png>] [22 <./imagens/radiusim.jpg> <./imagens/radiusim
-2.jpg>] [23 <./imagens/radiusim3.jpg>]
-<imagens/happn.jpg, id=92, 681.54625pt x 579.16376pt>
-File: imagens/happn.jpg Graphic file (type jpg)
- <use imagens/happn.jpg>
-Package pdftex.def Info: imagens/happn.jpg used on input line 101.
-(pdftex.def)             Requested size: 408.93091pt x 347.50093pt.
-
-<imagens/snapchat.png, id=93, 619.31375pt x 318.18875pt>
-File: imagens/snapchat.png Graphic file (type png)
-
-<use imagens/snapchat.png>
-Package pdftex.def Info: imagens/snapchat.png used on input line 108.
-(pdftex.def)             Requested size: 433.51668pt x 222.73059pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<imagens/tinder.jpg, id=94, 652.4375pt x 367.3725pt>
-File: imagens/tinder.jpg Graphic file (type jpg)
- <use imagens/tinder.jpg>
-Package pdftex.def Info: imagens/tinder.jpg used on input line 115.
-(pdftex.def)             Requested size: 456.70313pt x 257.15898pt.
-
-Overfull \hbox (1.45901pt too wide) in paragraph at lines 115--116
- [][] 
- []
-
-) [24 <./imagens/happn.jpg>] [25 <./imagens/snapchat.png (PNG copy)> <./imagens
-/tinder.jpg>]
+ [21 <./imagens/radiusim.jpg>] [22 <./imagens/radiusim2.jpg>]) [23]
 \openout2 = `problematizacao.aux'.
 
  (problematizacao.tex
 Cap\'{\i }tulo 3.
-[26
+[24
 
 
 
-] [27]) [28]
+] [25]) [26]
 \openout2 = `hardware_software_utilizado.aux'.
 
  (hardware_software_utilizado.tex
 Cap\'{\i }tulo 4.
-[29
+[27
 
 
 
-] [30] <imagens/visualstudio_code.png, id=118, 1264.725pt x 770.12718pt>
-File: imagens/visualstudio_code.png Graphic file (type png)
-
-<use imagens/visualstudio_code.png>
-Package pdftex.def Info: imagens/visualstudio_code.png used on input line 38.
-(pdftex.def)             Requested size: 442.66039pt x 269.54854pt.
-
-<imagens/sublime3.png, id=119, 1253.43282pt x 770.12718pt>
+] <imagens/sublime3.png, id=105, 871.75688pt x 499.8675pt>
 File: imagens/sublime3.png Graphic file (type png)
 
 <use imagens/sublime3.png>
-Package pdftex.def Info: imagens/sublime3.png used on input line 45.
-(pdftex.def)             Requested size: 438.70805pt x 269.54854pt.
- [31 <./imagens/visualstudio_code.png> <./imagens/sublime3.png>] <imagens/node-
-eventloop.png, id=123, 746.79pt x 434.37282pt>
+Package pdftex.def Info: imagens/sublime3.png used on input line 36.
+(pdftex.def)             Requested size: 444.59013pt x 254.92905pt.
+ [28]
+<imagens/visualstudio_code.png, id=109, 868.74562pt x 537.50812pt>
+File: imagens/visualstudio_code.png Graphic file (type png)
+
+<use imagens/visualstudio_code.png>
+Package pdftex.def Info: imagens/visualstudio_code.png used on input line 47.
+(pdftex.def)             Requested size: 451.75032pt x 279.50583pt.
+ [29 <./imagens/sublime3.png>]
+<imagens/node-eventloop.png, id=113, 746.79pt x 434.37282pt>
 File: imagens/node-eventloop.png Graphic file (type png)
 
 <use imagens/node-eventloop.png>
-Package pdftex.def Info: imagens/node-eventloop.png used on input line 58.
+Package pdftex.def Info: imagens/node-eventloop.png used on input line 60.
 (pdftex.def)             Requested size: 410.73576pt x 238.90578pt.
- [32 <./imagens/node-eventloop.png>] [33]
-[34] <imagens/socketio.png, id=133, 695.59875pt x 269.005pt>
+ [30 <./imagens/visualstudio_code.png>]
+[31 <./imagens/node-eventloop.png>] [32]
+<imagens/socketio.png, id=124, 695.59875pt x 269.005pt>
 File: imagens/socketio.png Graphic file (type png)
 
 <use imagens/socketio.png>
-Package pdftex.def Info: imagens/socketio.png used on input line 90.
+Package pdftex.def Info: imagens/socketio.png used on input line 92.
 (pdftex.def)             Requested size: 466.04875pt x 180.2324pt.
 
-Overfull \hbox (10.80464pt too wide) in paragraph at lines 90--91
+Overfull \hbox (10.80464pt too wide) in paragraph at lines 92--93
  [][] 
  []
 
-[35 <./imagens/socketio.png>] [36] [37] [38] [39] [40]
-<imagens/nginx.png, id=154, 451.6875pt x 209.28188pt>
+[33] [34 <./imagens/socketio.png>] [35] [36] [37] [38]
+<imagens/nginx.png, id=145, 451.6875pt x 209.28188pt>
 File: imagens/nginx.png Graphic file (type png)
  <use imagens/nginx.png>
-Package pdftex.def Info: imagens/nginx.png used on input line 162.
+Package pdftex.def Info: imagens/nginx.png used on input line 164.
 (pdftex.def)             Requested size: 451.68639pt x 209.28134pt.
-)
-[41 <./imagens/nginx.png>]
+
+[39]) [40 <./imagens/nginx.png>]
 \openout2 = `implementacao.aux'.
 
  (implementacao.tex
 Cap\'{\i }tulo 5.
-<imagens/estrutura_arquivos.png, id=158, 447.17062pt x 498.36188pt>
+<imagens/estrutura_arquivos.png, id=152, 447.17062pt x 498.36188pt>
 File: imagens/estrutura_arquivos.png Graphic file (type png)
 
 <use imagens/estrutura_arquivos.png>
-Package pdftex.def Info: imagens/estrutura_arquivos.png used on input line 6.
+Package pdftex.def Info: imagens/estrutura_arquivos.png used on input line 10.
 (pdftex.def)             Requested size: 335.37714pt x 373.7705pt.
- [42
+ [41
 
 
 
- <./imagens/estrutura_arquivos.png>]
-[43] <imagens/models_uml.png, id=166, 466.74374pt x 426.59375pt>
+] [42 <./imagens/estrutura_arquivos.png>] [43] <imagens/models_uml.png, id=163,
+ 466.74374pt x 426.59375pt>
 File: imagens/models_uml.png Graphic file (type png)
 
 <use imagens/models_uml.png>
-Package pdftex.def Info: imagens/models_uml.png used on input line 45.
+Package pdftex.def Info: imagens/models_uml.png used on input line 47.
 (pdftex.def)             Requested size: 396.73405pt x 362.60638pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<imagens/mongo_console.png, id=167, 633.11531pt x 384.6872pt>
+ [44 <./imagens/models_uml.png (PNG copy)>]
+<imagens/mongo_console.png, id=167, 550.30594pt x 315.42844pt>
 File: imagens/mongo_console.png Graphic file (type png)
 
 <use imagens/mongo_console.png>
-Package pdftex.def Info: imagens/mongo_console.png used on input line 52.
-(pdftex.def)             Requested size: 379.87212pt x 230.81409pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[44]
-
-LaTeX Warning: Text page 45 contains only floats.
-
-[45 <./imagens/models_uml.png (PNG copy)> <./imagens/mongo_console.png>]
-<imagens/oauth2.png, id=174, 843.15pt x 408.77719pt>
+Package pdftex.def Info: imagens/mongo_console.png used on input line 56.
+(pdftex.def)             Requested size: 412.72844pt x 236.57074pt.
+ [45 <./imagens/mongo_console.png>]
+<imagens/oauth2.png, id=171, 843.15pt x 408.77719pt>
 File: imagens/oauth2.png Graphic file (type png)
  <use imagens/oauth2.png>
-Package pdftex.def Info: imagens/oauth2.png used on input line 67.
+Package pdftex.def Info: imagens/oauth2.png used on input line 71.
 (pdftex.def)             Requested size: 413.14711pt x 200.30257pt.
 
-[46 <./imagens/oauth2.png>] [47] [48] [49]
-<imagens/pagina_signin.png, id=189, 1264.725pt x 790.45313pt>
-File: imagens/pagina_signin.png Graphic file (type png)
-
-<use imagens/pagina_signin.png>
-Package pdftex.def Info: imagens/pagina_signin.png used on input line 133.
-(pdftex.def)             Requested size: 467.94093pt x 292.46307pt.
-
-Overfull \hbox (12.69682pt too wide) in paragraph at lines 133--134
- [][] 
- []
-
-<imagens/pagina.png, id=190, 1264.725pt x 790.45313pt>
+[46 <./imagens/oauth2.png>] [47] [48] [49] [50]
+<imagens/pagina.png, id=189, 1264.725pt x 790.45313pt>
 File: imagens/pagina.png Graphic file (type png)
 
 <use imagens/pagina.png>
-Package pdftex.def Info: imagens/pagina.png used on input line 140.
-(pdftex.def)             Requested size: 467.94093pt x 292.46307pt.
+Package pdftex.def Info: imagens/pagina.png used on input line 147.
+(pdftex.def)             Requested size: 404.72028pt x 252.95016pt.
 
-Overfull \hbox (12.69682pt too wide) in paragraph at lines 140--141
- [][] 
- []
+<imagens/pagina_signin.png, id=190, 1264.725pt x 790.45313pt>
+File: imagens/pagina_signin.png Graphic file (type png)
 
-<imagens/aside_menu.png, id=191, 263.48438pt x 263.48438pt>
+<use imagens/pagina_signin.png>
+Package pdftex.def Info: imagens/pagina_signin.png used on input line 154.
+(pdftex.def)             Requested size: 442.66039pt x 276.66273pt.
+ [51 <./imagens/pagina.png>]
+<imagens/aside_menu.png, id=195, 263.48438pt x 263.48438pt>
 File: imagens/aside_menu.png Graphic file (type png)
 
 <use imagens/aside_menu.png>
-Package pdftex.def Info: imagens/aside_menu.png used on input line 147.
+Package pdftex.def Info: imagens/aside_menu.png used on input line 161.
 (pdftex.def)             Requested size: 263.48372pt x 263.48372pt.
 
-<imagens/chat_panel.png, id=192, 451.6875pt x 150.5625pt>
+<imagens/chat_panel.png, id=196, 451.6875pt x 150.5625pt>
 File: imagens/chat_panel.png Graphic file (type png)
 
 <use imagens/chat_panel.png>
-Package pdftex.def Info: imagens/chat_panel.png used on input line 154.
+Package pdftex.def Info: imagens/chat_panel.png used on input line 168.
 (pdftex.def)             Requested size: 451.68639pt x 150.56212pt.
-) [50]
+ [52 <./imagens/pagina_signin.png> <./imagens/aside_menu.png>] <imagens/arquite
+tura.png, id=202, 366.36874pt x 605.26125pt>
+File: imagens/arquitetura.png Graphic file (type png)
 
-LaTeX Warning: Text page 51 contains only floats.
-
-[51 <./imagens/pagina_signin.png> <./imagens/pagina.png>] [52 <./imagens/aside_
-menu.png> <./imagens/chat_panel.png>]
-\openout2 = `resultados.aux'.
-
- (resultados.tex
-Cap\'{\i }tulo 6.
-) [53
-
-
-
-]
-\openout2 = `trabalhos_futuros.aux'.
-
- (trabalhos_futuros.tex
-Cap\'{\i }tulo 7.
-) [54
-
-
-
-]
+<use imagens/arquitetura.png>
+Package pdftex.def Info: imagens/arquitetura.png used on input line 179.
+(pdftex.def)             Requested size: 293.09538pt x 484.20964pt.
+) [53 <./imagens/chat_panel.png>] [54 <./imagens/arquitetura.png>]
 \openout2 = `conclusao.aux'.
 
  (conclusao.tex
-Cap\'{\i }tulo 8.
-) [55
+Cap\'{\i }tulo 6.
+[55
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+]) [56]
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
 []\T1/ptm/m/n/12 50 Ama-zing Uber Sta-tis-tics (Oc-to-ber 2016). Dis-po-ní-vel 
 em: $\T1/pcr/m/n/12 http : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
 \T1/pcr/m/n/12 expandedramblings . com / index . php / uber-[]statistics/$\T1/p
 tm/m/n/12 . Acesso em: 20 Out.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
+Underfull \hbox (badness 10000) in paragraph at lines 274--276
 []\T1/ptm/m/n/12 Referral Sa-aS-quatch. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https
  : / / www . referralsaasquatch . com /
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 276--278
+Underfull \hbox (badness 1383) in paragraph at lines 274--276
 \T1/pcr/m/n/12 how-[]the-[]uber-[]referral-[]program-[]thinks-[]about-[]user-[]
 experience/$\T1/ptm/m/n/12 . Acesso em:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--281
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 []\T1/ptm/m/n/12 How Uber Sca-les Their Real-Time Mar-ket Plat-form. Dis-po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--281
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 \T1/ptm/m/n/12 ní-vel em: $\T1/pcr/m/n/12 http : / / highscalability . com / bl
 og / 2015 / 9 / 14 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--281
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 \T1/pcr/m/n/12 how-[]uber-[]scales-[]their-[]real-[]time-[]market-[]platform . 
 html$\T1/ptm/m/n/12 . Acesso em: 20
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 280--282
 []\T1/ptm/m/n/12 Redis Publish-Subscribe (Re-disMVA). Dis-po-ní-vel em: $\T1/pc
 r/m/n/12 https : / / github .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 280--282
 \T1/pcr/m/n/12 com / sayar / RedisMVA / blob / master / module6 _ redis _ pubsu
 b / README . md #
  []
 
 
-Underfull \hbox (badness 6461) in paragraph at lines 288--290
+Underfull \hbox (badness 6461) in paragraph at lines 286--288
 []\T1/ptm/m/n/12 Redis Pub/-Sub (Ra-ja-ra-odv). Dis-po-ní-vel em: $\T1/pcr/m/n/
 12 https : / / github . com / rajaraodv /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
 []\T1/ptm/m/n/12 RadiusIM  So-cial Mes-sen-ger Com Busca Por Ge-o-tag-ging. Di
 s-po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
 \T1/ptm/m/n/12 ní-vel em: $\T1/pcr/m/n/12 http : / / br . wwwhatsnew . com / 20
 08 / 09 / radiusim-[] % E2 % 80 %
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 294--296
+Underfull \hbox (badness 3930) in paragraph at lines 292--294
 \T1/pcr/m/n/12 93-[]social-[]messenger-[]por-[]com-[]busca-[]por-[]geotagging/$
 \T1/ptm/m/n/12 . Acesso em: 20 Out.
  []
 
-[56
+[57
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 305--307
 \T1/pcr/m/n/12 news . com . au / finance / business / tips-[]on-[]how-[]to-[]ge
 t-[]a-[]date-[]using-[]tinder /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--321
+Underfull \hbox (badness 10000) in paragraph at lines 317--319
 []\T1/ptm/m/n/12 How Much Web Traf-fic Is On Mo-bile De-vi-ces (Re-ally)? Dis-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--321
+Underfull \hbox (badness 10000) in paragraph at lines 317--319
 \T1/ptm/m/n/12 po-ní-vel em: $\T1/pcr/m/n/12 https : / / keriganmarketing . com
  / freelunch / view /
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 322--324
+Underfull \hbox (badness 1694) in paragraph at lines 320--322
 []\T1/ptm/m/n/12 Internet stats and facts for 2016. Dis-po-ní-vel em: $\T1/pcr/
 m/n/12 https : / / hostingfacts . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--327
+Underfull \hbox (badness 10000) in paragraph at lines 323--325
 []\T1/ptm/m/n/12 Mobile Mar-ke-ting Sta-tis-tics com-pi-la-tion. Dis-po-ní-vel 
 em: $\T1/pcr/m/n/12 http : / / www .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--327
+Underfull \hbox (badness 10000) in paragraph at lines 323--325
 \T1/pcr/m/n/12 smartinsights . com / mobile-[]marketing / mobile-[]marketing-[]
 analytics /
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 328--330
+Underfull \hbox (badness 4229) in paragraph at lines 326--328
 []\T1/ptm/m/n/12 Notebook HP 1000-1460BR. Dis-po-ní-vel em: $\T1/pcr/m/n/12 htt
 p : / / support . hp . com / br-[]pt /
  []
 
 
-Underfull \hbox (badness 6001) in paragraph at lines 331--333
+Underfull \hbox (badness 6001) in paragraph at lines 329--331
 []\T1/ptm/m/n/12 Difference between Cen-tOS, Fe-dora, and RHEL. Dis-po-ní-vel e
 m: $\T1/pcr/m/n/12 https : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--339
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
 []\T1/ptm/m/n/12 Red Hat En-ter-prise Li-nux Ato-mic Host ex-pands to Go-o-gle 
 Com-pute En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--339
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
 \T1/ptm/m/n/12 gine. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https : / / cloudplatfor
 m . googleblog . com / 2014 / 07 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--339
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
 \T1/pcr/m/n/12 red-[]hat-[]enterprise-[]linux-[]atomic-[]host-[]expands-[]to-[]
 google-[]compute-[]engine .
  []
 
-[57]
-Underfull \hbox (badness 4316) in paragraph at lines 358--360
+[58]
+Underfull \hbox (badness 4316) in paragraph at lines 356--358
 []\T1/ptm/m/n/12 Introdução ao Node.js. Dis-po-ní-vel em: $\T1/pcr/m/n/12 http 
 : / / maxroecker . github . io / blog /
  []
 
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 431--433
 []\T1/ptm/m/n/12 passport-http-bearer. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https 
 : / / github . com / jaredhanson /
  []
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 436--438
+Underfull \hbox (badness 3646) in paragraph at lines 434--436
 []\T1/ptm/m/n/12 OAuth2orize. Dis-po-ní-vel em: $\T1/pcr/m/n/12 https : / / git
 hub . com / jaredhanson / oauth2orize$\T1/ptm/m/n/12 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--441
+Underfull \hbox (badness 10000) in paragraph at lines 437--439
 []\T1/ptm/m/n/12 OAUTH 2.0 SER-VER. Dis-po-ní-vel em: $\T1/pcr/m/n/12 http : / 
 / jlabusch . github . io /
  []
 
-[59]
+[60]
 \openout2 = `apendice.aux'.
 
  (apendice.tex
@@ -1567,34 +1492,35 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-[60
+[61
 
 
-] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71]) [72]
+] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]) [73]
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
 (monografia.aux (introducao.aux) (trabalhos_relacionados.aux)
 (problematizacao.aux) (hardware_software_utilizado.aux) (implementacao.aux)
-(resultados.aux) (trabalhos_futuros.aux) (conclusao.aux) (apendice.aux)) ) 
+(conclusao.aux) (apendice.aux)) ) 
 Here is how much of TeX's memory you used:
- 7437 strings out of 493335
- 97739 string characters out of 3139244
- 177693 words of memory out of 3000000
- 10660 multiletter control sequences out of 15000+200000
- 78598 words of font info for 127 fonts, out of 3000000 for 9000
+ 7422 strings out of 493335
+ 97411 string characters out of 3139244
+ 176917 words of memory out of 3000000
+ 10658 multiletter control sequences out of 15000+200000
+ 78956 words of font info for 128 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,43p,1551b,353s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/P
-rogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTe
-X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb
-i8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (73 pages, 2448500 bytes).
+ 38i,12n,43p,1564b,353s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/f
+ontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a
+.pfb>
+Output written on monografia.pdf (74 pages, 2038394 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
+ 297 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
