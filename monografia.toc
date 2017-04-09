@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.2}Redis Publish-Subscribe (RedisMVA) }{18}
 \contentsline {section}{\numberline {2.3}Redis Pub-Sub (Rajaraodv)}{19}
 \contentsline {section}{\numberline {2.4}FanMappr e RadiusIM}{20}
-\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{22}
+\contentsline {section}{\numberline {2.5}Snapchat, Happn, Tinder e afins}{23}
 \contentsline {chapter}{\numberline {3}Problematiza\IeC {\c c}\IeC {\~a}o}{24}
 \contentsline {section}{\numberline {3.1}Caracteriza\IeC {\c c}\IeC {\~a}o do Problema}{24}
 \contentsline {section}{\numberline {3.2}Solu\IeC {\c c}\IeC {\~a}o Proposta}{25}
@@ -16,14 +16,14 @@
 \contentsline {subsection}{\numberline {4.1.1}Ambiente de Desenvolvimento}{27}
 \contentsline {subsection}{\numberline {4.1.2}Versionamento de C\IeC {\'o}digo}{28}
 \contentsline {subsection}{\numberline {4.1.3}Editores de Texto}{28}
-\contentsline {section}{\numberline {4.2}Back-end}{30}
+\contentsline {section}{\numberline {4.2}Back-end (aplica\IeC {\c c}\IeC {\~a}o servidor)}{30}
 \contentsline {subsection}{\numberline {4.2.1}NodeJS}{30}
 \contentsline {subsection}{\numberline {4.2.2}NPM}{32}
 \contentsline {subsection}{\numberline {4.2.3}ExpressJS}{32}
 \contentsline {subsection}{\numberline {4.2.4}SocketIO}{33}
 \contentsline {subsection}{\numberline {4.2.5}MongoDB}{34}
 \contentsline {subsection}{\numberline {4.2.6}Redis}{35}
-\contentsline {section}{\numberline {4.3}Front-end}{36}
+\contentsline {section}{\numberline {4.3}Front-end (aplica\IeC {\c c}\IeC {\~a}o cliente)}{36}
 \contentsline {subsection}{\numberline {4.3.1}Bower}{36}
 \contentsline {subsection}{\numberline {4.3.2}AngularJS}{36}
 \contentsline {subsection}{\numberline {4.3.3}Angular Material}{37}
@@ -34,14 +34,14 @@
 \contentsline {subsection}{\numberline {4.3.8}Babel}{39}
 \contentsline {subsection}{\numberline {4.3.9}Nginx}{39}
 \contentsline {chapter}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o}{41}
-\contentsline {section}{\numberline {5.1}Backend}{42}
+\contentsline {section}{\numberline {5.1}Back-end (aplica\IeC {\c c}\IeC {\~a}o servidor)}{42}
 \contentsline {subsection}{\numberline {5.1.1}Persist\IeC {\^e}ncia}{44}
 \contentsline {subsection}{\numberline {5.1.2}Autentica\IeC {\c c}\IeC {\~a}o e Autoriza\IeC {\c c}\IeC {\~a}o}{45}
 \contentsline {subsection}{\numberline {5.1.3}Rotas}{47}
 \contentsline {subsection}{\numberline {5.1.4}Socket}{47}
-\contentsline {section}{\numberline {5.2}Frontend}{49}
+\contentsline {section}{\numberline {5.2}Front-end (aplica\IeC {\c c}\IeC {\~a}o cliente)}{49}
 \contentsline {section}{\numberline {5.3}Resultados}{50}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{55}
-\contentsline {section}{\numberline {6.1}Trabalhos Futuros}{55}
+\contentsline {section}{\numberline {6.1}Trabalhos Futuros}{56}
 \contentsline {chapter}{Refer\^encias}{57}
 \contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Principais c\IeC {\'o}digos do software}{61}

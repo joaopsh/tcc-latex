@@ -29,27 +29,27 @@ O versionamento de código é uma tecnologia que permite traçar históricos de 
 A tecnologia utilizada para versionamento de código neste projeto foi o Git. Este é um sistema de versionamento distribuído que atende a diversos tipos de \textit{workflows} de trabalho. A escolha por esta tecnologia se deve ao fato de ser umas das mais difundidas no mercado, e onde se encontram os maiores e mais confiáveis repositórios de código. Embora o fluxo de desenvolvimento tenha sido muito simples, utilizamos um \textit{workflow} chamado \textit{Gitflow Workflow} \cite{gitflow} que divide o desenvolvimento basicamente em dois \textit{branches} (subdivisões de versionamento de código) principais, um de produção e outro de desenvolvimento, podendo ser criado \textit{branches} de cada \textit{feature} sobre o \textit{branch} de desenvolvimento. 
 
 \subsection{Editores de Texto}
-Para o desenvolvimento majoritário do \textit{frontend}, utilizamos o editor de texto Sublime Text 3 \cite{sublime}, apoiado de alguns \textit{plugins} para auxílio de escrita e design, todos encontrados no repositório de pacotes packagecontrol.io \cite{packagecontrolio}. A imagem \ref{fig:sublime3} oferece uma visão geral do Sublime Text 3 com o tema Material Theme aplicado a sua interface, onde existe ao lado direito uma área que mostra a estrutura de diretórios do projeto e seus arquivos, e a esquerda o editor de texto propriamente dito, com \textit{syntax highlighting}.
+Para o desenvolvimento majoritário do \textit{front-end}, utilizamos o editor de texto Sublime Text 3 \cite{sublime}, apoiado de alguns \textit{plugins} para auxílio de escrita e design, todos encontrados no repositório de pacotes packagecontrol.io \cite{packagecontrolio}. A imagem \ref{fig:sublime3} oferece uma visão geral do Sublime Text 3 com o tema Material Theme aplicado a sua interface, onde existe ao lado direito uma área que mostra a estrutura de diretórios do projeto e seus arquivos, e a esquerda o editor de texto propriamente dito, com \textit{syntax highlighting}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.51]{imagens/sublime3.png}
-	\caption{\small Visão geral do Sublime Text 3.  Fonte: Captura de tela}
+	\caption{\small Visão geral do Sublime Text 3.} Fonte: Captura de tela
 	\label{fig:sublime3}
 \end{figure}
 
-Para o desenvolvimento do \textit{backend} e parte do \textit{frontend}, utilizamos o editor de texto Visual Studio Code 1.6 \cite{vscode}. A escolha por este outro editor de texto se fez principalmente pela funcionalidade de \textit{debug}, que apresentou melhores resultados em sua utilização, além de ser uma funcionalidade nativa da aplicação, assim como a ferramenta para versionamento de código. Também foi utilizado \textit{plugins} semelhantes aos escolhidos no SublimeText para auxílio de escrita de código, todos encontrados no repositório de pacotes padrão do editor.
+Para o desenvolvimento do \textit{back-end} e parte do \textit{front-end}, utilizamos o editor de texto Visual Studio Code 1.6 \cite{vscode}. A escolha por este outro editor de texto se fez principalmente pela funcionalidade de \textit{debug}, que apresentou melhores resultados em sua utilização, além de ser uma funcionalidade nativa da aplicação, assim como a ferramenta para versionamento de código. Também foi utilizado \textit{plugins} semelhantes aos escolhidos no SublimeText para auxílio de escrita de código, todos encontrados no repositório de pacotes padrão do editor.
 
 A imagem \ref{fig:vscode} mostra a visão geral do Visual Studio Code. A distribuição dos componentes se assemelham as do Sublime, mas é possível notar na imagem uma barra na extremidade esquerda, que possui alguns componentes nativos do editor, como o componente de listagem de arquivos e diretórios, pesquisa, controle de versão (GIT), \textit{marketplace}, e principalmente a sua ferramenta de debug, que foi um dos principais motivos para adoção desse editor, como citado anteriormente.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.52]{imagens/visualstudio_code.png}
-	\caption{\small Visão geral do Visual Studio Code. Fonte: Captura de tela}
+	\caption{\small Visão geral do Visual Studio Code.} Fonte: Captura de tela
 	\label{fig:vscode}
 \end{figure}
 
-\section{Back-end}
+\section{Back-end (aplicação servidor)}
 \subsection{NodeJS}
 O NodeJS \cite{nodejs} é uma plataforma de desenvolvimento de alta performance construída sobre a \textit{Chrome's Javascript runtime V8} \cite{v8}. A V8 é um interpretador Javascript \textit{open source} desenvolvido em C++ pela Google e capaz de executar em sistemas operacionais Windows, Linux e iOS, consequentemente trazendo esta possibilidade de multi plataforma para o NodeJS. Comparando-se a uma tecnologia que está a mais tempo no mercado e se possui um maior entendimento, o funcionamento da \textit{engine} V8 é superficialmente semelhante ao fluxo de execução do conjunto JVM (Java Virtual Machine) e JRE (Java Runtime Environment) do Java.
 
@@ -58,7 +58,7 @@ A plataforma NodeJS possui uma arquitetura de funcionamento \textit{single-threa
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[scale=0.55]{imagens/node-eventloop.png}
-	\caption{\small Fluxo simplificado de requisições no NodeJS. Fonte: maxroecker \cite{img-eventloop}}
+	\caption{\small Fluxo simplificado de requisições no NodeJS.} Fonte: maxroecker \cite{img-eventloop}
 	\label{fig:node-eventloop}
 \end{figure}
 
@@ -66,12 +66,12 @@ Como se pode observar na figura \ref{fig:node-eventloop}, diferentemente dos ser
 
 Tendo em mente todos esses conceitos do funcionamento da arquitetura do NodeJS, é possível entender o porque dele conseguir tratar muito mais conexões simultâneas do que as arquiteturas convencionais, pois a criação de processos e \textit{threads} tende a ser um recurso custoso para o sistema operacional, além de reservas de recursos valiosos do sistema, como memória RAM. É importante ressaltar que a programação assíncrona e o ambiente criado pelo NodeJS tem uma curva de aprendizado maior e se faz necessário maiores cuidados por parte do desenvolvedor. Uma simples implementação incorreta pode acarretar no travamento da única \textit{thread} da instância da aplicação, bloqueando totalmente o sistema de processar novas requisições. 
 
-Por outro lado, quando o entendimento é claro e o desenvolvimento é correto, a utilização dos recursos naturalmente é escalável e distribuída. A própria singularidade da plataforma nos faz trabalhar conceitos de sistemas distribuídos, como por exemplo, para que possamos aproveitar de todos os recursos de um processador multi-core com NodeJS, temos que executar mais de uma instância da aplicação, o que nos leva a trabalhar conceitos de clusterização, comunicação de processos e etc. Tudo isso facilita o escalonamento horizontal da aplicação em múltiplos servidores, conceito importante para aplicações de alto desempenho.
+Por outro lado, quando o entendimento é claro e o desenvolvimento é correto, a utilização dos recursos naturalmente é escalável e distribuída. A própria singularidade da plataforma nos faz trabalhar conceitos de sistemas distribuídos, como por exemplo, para que possamos aproveitar de todos os recursos de um processador multi-core com NodeJS, temos que executar mais de uma instância da aplicação, o que nos leva a trabalhar conceitos de clusterização, comunicação de processos e etc. Tal característica facilita o escalonamento horizontal da aplicação em múltiplos servidores, conceito importante para aplicações de alto desempenho.
 
 \subsection{NPM}
 O NPM (Node Package Manager) \cite{npm} é o gerenciador de pacotes do NodeJS. A função do NPM é oferecer um repositório central de qual se pode baixar diversos módulos distribuídos pela própria equipe que desenvolve o NodeJS ou que outros usuários tenham contribuído.
 
-A evolução do NPM se tornou dominante, sendo considerado o maior repositório de registro de conteúdo Javascript do mundo. Devida a utilização do Javascript para outras finalidades além do desenvolvimento em NodeJS, muitos dos módulos disponibilizados pelo NPM não são parcialmente ou completamente desenvolvidos para a utilização com o NodeJS, sendo que muitos usuários e desenvolvedores utilizam e publicam conteúdo voltado para o desenvolvimento \textit{frontend}, que também utiliza o Javascript como principal linguagem. Talvez este seja um dos grandes motivos de sucesso do NPM em números.
+A evolução do NPM se tornou dominante, sendo considerado o maior repositório de registro de conteúdo Javascript do mundo. Devida a utilização do Javascript para outras finalidades além do desenvolvimento em NodeJS, muitos dos módulos disponibilizados pelo NPM não são parcialmente ou completamente desenvolvidos para a utilização com o NodeJS, sendo que muitos usuários e desenvolvedores utilizam e publicam conteúdo voltado para o desenvolvimento \textit{front-end}, que também utiliza o Javascript como principal linguagem. Talvez este seja um dos grandes motivos de sucesso do NPM em números.
 
 Sua utilização é feita basicamente via linha de comando, onde iniciamos um novo repositório quando criamos uma aplicação, e apartir deste comando é criado um arquivo em formato JSON, chamado package.json, do qual ficará registrado todas as dependências daquele projeto, através da especificação do nome e versão de cada módulo baixado do repositório oficial.
 
@@ -90,7 +90,7 @@ A figura \ref{fig:socketio} demonstra simplificadamente a forma de conexão entr
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.67]{imagens/socketio.png}
-	\caption{\small Conexão entre servidor e cliente com SocketIO. Fonte: ifollow \cite{img-socketio}}
+	\caption{\small Conexão entre servidor e cliente com SocketIO.} Fonte: ifollow \cite{img-socketio}
 	\label{fig:socketio}
 \end{figure}
 
@@ -108,17 +108,17 @@ O Redis é um banco de dados NoSQL em memória, que implementa apenas alguns tip
 
 A utilização principal do Redis é para servir como \textit{cache} e/ou \textit{message broker} de informações em sistemas. Em implementações \textit{stateless} o Redis pode servir como \textit{cache} de dados muito requisitados, pois seu rápido desempenho em memória pode ser vital para atender requisições em tempo hábil. Outra utilidade do Redis, que é o caso deste projeto, é do compartilhamento de dados entre servidores distintos de uma aplicação, onde através das estruturas de dados fornecidas pelo Redis e algumas funcionalidades, como a do protocolo PUB/SUB, é possível que se armazene dados no Redis e outra instância da aplicação sendo executada em outro local possa buscar estes mesmos dados. Devido a simplicidade e robustez que o Redis possui, uma única instância é capaz de realizar milhares de operações, aproximadamente 1.5 milhões por segundo \cite{redis-metrics}, podendo funcionar muito bem sendo este tipo de centralizador, pois o escalonamento de servidores de aplicação ocorre com muito mais frequência do que a de instâncias Redis. 
 
-\section{Front-end}
+\section{Front-end (aplicação cliente)}
 
 \subsection{Bower}
-O Bower \cite{bower} é um gerenciador de pacotes, assim como o NPM, mas com conteúdo focado para o \textit{frontend}. Através dele é possível fazer \textit{download} de diversas bibliotecas, como AngularJS, jQuery e Bootstrap. Sua utilização se dá através de linha de comando, onde ao criar um novo projeto \textit{frontend} o usuário deve iniciar o Bower no mesmo diretório, através de linha de comando, e este criará um arquivo chamado bower.json, que conterá informações do projeto e todas os nomes e versões de bibliotecas baixadas do seu repositório oficial, permitindo-se assim o gerenciamento de novos pacotes e resolução de dependências entre eles.
+O Bower \cite{bower} é um gerenciador de pacotes, assim como o NPM, mas com conteúdo focado para o \textit{front-end}. Através dele é possível fazer \textit{download} de diversas bibliotecas, como AngularJS, jQuery e Bootstrap. Sua utilização se dá através de linha de comando, onde ao criar um novo projeto \textit{front-end} o usuário deve iniciar o Bower no mesmo diretório, através de linha de comando, e este criará um arquivo chamado bower.json, que conterá informações do projeto e todas os nomes e versões de bibliotecas baixadas do seu repositório oficial, permitindo-se assim o gerenciamento de novos pacotes e resolução de dependências entre eles.
 
-O NPM também oferece muitas das bibliotecas disponíveis no Bower, e o contrário muitas vezes não é válido, sendo assim, é comum a utilização dos dois gerenciadores de pacotes no projeto \textit{frontend}, o Bower e NPM.
+O NPM também oferece muitas das bibliotecas disponíveis no Bower, e o contrário muitas vezes não é válido, sendo assim, é comum a utilização dos dois gerenciadores de pacotes no projeto \textit{front-end}, o Bower e NPM.
 
 \subsection{AngularJS}
 O AngularJS \cite{angular} é um \textit{framework} Javascript para desenvolvimento de interfaces \textit{web}. Mais do que apenas interfaces, o AngularJS auxilia na criação de aplicações complexas no lado cliente da comunicação. Com o avanço das tecnologias e formas de se construir sistemas, ferramentas como o AngularJS vieram para ajudar na organização e qualidade dos sistemas que estavam se desenvolvendo.
 
-A abordagem do AngularJS na construção de aplicações \textit{frontend} é completa, oferecendo suporte para manipulação do DOM (Document Object Model), \textit{data binding}, gerenciamento de rotas, padrões de projeto (Model-View-Whatever, Model-View-ViewModel, Model-View-Controller), que são conceitos que visam a organização e reutilização de código, entre outros. Apesar da fragmentação de alguns recursos em módulos separados, como as rotas, o produto AngularJS consegue oferecer uma solução completa para o desenvolvimento de interfaces de usuário.
+A abordagem do AngularJS na construção de aplicações \textit{front-end} é completa, oferecendo suporte para manipulação do DOM (Document Object Model), \textit{data binding}, gerenciamento de rotas, padrões de projeto (Model-View-Whatever, Model-View-ViewModel, Model-View-Controller), que são conceitos que visam a organização e reutilização de código, entre outros. Apesar da fragmentação de alguns recursos em módulos separados, como as rotas, o produto AngularJS consegue oferecer uma solução completa para o desenvolvimento de interfaces de usuário.
 
 O desenvolvimento de uma aplicação AngularJS, normalmente segue as diretivas de uma aplicação SPA (Single Page Application) com o estilo de programação declarativa, tendo em vista a forma com que se desenvolve interfaces para os \textit{browsers}, as tecnologias envolvidas, como o próprio HTML (Hypertext Markup Language), em um ambiente orientado a eventos, se faz mais adequada este tipo de abordagem declarativa, que segue uma lógica mais comum as interfaces.
 
@@ -127,12 +127,12 @@ A arquitetura moldada ao um formato de API também é um fator determinante para
 \subsection{Angular Material}
 O Angular Material \cite{angular-material} é uma outra solução do produto Angular, também para interfaces, mas focado em conceitos e características de \textit{design}, UX (área do desenvolvendo que trabalha por uma melhor experiência de uso da aplicação por parte do usuário), reutilização, acessibilidade, compatibilidade \textit{cross-browsers}, responsividade, entre outros. 
 
-A ferramenta oferece diversos componentes visuais de interface com efeitos e estilizações próprios, levando em conta diversos conceitos abstratos de \textit{design}, que enriquecem a experiência e agradabilidade do usuário ao ver e interagir com eles. Os componentes do Angular Material são totalmente compatíveis com as implementações AngularJS, facilitando na integração entre os componentes. Um grande problema que é evitado utilizando um \textit{framework} como este, são os de problemas de compatibilidade entre os diversos navegadores no mercado, onde cada um possui especificidades que podem causar comportamentos inesperados nos comentos de interface. Acessibilidade e outras otimizações também são importantes para a inclusão do site e SEO.
+A ferramenta oferece diversos componentes visuais de interface com efeitos e estilizações próprios, levando em conta diversos conceitos abstratos de \textit{design}, que enriquecem a experiência e agradabilidade do usuário ao ver e interagir com eles. Os componentes do Angular Material são totalmente compatíveis com as implementações AngularJS, facilitando na integração entre os componentes. Um grande problema que é evitado utilizando um \textit{framework} como este, são os de problemas de compatibilidade entre os diversos navegadores no mercado, onde cada um possui especificidades que podem causar comportamentos inesperados nos comentos de interface. Acessibilidade e outras otimizações também são importantes para a inclusão do site e SEO \cite{seo}.
 
 Por último, um benefício importante que o Angular Material dispõe, é o seu \textit{grid system}, baseado no CSS3 \textit{flexbox}. Esta característica possibilita que todo o conteúdo apresentado no site se redimensione de acordo com o tamanho da tela do dispositivo que está exibindo o conteúdo, possibilitando assim uma experiência viável para dispositivos móveis, do qual já citamos a importância em números \cite{internet-traffic-stats1} \cite{internet-traffic-stats2} \cite{internet-traffic-stats3}.  
 
 \subsection{Gulp}
-O Gulp \cite{gulp} é uma ferramenta de automatização de tarefas Javascript, comumente utilizado para automatizações de fluxos de trabalho no desenvolvimento \textit{frontend}. Sua utilização se dá por linha de comando e um arquivo de configuração chamado gulpfile.js. Neste arquivo Javascript podemos criar \textit{tasks} que irão realizar tarefas diversas, de acordo com a programação realiza, como por exemplo a execução de testes unitários, concatenação e minificação de arquivos, compilação de linguagens intermediárias, como o SASS, \textit{autoprefixer}, \textit{lint}, entre outros.
+O Gulp \cite{gulp} é uma ferramenta de automatização de tarefas Javascript, comumente utilizado para automatizações de fluxos de trabalho no desenvolvimento \textit{front-end}. Sua utilização se dá por linha de comando e um arquivo de configuração chamado gulpfile.js. Neste arquivo Javascript podemos criar \textit{tasks} que irão realizar tarefas diversas, de acordo com a programação realiza, como por exemplo a execução de testes unitários, concatenação e minificação de arquivos, compilação de linguagens intermediárias, como o SASS, \textit{autoprefixer}, \textit{lint}, entre outros.
 
 Existem diversos \textit{plugins} disponíveis no NPM que executam tarefas específicas, como as citadas anteriormente, bastando ao usuário baixá-las e chamá-las em suas \textit{tasks}, que podem executar uma ou mais funcionalidades organizadas através de chamadas síncronas pelo método pipe de cada \textit{task}.
 
@@ -149,7 +149,7 @@ Apesar da escolha de utilização de uma ferramenta transcrita de outra linguage
 \subsection{Webpack}
 O WebPack \cite{webpack} é um Javascript \textit{module bundler}. Devido a linguagem Javascript não possuir um sistema para isolamento de escopo dos diversos blocos de código que podem existir em uma aplicação, o WebPack proporciona essa funcionalidade baseando-se nos principais padrões de módulos Javascript utilizados, como o AMD e CommonJS, onde ele é capaz de gerenciar todas as dependências entre módulos e gerar \textit{assets} estáticos para a utilização.
 
-A utlização do WebPack se faz principalmente no desenvolvimento \textit{frontend}, pois o NodeJS, principal ambiente de desenvolvimento com Javascript do lado servidor, já adota o sistema de módulos CommonJS, o que aproxima ainda mais os conhecimentos de desenvolvimento \textit{frontend} e \textit{backend} com a adoção de módulos CommonJS nos dois lados, além dos benefícios na organização e isolamento de códigos. Também é possível a utilização de \textit{plugins} intermediários com o WebPack, estes podem oferecer diversas funcionalidades, como interpretação de ECMAScript 2015 ou TypeScript.
+A utlização do WebPack se faz principalmente no desenvolvimento \textit{front-end}, pois o NodeJS, principal ambiente de desenvolvimento com Javascript do lado servidor, já adota o sistema de módulos CommonJS, o que aproxima ainda mais os conhecimentos de desenvolvimento \textit{front-end} e \textit{back-end} com a adoção de módulos CommonJS nos dois lados, além dos benefícios na organização e isolamento de códigos. Também é possível a utilização de \textit{plugins} intermediários com o WebPack, estes podem oferecer diversas funcionalidades, como interpretação de ECMAScript 2015 ou TypeScript.
 
 \subsection{Babel}
 O Babel \cite{babel} é um compilador Javascript que permite a utilização das novas funcionalidades do ES2015. Devido a esta grande atualização do Javascript não ser compatível com uma grande maioria dos navegadores do mercado, o Babel oferece a opção de se escrever o código Javascript com a sintaxe ES2015 e ter a geração de outro arquivo traduzido para o ES5, que é a implementação com maior compatibilidade entre navegadores.
@@ -162,7 +162,7 @@ O Nginx \cite{nginx} é um servidor \textit{web} de alta performance \textit{sin
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{imagens/nginx.png}
-	\caption{\small Localização do Nginx na arquitetura de aplicações \textit{web}. Fonte: Thunder-Boy \cite{img-nginx}}
+	\caption{\small Localização do Nginx na arquitetura de aplicações \textit{web}.} Fonte: Thunder-Boy \cite{img-nginx}
 	\label{fig:nginx}
 \end{figure}
 

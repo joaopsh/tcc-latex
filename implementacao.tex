@@ -1,9 +1,9 @@
 \chapter{Implementação}
-A implementação do sistema segue todas as diretrizes de tecnologias e conceitos apresentados até este tópico. A descrição de como a implementação foi feita será dividida em duas partes principais: \textit{backend} e \textit{frontend}. Sendo a parte de \textit{backend} a implementação da infraestrutura e servidor da aplicação, e na parte do \textit{frontend} a implementação de interface com o usuário. No desenvolvimento elegemos um nome fictício para a aplicação, chamado Orb. Este nome será utilizado para remeter a aplicação em alguns textos, logos, implementações, entre outros.
+A implementação do sistema segue todas as diretrizes de tecnologias e conceitos apresentados até este tópico. A descrição de como a implementação foi feita será dividida em duas partes principais: \textit{back-end} e \textit{front-end}. Sendo a parte de \textit{back-end} a implementação da infraestrutura e servidor da aplicação, e na parte do \textit{front-end} a implementação de interface com o usuário. No desenvolvimento elegemos um nome fictício para a aplicação, chamado Orb. Este nome será utilizado para remeter a aplicação em alguns textos, logos, implementações, entre outros.
 
 O código-fonte da aplicação está hospedado no GitHub \cite{orb}, como \textit{software open-source}, liberado para utilização através da licença MIT \cite{mit}. A abordagem utilizada para a descrição da implementação feita fará referências pontuais a trechos do código-fonte que poderão ser consultados pelo leitor no repositório informado \cite{orb}, evitando-se assim a exposição de código neste formato de texto que não é favorável a análise deste tipo de conteúdo.
 
-A figura \ref{fig:estrutura-arquivos} mostra a estrutura de diretórios e como alguns arquivos da aplicação real estão alocados neles. A esquerda está representada a estrutura de diretórios da aplicação backend, seguindo o modelo de estruturação do ExpressJS e o diretório \textit{domain}, criado para alocação de lógica de negócio da aplicação. A direita da imagem é representado a estrutura de diretórios do \textit{frontend}, assim como a da aplicação Angular, que segue o padrão MVC.
+A figura \ref{fig:estrutura-arquivos} mostra a estrutura de diretórios e como alguns arquivos da aplicação real estão alocados neles. A esquerda está representada a estrutura de diretórios da aplicação back-end, seguindo o modelo de estruturação do ExpressJS e o diretório \textit{domain}, criado para alocação de lógica de negócio da aplicação. A direita da imagem é representado a estrutura de diretórios do \textit{front-end}, assim como a da aplicação Angular, que segue o padrão MVC \cite{mvc-mvw}.
 
 \begin{figure}[H]
 	\centering
@@ -12,14 +12,14 @@ A figura \ref{fig:estrutura-arquivos} mostra a estrutura de diretórios e como a
 	\label{fig:estrutura-arquivos}
 \end{figure}
 
-\section{Backend}
+\section{Back-end (aplicação servidor)}
 Primeiramente iremos descrever a criação do ambiente de desenvolvimento do projeto, onde inicialmente foi instalado o sistema operacional e todas as ferramentas que decidimos utilizar para a construção da aplicação, e posteriormente iniciamos o processo de codificação.
 
-Iniciando-se pelo sistema operacional, foi criada uma partição separada no disco rígido, com volume de 60 GBs. O sistema operacinal escolhido para o ambiente de desenvolvimento foi de uma distribuição Linux chamada CentOS \cite{centos}, versão 7. A instalação do sistema operacional foi feita através de um \textit{pendrive} e foram seguidas todas as configurações padrões do \textit{wizard} de instalação do sistema.
+Iniciando-se pelo sistema operacional, foi criada uma partição separada no disco rígido, com volume de 60 GBs. O sistema operacional escolhido para o ambiente de desenvolvimento foi de uma distribuição Linux chamada CentOS \cite{centos}, versão 7. A instalação do sistema operacional foi feita através de um \textit{pendrive} e foram seguidas todas as configurações padrões do \textit{wizard} de instalação do sistema.
 
 Após a instalação do sistema operacional, foi feita a instalação de todas as ferramentas que foram escolhidas para o desenvolvimento da aplicação, como o NodeJS, MongoDB, Redis, editores de texto e navegadores. Todas estas ferramentas foram instaladas através do repositório de pacotes padrão do sistema CentOS 7, chamado YUM. Para algumas ferramentas foram necessário a atualização das fontes do repositório YUM e outras foram instaladas através de pacotes RPM (Red Hat Package Manager ou RPM Package Manager) disponibilizados no próprio site da ferramenta.
 
-A implementação do \textit{backend} iniciou-se com a criação de um diretório chamado backend na pasta raiz do projeto, do qual a partir dele foram seguidas recomendações de boas práticas \cite{express-app-structure} para a organização da estrutura de diretórios em aplicações ExpressJS. A seguinte listagem identifica o nome destes diretórios e suas respectivas funcionalidades:
+A implementação do \textit{back-end} iniciou-se com a criação de um diretório chamado back-end na pasta raiz do projeto, do qual a partir dele foram seguidas recomendações de boas práticas \cite{express-app-structure} para a organização da estrutura de diretórios em aplicações ExpressJS. A seguinte listagem identifica o nome destes diretórios e suas respectivas funcionalidades:
 
 \begin{description}
 	\item[controllers] Este diretório contém os arquivos de código relacionados as rotas e suas lógicas de implementação. Rotas são os \textit{endpoints} que podem ser acessados através de requisições HTTP enviadas por uma determinada URL que a identifica. Neste diretório contém os arquivos das rotas de cliente, usuário e \textit{token}.
@@ -60,7 +60,7 @@ Apesar de utilizar um banco de dados não relacional, a imagem \ref{fig:modelsum
 
 
 \subsection{Autenticação e Autorização}
-Para a implementação do sistema de autenticação, cujos códigos estão no diretório middlewares, utilizamos três pacotes NPM, que funcionam como \textit{middlewares} que extraem de um \textit{request} as informações de autenticação, e através de uma \textit{callback} é possível validar essas informações e sinalizar se as informações estão corretas para concretização da autenticação. Para o sistema de autorização, utilizamos o OAuth2 com algumas modificações em seu padrão para atender aplicações \textit{trusted}, como o nosso \textit{frontend app} desenvolvido em AngularJS, que é um tipo de aplicação que não necessita de autorização do usuário da conta para acessar suas informações confidenciais.
+Para a implementação do sistema de autenticação, cujos códigos estão no diretório middlewares, utilizamos três pacotes NPM, que funcionam como \textit{middlewares} que extraem de um \textit{request} as informações de autenticação, e através de uma \textit{callback} é possível validar essas informações e sinalizar se as informações estão corretas para concretização da autenticação. Para o sistema de autorização, utilizamos o OAuth2 com algumas modificações em seu padrão para atender aplicações \textit{trusted}, como o nosso \textit{front-end app} desenvolvido em AngularJS, que é um tipo de aplicação que não necessita de autorização do usuário da conta para acessar suas informações confidenciais.
 
 A figura \ref{fig:oauth2} representa o fluxo de autenticação utilizado no sistema. Como estamos utilizando um sistema de \textit{tokens}, para realizar acesso ao \textit{endpoint} token (Authorization Server na figura), o qual é utilizado no sistema de \textit{login} para se conseguir um Access Token e um Refresh Token através do fornecimento de \textit{e-mail} e senha, é realizada a autenticação pelos padrões Basic \cite{passport-basic} e Client \cite{passport-client}. Após esta autenticação, o usuário é encaminhado para um \textit{exchange} do OAuth2 que irá gerar, persistir e retornar um Access Token e um Refresh Token para o solicitante, que poderá usá-lo para acessar os demais \textit{endpoints} da aplicação (Resource Server na figura).
 
@@ -69,7 +69,7 @@ Como já introduzido, o restante dos das rotas da aplicação são protegidos at
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.49]{imagens/oauth2.png}
-	\caption{\small Fluxo de acesso aos recursos com OAuth2. Fonte: jlabusch \cite{img-jlabusch}}
+	\caption{\small Fluxo de acesso aos recursos com OAuth2.} Fonte: jlabusch \cite{img-jlabusch}
 	\label{fig:oauth2}
 \end{figure}
 
@@ -86,10 +86,10 @@ As rotas de aplicação estão organizadas no diretório controller da aplicaç�
 	\item[user] A rota user possui quatro \textit{endpoints}, sendo o primeiro podendo ser chamado pelo método GET e retornando todos os usuários persistidos. O segundo pelo método GET, passando-se como parâmetro o id do usuário que se quer retornar. O terceiro pelo método POST, passando-se como parâmetro o usuário em formato JSON que se quer persistir. O quarto pelo \textit{endpoint} accesstoken e método GET, passando-se como parâmetro o Access Token do usuário que se quer retornar.
 \end{description}
 
-As rotas seguem o padrão de utilização dos métodos HTTP para realização do CRUD em APIs, sendo os \textit{endpoints} citados funcionalidades da aplicação, e são protegidos de acordo com as especificações faladas no tópico Autenticação e Autorização. Estes \textit{endpoints} são chamados pela aplicação \textit{frontend}, que passa em cada \textit{request} todas as informações de autenticação necessária, e trata os dados de sucesso ou erro que cada \textit{endpoint} retorna.
+As rotas seguem o padrão de utilização dos métodos HTTP para realização do CRUD em APIs, sendo os \textit{endpoints} citados funcionalidades da aplicação, e são protegidos de acordo com as especificações faladas no tópico Autenticação e Autorização. Estes \textit{endpoints} são chamados pela aplicação \textit{front-end}, que passa em cada \textit{request} todas as informações de autenticação necessária, e trata os dados de sucesso ou erro que cada \textit{endpoint} retorna.
 
 \subsection{Socket}
-O desenvolvimento da comunicação em tempo real do \textit{chat} é a principal funcionalidade do \textit{backend} da aplicação. Os arquivos de implementação estão localizados no diretório domain, onde três arquivos implementam todas as funcionalidades relacionadas.
+O desenvolvimento da comunicação em tempo real do \textit{chat} é a principal funcionalidade do \textit{back-end} da aplicação. Os arquivos de implementação estão localizados no diretório domain, onde três arquivos implementam todas as funcionalidades relacionadas.
 
 Inicialmente foi feito o \textit{download} pelo NPM das bibliotecas socket.io e redis. A inicialização do servidor de conexão do socket.io foi feita no arquivo de inicialização do servidor através da porta 1200. A conexão com o banco de dados Redis foi feita no arquivo que trava os eventos dos \textit{sockets}.
 
@@ -121,10 +121,10 @@ A seguir uma lista dos eventos emitidos e recebidos no \textit{namespace} chat e
 
 Toda a interação com o banco de dados é feita através do repositório criado no arquivo chatSocketHandler.js. Neste arquivo estão implementados diversos métodos e serviços de CRUD para os eventos dos \textit{sockets}.
 
-\section{Frontend}
-O desenvolvimento da aplicação \textit{frontend} foi feito com AngularJS. O uso deste \textit{framework} trouxe para a aplicação algumas características importantes para a construção de interfaces, como o conceito de SPA e um padrão de projeto, que quando se lançou a ferramenta a documentação declarava este padrão como MVVA, mas ao longo do tempo os desenvolvedores foram adquirindo novas formas de se trabalhar com o AngularJS, criando-se divergências sobre qual modelo realmente é empregado, sendo assim a documentação oficial declarou o modelo MVW (Model-View-Whatever). Este modelo de \textit{design pattern} tem algumas semelhanças com o aplicado no projeto de \textit{backend}.
+\section{Front-end (aplicação cliente)}
+O desenvolvimento da aplicação \textit{front-end} foi feito com AngularJS. O uso deste \textit{framework} trouxe para a aplicação algumas características importantes para a construção de interfaces, como o conceito de SPA e um padrão de projeto, que quando se lançou a ferramenta a documentação declarava este padrão como MVVA, mas ao longo do tempo os desenvolvedores foram adquirindo novas formas de se trabalhar com o AngularJS, criando-se divergências sobre qual modelo realmente é empregado, sendo assim a documentação oficial declarou o modelo MVW (Model-View-Whatever). Este modelo de \textit{design pattern} tem algumas semelhanças com o aplicado no projeto de \textit{backend}.
 
-Para começar o desenvolvimento, criamos um diretório chamado \textit{frontend} na pasta raiz da aplicação. Dentro deste diretório criamos duas pastas, dist e src, onde na pasta dist ficam todos os arquivos que estão prontos para serem distribuídos pelo servidor da aplicação, como imagens, bibliotecas de terceiros e fontes. Na pasta src contém todos os arquivos que serão processados por algum \textit{plugin} do Gulp que gerará um arquivo correspondente na pasta dist, como os arquivos da pasta app, referente a aplicação Angular, arquivos SASS, referente a estilos, entre outros. Também inicializamos os gerenciadores de pacotes NPM e Bower, e o WebPack.
+Para começar o desenvolvimento, criamos um diretório chamado \textit{front-end} na pasta raiz da aplicação. Dentro deste diretório criamos duas pastas, dist e src, onde na pasta dist ficam todos os arquivos que estão prontos para serem distribuídos pelo servidor da aplicação, como imagens, bibliotecas de terceiros e fontes. Na pasta src contém todos os arquivos que serão processados por algum \textit{plugin} do Gulp que gerará um arquivo correspondente na pasta dist, como os arquivos da pasta app, referente a aplicação Angular, arquivos SASS, referente a estilos, entre outros. Também inicializamos os gerenciadores de pacotes NPM e Bower, e o WebPack.
 
 No diretório app, temos os arquivos relacionados ao projeto AngularJS. Na pasta controller deste diretório estão implementados os \textit{controllers}, que controlam blocos de componentes HTML em uma página, eles são ligados ao DOM, e através deles é possível manipular os dados da \textit{view} através dos \textit{models} implementados, assim como vincular métodos com ações, entre outras funcionalidades. Os \textit{controllers} foram utilizados para criar diversas interações na aplicação, como a abertura de novas janelas de \textit{chat}, envio de mensagens, \textit{handlers} dos eventos dos \textit{sockets}, entre outros. O diretório directives possui pastas que contém implementações de diretivas AngularJS, como o painel de \textit{chats}, a janela de \textit{chat}, lista de contatos, entre outros. Cada pasta possui todos os arquivos relacionados a aquela diretiva específica, como \textit{controllers}, \textit{services} e \textit{view}. O diretório services possui serviços AngularJS que implementam funcionalidades de lógica de negócio e de repositórios que fazem acesso aos \textit{endpoints} da API para inserir ou ler dados.
 
@@ -132,11 +132,11 @@ Apesar da utilização do Angular Material em muitos dos componentes da interfac
 
 \section{Resultados}
 
-O principal objetivo do trabalho foi alcançado na implementação do sistema, que foi explorar o funcionamento de aplicações de tempo real. Com a ajuda de todas as ferramentas citadas, foi possível desenvolver uma aplicação \textit{web} com alguns fluxos de utilização que facilitam o entendimento do que é e como pode ser aplicada esse tipo de tecnologia na construção de uma ferramenta de comunicação, além do estudo de uma arquitetura que pode ser utilizada para outros tipos de finalidade. 
+O principal objetivo do trabalho foi alcançado, que foi o estudo de um tipo de aplicação de \textit{chat} e implementação do sistema de tempo real. Com a ajuda de todas as ferramentas citadas, foi possível desenvolver uma aplicação \textit{web} com alguns fluxos de utilização que facilitam o entendimento do que é e como pode ser aplicada esse tipo de tecnologia na construção de uma ferramenta de comunicação, além do estudo de uma arquitetura que pode ser utilizada para outros tipos de finalidade. 
 
 Para o projeto entregue foram alcançados a comunicação por mensagens de texto entre dois usuários, demonstrado na imagem \ref{fig:pagina}, a exibição e alteração da localização real do usuário, o sistema de autenticação \textit{stateless} através de \textit{tokens}, criação de novas contas de usuário, demonstrado na imagem \ref{fig:pagina-signin}, persistência de mensagens no banco de dados e utilização de conceitos de escalabilidade em aplicações. 
 
-As arquitetura do sistema seguiu conceitos de escalabilidade os quais não puderam ser testados em sua totalidade devidas a não extensão do tempo de elaboração do trabalho final, apenas demonstramos teoricamente a função de cada tecnologia em um ambiente que se possa ter diversas instâncias da aplicação distribuídas em uma rede de servidores. Assim como a proficiência em desempenho também não foi alvo de análise.
+As arquitetura do sistema seguiu conceitos de escalabilidade os quais não puderam ser testados em sua totalidade devido a não extensão do tempo de elaboração do trabalho final, apenas demonstramos teoricamente a função de cada tecnologia em um ambiente que se possa ter diversas instâncias da aplicação distribuídas em uma rede de servidores. Assim como a proficiência em desempenho também não foi alvo de análise.
 
 Alguns componentes de interface, apesar de existirem visualmente, não foram implementadas as funcionalidades para a execução das tarefas, como as alterações de informações da conta do usuário, lista de contatos, mostrados na imagem \ref{fig:aside-menu}, e página de sobre. Apesar da utilização de um \textit{framework} que provê compatibilidade e responsividade de componentes entre diversos \textit{browsers}, alguns componentes foram desenvolvidos a parte, e não foram realizados testes \textit{cross-browsers} para verificar o funcionamento correto de todos os componentes, sendo as funcionalidades apenas validadas no navegador de testes para desenvolvimento, o Google Chrome, versão 54.
 
@@ -145,38 +145,38 @@ A seguir podemos observar algumas imagens da interface depois de implementada:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.32]{imagens/pagina.png}
-	\caption{\small Página principal. Fonte: Captura de tela}
+	\caption{\small Página principal.} Fonte: Captura de tela
 	\label{fig:pagina}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.35]{imagens/pagina_signin.png}
-	\caption{\small Página de acesso ao sistema. Fonte: Captura de tela}
+	\caption{\small Página de acesso ao sistema.} Fonte: Captura de tela
 	\label{fig:pagina-signin}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{imagens/aside_menu.png}
-	\caption{\small Menu lateral. Fonte: Captura de tela}
+	\caption{\small Menu lateral.} Fonte: Captura de tela
 	\label{fig:aside-menu}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{imagens/chat_panel.png}
-	\caption{\small Janelas de \textit{chat}. Fonte: Captura de tela}
+	\caption{\small Janelas de \textit{chat}.} Fonte: Captura de tela
 	\label{fig:chat-panel}
 \end{figure}
 
-A figura \ref{fig:architecture} demonstra como ficou arquitetado o funcionamento do sistema. O Frontend, representado no topo da figura, é do escopo de utilização do usuário, onde a aplicação funciona no \textit{web browser} dos clientes e oferece as interações necessárias para utilização do sistema. A aplicação \textit{frontend} se comunica com a aplicação \textit{backend} através de chamadas HTTP à API, e também conexões websockets.
+A figura \ref{fig:architecture} demonstra como ficou arquitetado o funcionamento do sistema. O front-end, representado no topo da figura, é do escopo de utilização do usuário, onde a aplicação funciona no \textit{web browser} dos clientes e oferece as interações necessárias para utilização do sistema. A aplicação \textit{front-end} se comunica com a aplicação \textit{back-end} através de chamadas HTTP à API, e também conexões websockets.
 
 As linhas que interligam os componentes da arquitetura representam o caminho pelo qual os dados trafegam na rede, onde estes são transmitidos e recebidos através de rede pública (internet) e privada (rede de comunicação interna entre as camadas do servidor), que tem em seu escopo o Nginx, servidores de aplicação NodeJS e banco de dados.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[scale=0.8]{imagens/arquitetura.png}
-	\caption{\small Representação da arquitetura do sistema. Fonte: Autoria própria}
+	\caption{\small Representação da arquitetura do sistema.} Fonte: Autoria própria
 	\label{fig:architecture}
 \end{figure}

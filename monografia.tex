@@ -147,52 +147,32 @@
 	
 	% Resumo
 	\begin{resumo}
-		A evolução da tecnologia vem trazendo para as nossas vida diversas inovações que estão mudando a forma de lidar com inúmeras situações. Alcançamos novos patamares em como tratamos os negócios, relações pessoais, a busca por novos conhecimentos, entre outras coisas. Tudo isso nos levou a buscar entender um tipo de aplicação que tem se tornado cada vez mais presente nas ferramentas que utilizamos.
+		A evolução da tecnologia vem trazendo diversas inovações que estão mudando a forma de lidar com inúmeras situações. Foi alcançado novos patamares em como tratamos os negócios, relações pessoais, a busca por novos conhecimentos, entre outras coisas. Tudo isso levou a se querer buscar entender esse tipo de aplicação que tem se tornado cada vez mais presente nas ferramentas que utilizamos.
 		
-		As aplicações de tempo real são o propósito da realização deste trabalho. Primeiramente, buscamos no mercado algumas referências de aplicações para embasar o desenvolvimento de uma aplicação de \textit{chat} por localização geográfica. Nas referências, encontram-se diversos aspectos que foram considerados para a escolha de como e quais tecnologias usar para construir as funcionalidades.
+		Criar uma aplicação \textit{web} de tempo-real é o propósito da realização deste trabalho, pois a presença desse tipo de característica nos sistemas atuais fomenta a busca para entender o seu funcionamento. Primeiramente, se buscou no mercado algumas referências de aplicações para embasar o desenvolvimento do nosso caso de uso, que é a criação de uma aplicação de \textit{chat} por localização geográfica.
 		
-		Tendo como base todas as possibilidades para a implementação, o problema foi delimitado em construir uma ferramenta com tecnologias modernas e utilizadas no mercado por aplicação com fins semelhantes ao nosso, e que demonstrasse o funcionamento elemental da transmissão de dados em tempo real na \textit{web}.
+		Tendo como base todas as possibilidades para a implementação, o problema foi delimitado em construir uma ferramenta que utiliza algumas das tecnologias utilizadas nas aplicações de referência, como NodeJS, Redis, Nginx, entre outros. As características das tecnologias moldam a infraestrutura da aplicação para privilegiar ações de escalabilidade para muitos usuários, portanto apresentamos parte desse esquema implementado em nosso sistema, e uma outra parte complementar de forma teórica. 
 		
-		Sendo assim, subdividimos o desenvolvimento em duas partes principais, que são a aplicação servidor e cliente. 
-		
-		\begin{itemize}
-			\item A aplicação servidor desempenhará o papel de receber as informações da aplicação cliente, processá-las, e distribuí-las para os outros clientes através de uma conexão bidirecional, que nos permite implementar uma comunicação de tempo real entre os diversos usuários da aplicação.
-		\end{itemize}
-		
-		\begin{itemize}
-			\item  A aplicação cliente, resumidamente pode ser considerada a interface com a qual os usuários interagem com a aplicação. Através dela, o usuário poderá encontrar, por um mapa terrestre, um outro que esteja utilizando a aplicação no mesmo momento, que será identificado como um ponto marcado no local em que os dados de geolocalização coletados pelo servidor informam. Após a localização do usuário, este poderá ser contactado através de uma janela de comunicação por texto.
-		\end{itemize}
-		
-		A arquitetura utilizada foi inspirada em alguns padrões que moldam a infraestrutura da aplicação para privilegiar ações de escalabilidade, portanto apresentamos parte desse esquema implementado em nosso sistema, e uma outra parte complementar de forma teórica.
+		A aplicação desenvolvida visou demonstrar o funcionamento elemental da transmissão de dados em tempo real na \textit{web}, explorando como caso de uso uma aplicação de \textit{chat}, onde buscou-se demonstrar ao leitor deste trabalho todo o estudo para o desenvolvimento de uma ideia, desde o que significa esse tipo de aplicação, a importância dela nas aplicações já existentes, os impactos dela na vida das pessoas, e finalmente como implementá-la utilizando um conjunto de tecnologias.
 		
 		\begin{description}
-			\item[Palavras-chave] Aplicação de tempo real. Chat por localização. Escalabilidade. NodeJS. SocketIO. Redis. MongoDB. AngularJS. Google Maps.
+			\item[Palavras-chave] Aplicação de tempo real. Chat. WebSockets. NodeJS. 
 		\end{description}
 		
 	\end{resumo}
 	
 	% Abstract
 	\begin{abstract}
-		The evolution of technology has brought to our lives several innovations that are changing the way to deal with many situations. We reached new heights in how we treat business, personal relationships, the search for new knowledge, among other things. All this led us to seek to understand a type of application that has become increasingly present in the tools we use.
+		The evolution of technology has brought several innovations that are changing the way of dealing with numerous situations. New levels were reached in how we deal with business, personal relationships, the search for new knowledge, among other things. All this has led us to try to understand this type of application that has become increasingly present in the tools we use.
 		
-		The real-time applications are the subject of this work. First of all, we seek some applications's references to support us with the development of a geographic location based chat. We found in our references several aspects that were considered for the choice of how and which technologies to use to build the functionalities.
+		Creating a real-time web application is the purpose of this work, since the presence of this type of characteristic in current systems encourages the search to understand its operation. Firstly, we looked at the market some application references to support the development of our use case, which is the creation of a chat application by geographic location.
 		
-		Based on all the possibilities that we had to implement, we delimited the problem of building a tool with modern technology and used in the market for application purposes similar to ours, and to demonstrate the elemental operation of real-time data transmission in the web.
+		Based on all the possibilities for implementation, the problem was delineated in constructing a tool that uses some of the technologies used in reference applications such as NodeJS, Redis, Nginx, among others. The characteristics of the technologies shape the application infrastructure to privilege scalability actions for many users, so we present part of this scheme implemented in our system, and a complementary part in a theoretical way.
 		
-		Thus, the development was subdivided into two main parts, which are the application server and client.
-		
-		\begin {itemize}
-		\item The application server will play the role of receiving the client application information, process them, and distribute them to other clients through a bidirectional connection that allows us to implement a real-time communication between the application's users.
-		\end {itemize}
-		
-		\begin {itemize}
-		\item The client application can be briefly considered the interface which users interact with the application. Through it, you can find, by a terrestrial map, another user who is using the application at the same time, it will be identified as a marked point where the geolocation data collected by the server report. After found the user location, it can be contacted by a text communication window.
-		\end {itemize}
-		
-		The architecture used was inspired by some standards that shape the application infrastructure to favor scalability actions, therefore we present part of this scheme implemented in our system, and another complementary part theoretically.
+		The application developed was aimed at demonstrating the elementary operation of real-time data transmission in web, exploring as a use case a chat application, where it was tried to demonstrate to the reader of this work the whole study for the development of an idea, from what this type of application means, its importance in existing applications, its impacts on people's lives, and finally how to implement it using a set of technologies.
 		
 		\begin{description}
-			\item[Keywords] Real-time Application. Chat by location. Scalability. NodeJS. SocketIO. Redis. MongoDB. AngularJS. Google Maps.
+			\item[Keywords] Real-time Application. Chat. WebSockets. NodeJS.
 		\end{description}
 		
 	\end{abstract}
@@ -314,14 +294,16 @@
 		\bibitem{happn}Happn. Disponível em: \url{https://www.happn.com/}.
 		Acesso em: 21 Out. 2016.
 		
-		\bibitem{internet-traffic-stats1}How Much Web Traffic Is On Mobile Devices (Really)? Disponível em: \url{https://keriganmarketing.com/freelunch/view/how-much-web-traffic-is-on-mobile-devices/}.
-		Acesso em: 22 Out. 2016.
+		\bibitem{long-polling}SOUDERS, Steve. Even Faster Web Sites: Performance Best Practices for Web Developers. EUA: O'Reilly Media,
+		2009. cap.8,p.111.
 		
-		\bibitem{internet-traffic-stats2}Internet stats and facts for 2016. Disponível em: \url{https://hostingfacts.com/internet-facts-stats-2016/}.
-		Acesso em: 22 Out. 2016.
+		\bibitem{non-blocking-io}MAY, John M. Parallel I/O for High Performance Computing. 6. San Diego: Academic Press,
+		2001. cap.3,p.66.
 		
-		\bibitem{internet-traffic-stats3}Mobile Marketing Statistics compilation. Disponível em: \url{http://www.smartinsights.com/mobile-marketing/mobile-marketing-analytics/mobile-marketing-statistics/}.
-		Acesso em: 22 Out. 2016.
+		\bibitem{asynchronism}TOU, Julius T. Advances in Information Systems Science. 6. New York: Springer,
+		1976. cap.1,p.2.
+		
+		\bibitem{nosql-advantages}SULLIVAN, Dan. NoSQL for Mere Mortals. Hoboken: Addison-Wesley Professional, 2015. cap.1,p.47.
 		
 		\bibitem{notebook-info}Notebook HP 1000-1460BR. Disponível em: \url{http://support.hp.com/br-pt/document/c03788977}.
 		Acesso em: 24 Out. 2016.
@@ -386,6 +368,18 @@
 		\bibitem{angular-material}Angular Material. Disponível em: \url{https://material.angularjs.org/}.
 		Acesso em: 25 Out. 2016.
 		
+		\bibitem{seo}LEDFORD, Jerri L. Search Engine Optimization Bible, 2. ed. EUA: Wiley,
+		2016. cap.3,p.34.
+		
+		\bibitem{internet-traffic-stats1}How Much Web Traffic Is On Mobile Devices (Really)? Disponível em: \url{https://keriganmarketing.com/freelunch/view/how-much-web-traffic-is-on-mobile-devices/}.
+		Acesso em: 22 Out. 2016.
+		
+		\bibitem{internet-traffic-stats2}Internet stats and facts for 2016. Disponível em: \url{https://hostingfacts.com/internet-facts-stats-2016/}.
+		Acesso em: 22 Out. 2016.
+		
+		\bibitem{internet-traffic-stats3}Mobile Marketing Statistics compilation. Disponível em: \url{http://www.smartinsights.com/mobile-marketing/mobile-marketing-analytics/mobile-marketing-statistics/}.
+		Acesso em: 22 Out. 2016.
+		
 		\bibitem{gulp}Gulp. Disponível em: \url{http://gulpjs.com/}.
 		Acesso em: 25 Out. 2016.
 		
@@ -412,6 +406,9 @@
 		
 		\bibitem{orb}Orb. Disponível em: \url{https://github.com/joaopsh/orb}.
 		Acesso em: 26 Out. 2016.
+		
+		\bibitem{mvc-mvw}JOSHI, Bipin. Beginning SOLID Principles and Design Patterns for ASP.NET Developers. EUA: Apress,
+		2016. cap.11,p.386.
 		
 		\bibitem{mit}MIT License. Disponível em: \url{https://opensource.org/licenses/MIT}.
 		Acesso em: 26 Out. 2016.
